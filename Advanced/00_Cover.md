@@ -15,36 +15,58 @@ An **Open Source** holistic documentation project made of:
 This module is dedicated to who is an experienced Puppet user and looks for advanced topics.
 
 
-###### TODO - Define contents
 ###### TODO - Adapt and extend existing material
+###### TODO - Add missing contents
 ###### TODO - Completion percentage: 10%
 
 
 
-# Beginner slides deck sections
+# Advanced slides deck sections
 
 This slides deck is composed by the following sections:
 
-##### Introduction to Puppet
+##### Orchestrating Puppet
 
-- What is Puppet?
-- Configuration management
-- References and links
-- Puppet ecosystem
-- Essential Puppet concepts
+- Mcollective installation
+- Mcollective usage
+- Mcollective plugins
+- Application orchestration
 
-##### Language Basics
+##### Testing Puppet
 
-- Nodes classification
-- The Catalog
-- Variables and parameters
-- Resource types
-- Classes and defines
-- Modules
+- Puppet testing principles
+- Puppet lint
+- Rpsec-puppet
+- Beaker
+- Vagrant and Docker Integrations
 
-##### Using Puppet
+##### Deploying Puppet
 
-- Puppet installation
-- Puppet commands
-- Files and paths
-- Puppet versions
+- Git workflows
+- r10k
+- GitLab
+- Continuous Integrations
+- Deployment and migration patterns
+
+##### Scaling Puppet
+
+- Scaling scenarios
+- CA manamgement
+- Load Balancing
+- Performance optimisation
+
+##### Extending Puppet
+
+- Custom and external facts
+- Custom functions
+- Custom types and providers
+- Custom report handlers
+- Custom faces
+
+##### Exploring Puppet
+
+- Deeper Anatomy of a Puppet Run
+- Puppet Profiling
+- Puppet subsystems
+- Puppet Server troubleshooting
+- Puppet DB troubleshooting

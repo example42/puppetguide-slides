@@ -31,6 +31,8 @@ This slides deck is composed by the following sections:
 - References and links
 - Puppet ecosystem
 - Essential Puppet concepts
+- Puppet and DevOps
+- Quick start resources
 
 ##### Language Basics
 
@@ -46,7 +48,6 @@ This slides deck is composed by the following sections:
 - Puppet installation
 - Using puppet apply
 - Puppet Master setup
-- Puppet commands
-- Files and paths
+- Configurations and paths
 - Anatomy of a Puppet run
 - Puppet versions

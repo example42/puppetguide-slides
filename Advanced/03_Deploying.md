@@ -1,4 +1,4 @@
-# Code workflow management
+# Code workflow basics
 
   Puppet code should stay under a SCM (Git, Subversion, Mercurial... whatever )
 
@@ -12,6 +12,12 @@
 
   Recommended: Couple Puppet environments with code branches [More info](http://puppetlabs.com/blog/git-workflow-and-puppet-environments/)
 
-
+# Git workflows
 
 # r10k
+
+# GitLab
+
+# Continuous Integrations
+
+# Deployment and migration patterns

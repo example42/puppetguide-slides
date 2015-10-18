@@ -12,6 +12,12 @@
   "issues": "https://github.com/example42/puppetguide-slides/issues",
   "highlight": "atelier-cave.light",
   "sections": [
-    "00_Cover.md"
+    "00_Cover.md",
+    "01_Orchestrating.md",
+    "02_Testing.md",
+    "03_Deploying.md",
+    "04_Scaling.md",
+    "05_Extending.md",
+    "06_Exploring.md"
   ]
 }

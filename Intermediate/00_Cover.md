@@ -14,36 +14,56 @@ An **Open Source** holistic documentation project made of:
 
 This module is for who already knows and uses Puppet at a basic level and wants to make the next step.
 
-###### TODO - Define contents
 ###### TODO - Adapt and extend existing material
-###### TODO - Completion percentage: 40%
+###### TODO - Add missing contents
+###### TODO - Completion percentage: 30%
 
 
 
-# Beginner slides deck sections
+# Intermediate slides deck sections
 
 This slides deck is composed by the following sections:
 
-##### Introduction to Puppet
+##### Puppet Language
 
-- What is Puppet?
-- Configuration management
-- References and links
-- Puppet ecosystem
-- Essential Puppet concepts
+- Language essentials
+- Resources: declaration, defaults, references
+- Variables
+- Meta parameters
+- Ordering
+- Conditionals
+- Comparison
+- Iterations
+- Heredoc
+- Structured facts
 
-##### Language Basics
+##### Puppet modules
 
-- Nodes classification
-- The Catalog
-- Variables and parameters
-- Resource types
-- Classes and defines
-- Modules
+- Structure
+- Erb and Epp templates
+- Containment
+- Modules types
+- Best practices
+- Useful public modules
 
-##### Using Puppet
+##### Hiera
 
-- Puppet installation
-- Puppet commands
-- Files and paths
-- Puppet versions
+- Installation and Configuration
+- Lookup types
+- Data binding
+- Command line
+
+##### PuppetDB
+
+- Installation and Configuration
+- Dashboards
+- PuppetDB API
+- puppetdbquery module
+- Exported Resources
+
+##### Puppet architectures
+
+- Environments
+- Component of an architecture
+- Sample architectures
+- Roles and profiles

@@ -34,7 +34,30 @@ Puppet version 4 can be installed using [Puppet Labs Software Collections](https
 # Using the Puppet command
 
 
-#
+
+# Masterless - puppet apply
+
+Our Puppet code (written in manifests) is applied directly on the target system.
+
+No need of a complete client-server infrastructure.
+
+Have to distribute manifests and modules to the managed nodes.
+
+Command used: ```puppet apply``` (generally as **root**)
+
+# Master / Client - puppet agent
+
+We have clients, our managed nodes, where Puppet agent is installed.
+
+And we have one or more Masters where Puppet server runs as a service
+
+Client/Server communication is via https (**port 8140**)
+
+Clients certificates have to be accepted (**signed**) on the Master
+
+Command used on the client: ```puppet agent```  (generally as **root**)
+
+Command used on the server: ```puppet master```  (generally as **puppet**)
 
 # Puppet Versions
 
@@ -74,30 +97,3 @@ Some useful links about Puppet 4:
 - Online reference for [agent](https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html) upgrade
 - Online reference for [server](https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html) upgrade
 - Article on how to [prepare our code](http://www.camptocamp.com/en/actualite/getting-code-ready-puppet-4/) for Puppet 4.
-
-
-# Operational modes
-
-## Masterless - puppet apply
-
-Our Puppet code (written in manifests) is applied directly on the target system.
-
-No need of a complete client-server infrastructure.
-
-Have to distribute manifests and modules to the managed nodes.
-
-Command used: ```puppet apply``` (generally as root)
-
-## Master / Client - puppet agent
-
-We have clients, our managed nodes, where Puppet client is installed.
-
-And we have one or more Masters where Puppet server runs as a service
-
-Client/Server communication is via https (**port 8140**)
-
-Clients certificates have to be accepted (**signed**) on the Master
-
-Command used on the client: ```puppet agent```  (generally as **root**)
-
-Command used on the server: ```puppet master```  (generally as **puppet**)
