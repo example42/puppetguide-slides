@@ -1,0 +1,20 @@
+{
+  "name": "The [DevOps] Puppet Guide - Alien Slides",
+  "description": "The [DevOps] Guide to Puppet, Universe, and Everything",
+  "protected": [
+    "presenter"
+  ],
+  "user": "puppet",
+  "password": "guide",
+  "version": "0.0.1",
+  "feedback": true,
+  "edit": "https://github.com/example42/puppetguide-slides/",
+  "issues": "https://github.com/example42/puppetguide-slides/issues",
+  "highlight": "atelier-cave.light",
+  "sections": [
+    "00_Cover.md",
+    "01_Windows.md",
+    "02_Devices.md",
+    "03_Cloud.md"
+  ]
+}
