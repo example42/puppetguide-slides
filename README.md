@@ -12,7 +12,7 @@ It consists on:
 
 - The [Puppet Universal Reference](https://github.com/example42/puppetguide-reference)
 
-To support this project check our [IndieGogo campaign](https://www.indiegogo.com/campaigns/the-devops-guide-to-puppet-universe-and)
+To support this project check our [IndieGogo campaign](https://www.indiegogo.com/projects/the-devops-guide-to-puppet-universe-and/x/12116665#/)
 
 ## Slides
 
