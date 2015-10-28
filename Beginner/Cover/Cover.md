@@ -1,6 +1,6 @@
-# Puppet beginner
+# Puppet Beginner
 
-A slides deck for presentation to audience with limited, fragmentary or no experience with Puppet.
+A slides deck for audience with limited, fragmentary or no experience with Puppet.
 
 It's about:
 
@@ -25,4 +25,4 @@ An **Open Source** holistic documentation project composed of:
 
 #### Started by [example42](http://www.example42.com)
 
-###### NOTE: All these contents are and will always be WIPI, Work In Progress and Improving. Hopefully.
+###### NOTE: All these contents are and will always be WIPAI (Work In Progress, Always Improving).

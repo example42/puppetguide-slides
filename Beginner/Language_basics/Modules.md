@@ -32,11 +32,11 @@
 
     mysql/            # Main module directory
 
-    mysql/manifests/  # Manifests directory. Puppet code here. Required.
-    mysql/lib/        # Plugins directory. Ruby code here
-    mysql/templates/  # ERB Templates directory
+    mysql/manifests/  # Manifests directory. Puppet code here.
+    mysql/lib/        # Plugins directory. Ruby code that extends Puppet here.
+    mysql/templates/  # ERB and EPP Templates directory
     mysql/files/      # Static files directory
-    mysql/spec/       # Puppet-rspec test directory
+    mysql/spec/       # Puppet-rspec directory
     mysql/tests/      # Tests / Usage examples directory
 
     mysql/Modulefile  # Module's metadata descriptor
@@ -69,3 +69,31 @@
 
     source => 'puppet:///modules/mysql/my.cnf'
     # File is in: $modulepath/mysql/files/my.cnf
+
+
+# ERB templates
+
+Files with .erb extension used typicall by in ```file``` resources.
+
+Inside these files ruby code can be interpolated inside the  ```<%``` and ```%>``` tags.
+
+Example of an erb template:
+
+    # Show facts values
+    hostname = <%= @::fqdn %>
+
+    # Show values of variables outside local scope, two methods:
+    ntp_server = <%= scope.lookupvar('::ntp::server') %>
+    ntp_server = <%= scope['::ntp::server'] %>
+
+    # Iteration over an array
+    <% @::dns_servers.each do |ns| %>
+    nameserver <%= ns %>
+    <% end %>
+
+    # Conditional blocks of texts
+    <% if scope.lookupvar('puppet::db') == "puppetdb" -%>
+    storeconfigs_backend = puppetdb
+    <% end -%>
+
+Note the ending ```-%>```: when dash is present, no new line is introduced on the generated file.

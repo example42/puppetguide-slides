@@ -1,8 +1,10 @@
-# Overview
+# Puppet Beginner
+
+## Sections
 
 ### Introduction to Puppet
 
-An presentation of Configuration Management tools,  their principles and role in a DevOps tool chain.
+An introduction to Configuration Management tools, their principles and role in a [DevOps] tool chain.
 
 An overview of Puppet and its ecosystem, composed of different tools and endless integrations.
 
@@ -11,7 +13,9 @@ A guided reference of Puppet learning resources, online references and core conc
 
 ### Language Basics
 
-General overview of Puppet DSL and the importance of modules to extend integration with third party tools and services.
+General overview of Puppet DSL with examples of common resources.
+
+Modules principles and usage patterns.
 
 
 ### Using Puppet

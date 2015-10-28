@@ -9,11 +9,15 @@ With Puppet 4 many things have changed:
 
 Migration from previous versions to Puppet 4 probably need some code refactoring.
 
-Most of current modules are Puppet 4 ready but don't fully use its power (they keep 3.x compatibility).
+Good online resources to prepare the migration to Puppet 4 are:
 
-Some useful links about Puppet 4:
+- Online reference for [upgrading manifests](https://docs.puppetlabs.com/puppet/latest/reference/experiments_future.html) from 3.x to 4.x
+- Article on how to [prepare our code](http://www.camptocamp.com/en/actualite/getting-code-ready-puppet-4/) for Puppet 4.
+
+Use the [Puppet Forge search](https://forge.puppetlabs.com/modules?) page to look for Puppet 4 compatible modules (note that most of them may not exploit fullt Puppet 4 power due to backwards 3.x compatibility).
+
+Some other useful links about Puppet 4:
 
 - Puppet 4 [release notes](https://docs.puppetlabs.com/puppet/4.0/reference/release_notes.html)
 - Online reference for [agent](https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html) upgrade
 - Online reference for [server](https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html) upgrade
-- Article on how to [prepare our code](http://www.camptocamp.com/en/actualite/getting-code-ready-puppet-4/) for Puppet 4.

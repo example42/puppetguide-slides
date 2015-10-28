@@ -10,7 +10,7 @@ The Puppet Master has to *classify* nodes and define for each of them:
 
 Nodes classification can be done in different ways (more details will follow):
 
-- Using the ```node``` statement in Puppet
+- Using the ```node``` definition in Puppet code
 - Using and **External Node Classifier** (ENC): a separated tool that provides classification info
 - Using the ```hiera_include``` function
 - Using a nodeless setup: the classes to include are defined according to variables and facts.

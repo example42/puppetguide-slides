@@ -1,20 +1,49 @@
 
-# Puppet 3 paths
+# Puppet paths
 
-**/var/log/puppet** contains logs (but also on normal syslog files, with facility daemon), both for agents and master
+The paths of the most important locations are different on Puppet versions on Linux systems. Check the [Official specification](https://github.com/puppetlabs/puppet-specifications/blob/master/file_paths.md) for all the details.
 
-**/var/lib/puppet** contains Puppet operational data (catalog, certs, backup of files...)
+Configuration directory (```$confdir```):
 
-**/var/lib/puppet/ssl** contains SSL certificate
+    /etc/puppet/            # Puppet 3 or earlier
+    /etc/puppetlabs/puppet/ # Puppet 4 and PE
 
-**/var/lib/puppet/clientbucket** contains backup copies of the files changed by Puppet
+Log directory (```$logdir```):
 
-**/etc/puppet/manifests/site.pp** (On Master) The first manifest that the master parses when a client connects in order to produce the configuration to apply to it (Default on Puppet < 3.6 where are used **config-file environments**)
+    /var/log/puppet # Puppet 3 or earlier
+    /var/log/puppetlabs/puppet # Puppet 4
 
-**/etc/puppet/environments/production/manifests/site.pp** (On Master) The first manifest that the master parses when using **directory environments** (recommended from Puppet 3.6 and default on Puppt >= 4)
 
-**/etc/puppet/modules** and **/usr/share/puppet/modules** (On Master) The default directories where modules are searched
+Lib directory (```$libdir```) (contains Puppet operational data such as catalog, backup of files...):
 
-**/etc/puppet/environments/production/modules** (On Master) An extra place where modules are looked for when using **directory environments**
+    /var/lib/puppet # Puppet 3 or earlier
+    /opt/puppetlabs/puppet/lib # Puppet 4
 
-# Puppet 4 paths
+SSL directory (```$libdir```) (contains all the SSL certificates)
+
+    $logdir/ssl  # Puppet 3 or earlier
+    $confdir/ssl # Puppet 4
+
+Manifest file (the first manifest parsed by the Master when compiling the catalog
+
+    /etc/puppet/manifests/site.pp # Puppet 3 with config-file environments
+    /etc/puppet/environments/$environment/manifests/site.pp # Puppet 3 with directory environments
+    /etc/puppetlabs/code/environments/$environment/manifests/site.pp # Puppet 4
+
+Modulepath (comma separated directories where modules are stored):
+
+    /etc/puppet/modules:/usr/share/puppet/modules # Puppet 3
+    /etc/puppet/environments/$environment/modules # Added modules dir in Puppet 3 when using **directory environments**
+
+Code directory in Puppet 4:
+
+    /etc/puppetlabs/code # $codedir
+    /etc/puppetlabs/code/environments/$environment # $environmentpath
+
+Inside the $environmentpath
+    hieradata/ # Hiera files dir
+    environment.conf *
+        manifests *
+        modules *
+        hiera.yaml *                      # :hiera_config
+    modules *                         # user modulepath    

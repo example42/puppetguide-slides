@@ -1,34 +1,56 @@
 # Using the Puppet command
 
-# Main configuration options
+Puppet has different subcommands for different purproses. It's possible to add seamlessly new commands using the **face** interface.
 
-To view all or a specific configuration setting:
+    puppet help
 
-    puppet config print all
-    puppet config print modulepath
+    Usage: puppet <subcommand> [options] <action> [options]
+
+    Available subcommands: (here shown the most used ones)
+
+    agent             The puppet agent daemon
+    apply             Apply Puppet manifests locally
+    ca                Local Puppet Certificate Authority management.
+    cert              Manage certificates and requests
+    config            Interact with Puppet's settings.
+    describe          Display help about resource types
+    device            Manage remote network devices
+    doc               Generate Puppet references
+    facts             Retrieve and store facts.
+    master            The puppet master daemon
+    module            Creates, installs and searches for modules on the Puppet Forge.
+    node              View and manage node definitions.
+    parser            Interact directly with the parser.
+    resource          The resource abstraction layer shell
 
 
+# Puppet operational modes
 
-# Masterless - puppet apply
+## Master / Client - puppet agent
 
-Our Puppet code (written in manifests) is applied directly on the target system.
+It's the typical Puppet setup
 
-No need of a complete client-server infrastructure.
+- We have clients, our managed nodes, where Puppet agent is installed.
 
-Have to distribute manifests and modules to the managed nodes.
+- We have one or more Masters where Puppet server runs as a service
 
-Command used: ```puppet apply``` (generally as **root**)
+- Client/Server communication is via https (**port 8140**)
 
-# Master / Client - puppet agent
+- Clients certificates have to be accepted (**signed**) on the Master
 
-We have clients, our managed nodes, where Puppet agent is installed.
+- Command used on the client: ```puppet agent```  (generally as **root**)
 
-And we have one or more Masters where Puppet server runs as a service
+- Command used on the server: ```puppet master```  (generally as **puppet**)
 
-Client/Server communication is via https (**port 8140**)
 
-Clients certificates have to be accepted (**signed**) on the Master
+## Masterless - puppet apply
 
-Command used on the client: ```puppet agent```  (generally as **root**)
+Master less mode doesn't use a client-server infrastructure.
 
-Command used on the server: ```puppet master```  (generally as **puppet**)
+- Our Puppet code (written in manifests) is applied directly on the target system.
+
+- No need of a Puppet Master
+
+- We have to distribute our modules and data to the managed nodes.
+
+- Command used: ```puppet apply``` (generally as **root**)

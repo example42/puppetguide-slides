@@ -8,6 +8,12 @@ The client uses the RAL (Resource Abstraction Layer) to execute the actual syste
 
     package { 'openssh': }
 
-to their actual fulfillment on the system (```apt-get install openssh``` , ```yum install openssh``` ...).
+to their actual fulfillment on the system, such as
 
-The catalog is saved by the client in ```$libdir/client_data/catalog/$certname.json```
+    apt-get install openssh # On Debian derivatives
+    yum install openssh     # On RedHad derivatings
+
+
+The catalog is saved by the client in:
+
+    $libdir/client_data/catalog/$certname.json
