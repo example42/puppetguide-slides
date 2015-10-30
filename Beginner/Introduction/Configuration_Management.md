@@ -6,20 +6,20 @@ We won't try to give another one, but we can safely say that DevOps is (also) ab
 
 A complete [DevOps tools chain](https://xebialabs.com/the-ultimate-devops-tool-chest/) contains software of these categories:
 
-- Source Code Management
-- Repository and software Management
-- Software build
-- Configuration Management (<- Puppet is here)
-- Testing
-- Monitoring and data analysis
-- Systems and Applications Deployment (<- Puppet is somehow also here)
-- Continuous integration
-- Cloud
-- Project management and Issue tracking
-- Messaging and Collaboration
-- Containerization and Virtualization
-- Databases
-- Application servers
+- Source Code Management (<- We use them when writing Puppet code)
+- Repository and software Management  (<- Puppet can configure them)
+- Software build (<- Puppet can configure them)
+- Configuration Management (**<- Puppet is here**)
+- Testing  (<- We can test our Puppet code)
+- Monitoring and data analysis  (<- Puppet can configure them)
+- Systems and Applications Deployment (<- Puppet can be also here)
+- Continuous integration  (<- We can manage Puppet code deployments in a CI pipeline)
+- Cloud (<- Puppet code can manage cloud resources)
+- Project management and Issue tracking  (<- We can use them to manage our Puppet projects)
+- Messaging and Collaboration (<- We can use them to collaborate on Puppet works)
+- Containerization and Virtualization (<- Puppet can configure them)
+- Databases (<- Puppet can configure them)
+- Application servers (<- Puppet can configure them)
 
 
 # Configuration Management principles
@@ -41,33 +41,38 @@ Configuration management tools typically describe the systems setups via code or
 - Code has to be **deployed**
 
 
-# Configuration Management tools comparison
+# Configuration Management tools
 
 Common alternatives to Puppet:
 
-### [Chef](https://www.chef.io/)
+#### [Chef](https://www.chef.io/)
 
 - Has Chef clients that connect to Ceph server
 - Has characteristic similar to Puppet
 - Community code is shared on the [Chef Supermarket](https://galaxy.ansible.com/intro#review)
-- Developed in Ruby.
+- Chef code is Ruby with dedicated extensions
+- Software developed in Ruby.
 
-### [CFEngine](http://cfengine.com/) - Written in C. The oldest CF tool around
+#### [CFEngine](http://cfengine.com/)
 
 - The first and oldest of the bunch
-- CFEngine3 is a complete rework
-- Developed  in C by Mark Burgess.
+- CFEngine3 is a complete and modern rework
+- Different daemons for different functions in a distributed environment
+- Based on the [Promise theory](https://en.wikipedia.org/wiki/Promise_theory)
+- Cfengine code is a test based list of pro
+- Software developed in C by Prof. Mark Burgess.
 
-### [Salt](http://saltstack.com/) - Does cloud provisioning and configuration management
+#### [Salt](http://saltstack.com/)
 
-- Manages deployments on multiple clouds
-- Developed in Python
+- Manages deployments on multiple clouds in a fast way
+- Salt code is composed of states (Puppet resources) written in YAML files
+- [Formulas](https://github.com/saltstack-formulas) are equivalent to modules
+- Sotfware developed in Python
 
-###  [Ansible](http://www.ansibleworks.com/)
+####  [Ansible](http://www.ansibleworks.com/)
 
 - Quick setup, no agents, communications over SSH
-- Playbooks are Ansible manifests, with a simple YAML based
+- Ansible code is YAML based and written on playbooks
 - Roles are equivalent to modules, they are shared on the [Ansible Galaxy](https://galaxy.ansible.com/intro#review)
 - Can centralise multi node task executions, software deployments and configuration management.
-- Developed in Python
-- Bought by RedHad in October 2015
+- Software eveloped in Python. Bought by RedHad in October 2015

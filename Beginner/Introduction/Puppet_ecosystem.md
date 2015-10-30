@@ -20,13 +20,15 @@ The ones developed by PuppetLabs are:
 
 # Puppet ecosystem
 
-## Community software
+## Community resources
 
-The most common Puppet related community projects are:
+Soe of the most known Puppet related community projects are:
 
-- [Puppet DashBoard](http://docs.puppetlabs.com/dashboard/) - A Puppet *Web frontend* and External Node Classifier (ENC)
+- [Puppet Community](https://puppet.community/) - Modules and tooling for and by the Puppet Community
+- [Puppet CookBook](http://www.puppetcookbook.com/) - A collection of task oriented solutions in Puppet
+- [Puppet DashBoard](https://github.com/sodabrew/puppet-dashboard/) - A Puppet *Web frontend* and External Node Classifier (ENC)
 - [The Foreman](http://theforeman.org/) - A well-known third party provisioning tool and Puppet ENC
-- [PuppetBoard]() - A web frontend for PuppetDB
+- [PuppetBoard](https://github.com/puppet-community/puppetboard) - A web frontend for PuppetDB
 - [Puppet Lint](http://puppet-lint.com/) - A tool to check Puppet code style
 - [Rpec Puppet](http://rspec-puppet.com/) - A tool to make unit tests of Puppet code
 - [Kermit](http://www.kermit.fr/) - A web frontend for MCollective

@@ -3,6 +3,10 @@
 	src: url('_fonts/stilu/Stilu-Regular.otf');
 }
 @font-face {
+	font-family: 'Stilu-Bold';
+	src: url('_fonts/stilu/Stilu-Bold.otf');
+}
+@font-face {
 	font-family: 'SourceCodePro-Medium';
 	src: url('_fonts/source-code-pro/SourceCodePro-Medium.otf');
 }
@@ -11,31 +15,45 @@
     color: black;
     text-align: left;
     line-height: 1.2;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: normal;
     font-family: Stilu-Regular, helvetica, arial;
+    overflow: scroll;
   }
+		a {
+			 font: rgb(200, 100, 100);
+		}
+		a.hover {
+			 font: rgb(200, 100, 100);
+    background-color: rgb(234, 234, 234);
+		}
   h1 {
     color: rgb(200, 100, 100);
-    font-size: 3em;
+    font-size: 2.4em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+				font-family: 'Stilu-Bold';
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-bottom-color: rgb(200, 100, 100);
   }
   h2 {
-    color: rgb(220, 120, 120);
-    font-size: 2.5em;
+    color: rgb(140, 120, 120);
+    font-size: 1.8em;
     text-align: left;
     font-family: 'Stilu-Bold';
     margin-top: 0.5em;
+    margin-bottom: 0.2em;
     margin-left: 20px;
     margin-right: 20px;
+				border-bottom-style: inset;
+				border-bottom-width: 1px;
   }
   h3 {
     color: rgb(100, 100, 100);
-    font-size: 2em;
+    font-size: 1.8em;
     text-align: left;
     font-family: 'Stilu-Bold';
     margin-top: 0.5em;

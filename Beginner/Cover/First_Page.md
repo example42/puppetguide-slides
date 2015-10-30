@@ -23,3 +23,12 @@ Modules principles and usage patterns.
 A basic outline of Puppet installation and usage modes.
 
 A review of what happens during a Puppet run.
+
+
+### Appendix
+
+A brief history of Puppet versions.
+
+Some hints on Puppet 4 migration.
+
+An overview of Hiera

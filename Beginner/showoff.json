@@ -36,6 +36,7 @@
     "Using_Puppet/Troubleshooting.md",
     "Appendix/Overview.md",
     "Appendix/History.md",
-    "Appendix/Puppet4_migration.md"
+    "Appendix/Puppet4_migration.md",
+    "Appendix/Hiera_Introduction.md"
   ]
 }

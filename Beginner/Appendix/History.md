@@ -1,4 +1,4 @@
-# History Puppet Versions
+# History of Puppet Versions
 
 During its history Puppet has constantly improved and added features, still most of the core principles are the same and have't changed.
 
