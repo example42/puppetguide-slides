@@ -7,8 +7,8 @@
 	src: url('_fonts/stilu/Stilu-Bold.otf');
 }
 @font-face {
-	font-family: 'SourceCodePro-Medium';
-	src: url('_fonts/source-code-pro/SourceCodePro-Medium.otf');
+	font-family: 'SourceCodePro-Regular';
+	src: url('_fonts/source-code-pro/SourceCodePro-Regular.otf');
 }
 
   body {
@@ -120,7 +120,7 @@
     padding: 6px;
     font-size: 1em;
     font-weight: normal;
-    font-family: SourceCodePro-Medium, Courier;
+    font-family: SourceCodePro-Regular, Courier;
     overflow: scroll;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
