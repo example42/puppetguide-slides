@@ -6,7 +6,7 @@ The paths of the most important locations are different on Puppet versions on Li
 Configuration directory (```$confdir```):
 
     /etc/puppet/            # Puppet 3 or earlier
-    /etc/puppetlabs/puppet/ # Puppet 4 and PE
+    /etc/puppetlabs/puppet/ # Puppet 4 and PE
 
 Log directory (```$logdir```):
 
@@ -17,7 +17,7 @@ Log directory (```$logdir```):
 Lib directory (```$libdir```) (contains Puppet operational data such as catalog, backup of files...):
 
     /var/lib/puppet # Puppet 3 or earlier
-    /opt/puppetlabs/puppet/lib # Puppet 4
+    /opt/puppetlabs/puppet/lib # Puppet 4
 
 SSL directory (```$libdir```) (contains all the SSL certificates)
 
@@ -28,7 +28,7 @@ Manifest file (the first manifest parsed by the Master when compiling the catalo
 
     /etc/puppet/manifests/site.pp # Puppet 3 with config-file environments
     /etc/puppet/environments/$environment/manifests/site.pp # Puppet 3 with directory environments
-    /etc/puppetlabs/code/environments/$environment/manifests/site.pp # Puppet 4
+    /etc/puppetlabs/code/environments/$environment/manifests/site.pp # Puppet 4
 
 Modulepath (comma separated directories where modules are stored):
 

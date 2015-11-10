@@ -7,7 +7,7 @@ We can set variables in our Puppet code with this syntax:
     # Normal variable assignment
     $role = 'mail'
 
-    # The value of a variable is based on another variable (here used the **selector** costruct)
+    # The value of a variable is based on another variable (here used the **selector** costruct)
     $package = $::operatingsystem ? {
       /(?i:Ubuntu|Debian|Mint)/ => 'apache2',
       default                   => 'httpd',
@@ -19,12 +19,12 @@ Puppet automatically provides also some **internal** variables, the most common 
     $clientcert # Default is the client's Fully Qualified Domain Name)
 
     # The Puppet's environment where the Master looks for the code to compile
-    $environment # Default is "production"
+    $environment # Default is "production"
 
     # The Master's FQDN and IP address
     $servername $serverip
 
-    # Any configuration setting of the Puppet Master's puppet.conf
+    # Any configuration setting of the Puppet Master's puppet.conf
     $settings::<setting_name>:
 
     # The name of the module that contains the current resource's definition

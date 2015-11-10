@@ -30,16 +30,17 @@
 
   Modules have a standard structure:
 
-    mysql/            # Main module directory
+    mysql/              # Main module directory
 
-    mysql/manifests/  # Manifests directory. Puppet code here.
-    mysql/lib/        # Plugins directory. Ruby code that extends Puppet here.
-    mysql/templates/  # ERB and EPP Templates directory
-    mysql/files/      # Static files directory
-    mysql/spec/       # Puppet-rspec directory
-    mysql/tests/      # Tests / Usage examples directory
+    mysql/manifests/    # Manifests directory. Puppet code here.
+    mysql/lib/          # Plugins directory. Ruby code that extends Puppet here.
+    mysql/templates/    # ERB and EPP Templates directory
+    mysql/files/        # Static files directory
+    mysql/spec/         # Puppet-rspec directory
+    mysql/tests/        # Tests / Usage examples directory
 
-    mysql/Modulefile  # Module's metadata descriptor
+    mysql/Modulefile    # Module's metadata descriptor (old, deprecated)
+    mysql/metadata.json # Module's metadata descriptor
 
   This layout enables useful conventions
 

@@ -41,7 +41,7 @@ To view all or a specific configuration setting:
 
 Important options under **[main]** section:
 
-    vardir = /var/lib/puppet # Path where Puppet stores dynamic data.
+    vardir = /var/lib/puppet # Path where Puppet stores dynamic data.
     ssldir = $vardir/ssl # Path where SSL certifications are stored.
 
 Important options Under **[agent]** section:

@@ -28,6 +28,7 @@ Configuration management tools allow to programmatically define how servers have
 
 - **Automation**: No need to manually configure systems
 - **Reproducibility**: Setup once, repeat forever
+- **Recoverability**: Setup again in case of outage
 - **Scale**: Done for one, use on many
 - **Coherent** and consistent server setups
 - **Aligned Environments** for devel, test, qa, prod nodes

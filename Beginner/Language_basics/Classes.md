@@ -31,7 +31,8 @@ When we have to use a class previously defined, we **declare** it. Class declara
 
 Also called: **Defined resource types** or **defined types**
 
-Similar to parametrized classes but can be used multiple times (with different titles).
+Defined resource types are written in Puppet DSL and can make use of existing resource types or of other defined resource types.
+They are similar to parametrized classes but can be used multiple times (with different titles).
 
 **Definition** of a define:
 

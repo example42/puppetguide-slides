@@ -16,6 +16,7 @@ The syntax is as follows:
 Example for a **file** resource type:
 
     file { 'motd':
+      ensure  => file,
       path    => '/etc/motd',
       content => 'Tomorrow is another day',
     }
@@ -28,6 +29,10 @@ Find online the complete [Type Reference](http://docs.puppetlabs.com/references/
 From the shell the command line interface:
 
     puppet describe file
+
+It is also possible to get a summary of the description:
+
+    puppet describe file -s
 
 For the full list of available descriptions try:
 
@@ -50,7 +55,8 @@ Installation of OpenSSH package:
 Creation of /etc/motd file:
 
     file { 'motd':
-      path => '/etc/motd',
+      ensure => file,
+      path   => '/etc/motd',
     }
 
 Start of httpd service:
@@ -85,7 +91,7 @@ Management of nginx service with parameters defined in module's variables
 Creation of nginx.conf with content retrieved from different sources (first found is served)
 
     file { 'nginx.conf':
-      ensure  => present,
+      ensure  => file,
       path    => '/etc/nginx/nginx.conf',
       source  => [
           "puppet:///modules/site/nginx.conf--${::fqdn}",
