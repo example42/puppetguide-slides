@@ -1,1 +1,136 @@
-../style.css
+@font-face {
+	font-family: 'Stilu-Regular';
+	src: url('_fonts/stilu/Stilu-Regular.otf');
+}
+@font-face {
+	font-family: 'Stilu-Bold';
+	src: url('_fonts/stilu/Stilu-Bold.otf');
+}
+@font-face {
+	font-family: 'SourceCodePro-Regular';
+	src: url('_fonts/source-code-pro/SourceCodePro-Regular.otf');
+}
+
+  body {
+    color: black;
+    text-align: left;
+    line-height: 1.2;
+    font-size: 1.2em;
+    font-weight: normal;
+    font-family: Stilu-Regular, helvetica, arial;
+    overflow: scroll;
+  }
+		a {
+			 font: rgb(200, 100, 100);
+		}
+		a.hover {
+			 font: rgb(200, 100, 100);
+    background-color: rgb(234, 234, 234);
+		}
+  h1 {
+    color: rgb(200, 100, 100);
+    font-size: 2.4em;
+    text-align: left;
+				font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-bottom-color: rgb(200, 100, 100);
+  }
+  h2 {
+    color: rgb(140, 120, 120);
+    font-size: 1.8em;
+    text-align: left;
+    font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    margin-left: 20px;
+    margin-right: 20px;
+				border-bottom-style: inset;
+				border-bottom-width: 1px;
+  }
+  h3 {
+    color: rgb(100, 100, 100);
+    font-size: 1.8em;
+    text-align: left;
+    font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h4 {
+    color: rgb(100, 100, 100);
+    font-size: 1.5em;
+    text-align: left;
+    font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h5 {
+    color: rgb(100, 100, 100);
+    font-size: 1.2em;
+    text-align: left;
+    font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h6 {
+    color: rgb(100, 100, 100);
+    font-size: 1.0em;
+    text-align: left;
+    font-family: 'Stilu-Bold';
+    margin-top: 0.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .content li, .content ul , .content > ul > li {
+    text-align: left;
+    font-size: 1.0em;
+    padding: 0.1em;
+    margin-left: 1.2em;
+  }
+  .content > p {
+    text-align: left;
+    font-size: 1.0em;
+    margin-left: 20px;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+  }
+  #preso, .slide {
+    width: 1024px !important;
+    height: 768px !important;
+    overflow: scroll;
+    vertical-align: text-top;
+    background-image: url('_images/logoguide.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  div.content {
+    height: 90%;
+  }
+  pre, .content > pre {
+    border: 1px solid #abc;
+    margin: 1px, 1px, 1px, 1px;
+    background-color: rgb(240,240,240);
+    padding: 6px;
+    font-size: 1em;
+    font-weight: normal;
+    font-family: SourceCodePro-Regular, Courier;
+    overflow: scroll;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    display: block;
+  }
+
+  code {
+    font-size: 100%;
+    font-family: SourceCodePro-Medium, Courier;
+    display: inline;
+  }

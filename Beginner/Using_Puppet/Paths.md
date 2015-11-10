@@ -21,7 +21,7 @@ Lib directory (```$libdir```) (contains Puppet operational data such as catalog,
 
 SSL directory (```$libdir```) (contains all the SSL certificates)
 
-    $logdir/ssl  # Puppet 3 or earlier
+    $libdir/ssl  # Puppet 3 or earlier
     $confdir/ssl # Puppet 4
 
 Manifest file (the first manifest parsed by the Master when compiling the catalog
@@ -34,6 +34,8 @@ Modulepath (comma separated directories where modules are stored):
 
     /etc/puppet/modules:/usr/share/puppet/modules # Puppet 3
     /etc/puppet/environments/$environment/modules # Added modules dir in Puppet 3 when using **directory environments**
+    /etc/puppetlabs/code/environments/$environment/modules # Puppet 4
+
 
 Code directory in Puppet 4:
 
@@ -41,9 +43,8 @@ Code directory in Puppet 4:
     /etc/puppetlabs/code/environments/$environment # $environmentpath
 
 Inside the $environmentpath
+
     hieradata/ # Hiera files dir
-    environment.conf *
-        manifests *
-        modules *
-        hiera.yaml *                      # :hiera_config
-    modules *                         # user modulepath    
+    modules/   # User modulepath    
+    manifests/ # Manifests dirs
+    environment.conf

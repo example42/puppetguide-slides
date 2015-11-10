@@ -15,7 +15,7 @@ The ones developed by PuppetLabs are:
 - [MCollective](http://docs.puppetlabs.com/mcollective/) - Infrastructure Orchestration framework
 - [Razor](http://docs.puppetlabs.com/pe/latest/razor_intro.html/) - A provisioning system
 - [Geppetto](http://puppetlabs.github.io/geppetto/) - A Puppet IDE based on Eclipse
-- [r10k](https://github.com/puppetlabs/r10k/) - A tool to manage deployments of Puppet codeker
+- [r10k](https://github.com/puppetlabs/r10k/) - A tool to manage deployments of Puppet code
 
 
 # Puppet ecosystem
@@ -30,5 +30,5 @@ Soe of the most known Puppet related community projects are:
 - [The Foreman](http://theforeman.org/) - A well-known third party provisioning tool and Puppet ENC
 - [PuppetBoard](https://github.com/puppet-community/puppetboard) - A web frontend for PuppetDB
 - [Puppet Lint](http://puppet-lint.com/) - A tool to check Puppet code style
-- [Rpec Puppet](http://rspec-puppet.com/) - A tool to make unit tests of Puppet code
+- [Rspec Puppet](http://rspec-puppet.com/) - A tool to make unit tests of Puppet code
 - [Kermit](http://www.kermit.fr/) - A web frontend for MCollective

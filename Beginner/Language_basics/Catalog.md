@@ -11,7 +11,7 @@ The client uses the RAL (Resource Abstraction Layer) to execute the actual syste
 to their actual fulfillment on the system, such as
 
     apt-get install openssh # On Debian derivatives
-    yum install openssh     # On RedHad derivatings
+    yum install openssh     # On RedHat derivatives
 
 
 The catalog is saved by the client in:

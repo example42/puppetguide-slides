@@ -52,4 +52,4 @@ Here follows a list of the most common and useful facts:
 It's easy to create custom facts. They can be of 2 types:
 
 - **Native facts** written in ruby and shipped with modules (in the ```lib/facter``` directory)
-- **External facts** can be simple ini-file like texts (with ```.txt``` extension), Yaml files or even commands in any language, which returns a fact name and its value. External faccts are located in the nodes' ```/etc/facter/facts.d``` directory and can be shipped also from modules (in the ```facts.d``` directory)
+- **External facts** can be simple ini-file like texts (with ```.txt``` extension), Yaml files or even commands in any language, which returns a fact name and its value. External facts are located in the nodes' ```/etc/facter/facts.d``` directory and can be shipped also from modules (in the ```facts.d``` directory)

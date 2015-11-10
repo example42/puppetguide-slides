@@ -60,10 +60,10 @@ Different alternatives:
 
 - Run the remote installation script:
 
-      curl -k https://<puppet_server>:8140/packages/current/install.bash | sudo bash
+        curl -k https://<puppet_server>:8140/packages/current/install.bash | sudo bash
 
 - Distribute the tarball and eventually use an answer file for unattended setup:
 
-      sudo ./puppet-enterprise-installer -a ~/pe_answers.txt
+        sudo ./puppet-enterprise-installer -a ~/pe_answers.txt
 
 - Use dedicated public modules

@@ -47,7 +47,7 @@ Common alternatives to Puppet:
 
 #### [Chef](https://www.chef.io/)
 
-- Has Chef clients that connect to Ceph server
+- Has Chef clients that connect to Chef server
 - Has characteristic similar to Puppet
 - Community code is shared on the [Chef Supermarket](https://galaxy.ansible.com/intro#review)
 - Chef code is Ruby with dedicated extensions
@@ -75,4 +75,4 @@ Common alternatives to Puppet:
 - Ansible code is YAML based and written on playbooks
 - Roles are equivalent to modules, they are shared on the [Ansible Galaxy](https://galaxy.ansible.com/intro#review)
 - Can centralise multi node task executions, software deployments and configuration management.
-- Software eveloped in Python. Bought by RedHad in October 2015
+- Software eveloped in Python. Bought by RedHat in October 2015

@@ -5,8 +5,8 @@ Classes are **containers** of different resources. Since Puppet 2.6 they can hav
 Example of a class **definition** (here we describe what the class does and what parameters it has, we don't actually add it and its resources to the catalog):
 
     class mysql (
-      root_password => 'default_value',
-      port          => '3306',
+      root_password = 'default_value',
+      port          = '3306',
     ) {
       package { 'mysql-server': ensure => present }
       service { 'mysql': ensure => running }
