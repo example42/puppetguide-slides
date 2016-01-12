@@ -12,11 +12,46 @@
   "issues": "https://github.com/example42/puppetguide-slides/issues",
   "highlight": "atelier-cave.light",
   "sections": [
-    "00_Cover.md",
-    "01_Language.md",
-    "02_Modules.md",
-    "03_Hiera.md",
-    "04_PuppetDb.md",
-    "05_Architectures.md"
+    "Cover/Cover.md",
+    "Cover/First_Page.md",
+    "Modules/Using.md",
+    "Modules/Integrating.md",
+    "Modules/Structure.md",
+    "Modules/Using.md",
+    "Language/Learning_resources.md",
+    "Language/Language essentials.md",
+    "Language/Resources.md",
+    "Language/Variables.md",
+    "Language/Meta parameters.md",
+    "Language/Ordering.md",
+    "Language/Conditionals.md",
+    "Language/Comparison.md",
+    "Language/Iterations.md",
+    "Language/Heredoc.md",
+    "Language/Structured_facts.md",
+    "Hiera/Setup.md",
+    "Hiera/Plugins.md",
+    "Hiera/Usage.md",
+    "Hiera/Data_binding.md",
+    "PuppetDB/Setup.md",
+    "PuppetDB/Dashboards.md",
+    "PuppetDB/API.md",
+    "PuppetDB/Query.md",
+    "PuppetDB/Exported_resources.md",
+    "Architectures/Environments.md",
+    "Architectures/Overlook.md",
+    "Architectures/Roles_and_profiles.md",
+    "Architectures/Data_organization.md"
   ]
 }
+
+
+
+##### Puppet modules
+
+- Structure
+- Erb and Epp templates
+- Containment
+- Modules types
+- Best practices
+- Useful public modules
