@@ -54,6 +54,8 @@
     "PuppetDB/Dashboards.md",
     "PuppetDB/API.md",
     "PuppetDB/puppetdbquery_module.md",
-    "PuppetDB/Exported_resources.md"
+    "PuppetDB/Exported_resources.md",
+    "Troubleshooting/On_agent.md",
+    "Troubleshooting/On_master.md"
   ]
 }
