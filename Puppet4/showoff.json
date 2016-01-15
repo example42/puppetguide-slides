@@ -1,5 +1,5 @@
 {
-  "name": "The [DevOps] Puppet Guide - Intermediate Slides",
+  "name": "The [DevOps] Puppet Guide - Puppet 4",
   "description": "The [DevOps] Guide to Puppet, Universe, and Everything",
   "protected": [
     "presenter"
@@ -12,11 +12,10 @@
   "issues": "https://github.com/example42/puppetguide-slides/issues",
   "highlight": "atelier-cave.light",
   "sections": [
-    "00_Cover.md",
-    "01_Language.md",
-    "02_Modules.md",
-    "03_Hiera.md",
-    "04_PuppetDb.md",
-    "05_Architectures.md"
+    "Cover/Cover.md",
+    "Cover/First_Page.md",
+    "Features/Overview.md",
+    "Migration/Overview.md",
+    "Appendix/Overview.md"
   ]
 }

@@ -1,14 +1,16 @@
 # The [DevOps] Guide to Puppet, Universe, and Everything
 
 
-An **Open Source** holistic documentation project made of:
+An **Open Source** holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.
 
-- A [book](https://github.com/example42/puppetguide-book)
-- A set of sample [code architectures](https://github.com/example42/puppetguide-architectures)
-- A [slides deck](https://github.com/example42/puppetguide-slides) (this one)
-- The [Puppet Universal Reference](https://github.com/example42/puppetguide-reference)
+ documentation project composed of:
 
-#### Developed and maintained by [Example42](http://www.example42.com)
+- A [book](https://github.com/example42/puppetguide-book) that needs sponsors
+- Sample [code architectures](https://github.com/example42/puppetguide-architectures)
+- A set of [slides](https://github.com/example42/puppetguide-slides) (you are here)
+- A set of [cheatsheets](https://github.com/example42/puppetguide-cheatsheets)
+
+#### Started by [example42](http://www.example42.com)
 
 ## Intermediate slides deck
 
