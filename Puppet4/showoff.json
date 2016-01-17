@@ -14,8 +14,27 @@
   "sections": [
     "Cover/Cover.md",
     "Cover/First_Page.md",
+    "Installation/Overview.md",
+    "Installation/Puppet-agent.md",
+    "Installation/PuppetServer.md",
     "Features/Overview.md",
+    "Features/Facter3.md",
+    "Features/Data_type.md",
+    "Features/Validation.md",
+    "Features/EPP_templates.md",
+    "Features/Heredoc.md",
+    "Features/Iterations.md",
+    "Features/Puppet_functions.md",
+    "Features/Data_In_Modules.md",
+    "Deprecations/Overview.md",
+    "Deprecations/Node_Inheritance.md",
+    "Deprecations/Variable_Naming.md",
+    "Deprecations/Empty_String_Comparison.md",
+    "Deprecations/Different_Data_Comparison.md",
+    "Deprecations/Hyphens_In_Names.md",
+    "Deprecations/References.md",
     "Migration/Overview.md",
+    "Migration/Practices.md",
     "Appendix/Overview.md"
   ]
 }
