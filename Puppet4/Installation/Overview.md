@@ -13,6 +13,7 @@ All package content will install into the following directories:
 - /etc/puppetlabs
 
 Packaging is done for a limited set of Distributions and Versions:
+
 - RHEL 5,6 and 7
 - Debian 6,7 and 8
 - Fedora 21 and 22

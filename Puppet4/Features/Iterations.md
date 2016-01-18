@@ -6,7 +6,14 @@ New functions, based on lambdas:
 
   - each, iterate over an array
 
-        each (loop over arrays and hashes) $a = [ 1,2,3] ! each($a) | $value | { notice $value } ! ! $h = { ‘1’ => [‘a’,’b’,’c’], ‘2’ => ‘foo’ } each($h) | $key, $value | { notice “$key = $value”
+        each (loop over arrays and hashes) $a = [ 1,2,3]
+        each($a) | $value | { 
+          notice $value 
+        }
+        $h = { '1' => ['a','b','c'], '2' => 'foo' }
+        each($h) | $key, $value | { 
+          notice "$key = $value"
+        }
 
   - slice
 
