@@ -1,34 +1,67 @@
-# Puppet Beginner
+# Puppet that Matters
 
 ## Sections
 
-### Introduction to Puppet
+### Puppet architecture
 
-An introduction to Configuration Management tools, their principles and role in a [DevOps] tool chain.
+An overview of the components of a Puppet architecture
 
-An overview of Puppet and its ecosystem, composed of different tools and endless integrations.
+Master and Masterless setups
 
-A guided reference of Puppet learning resources, online references and core concepts.
-
-
-### Language Basics
-
-General overview of Puppet DSL with examples of common resources.
-
-Modules principles and usage patterns.
+Certificates management
 
 
-### Using Puppet
+### Puppet Language
 
-A basic outline of Puppet installation and usage modes.
+A dive into the components of Puppet DSL.
 
-A review of what happens during a Puppet run.
+Resources: declaration, references, defaults, meta-parameters.
+
+Variables, comparisons and conditionals.
 
 
-### Appendix
+### Modules
 
-A brief history of Puppet versions.
+Modules management and layout.
 
-Some hints on Puppet 4 migration.
+Searching, using and integration public modules.
 
-An overview of Hiera
+Templates and options_hash pattern.
+
+
+### HowTo
+
+Practical use cases for common tasks
+
+Managing applications
+
+Modifying files
+
+Using the noop mode
+
+
+### Hiera
+
+Configuration and principles
+
+Backends and extensions
+
+How to organize and structure data
+
+
+### PuppetDB
+
+Installation, configuration and dashboards
+
+Querying PuppetDB API
+
+Use cases for exported resources and puppetdbquery module
+
+
+### Troubleshooting
+
+Troubleshooting Puppet on the client and the server slides
+
+Profiling performances
+
+Common errors 

@@ -4,8 +4,10 @@ A slides deck for who already has some Puppet basics and wants to get practical 
 
 It's about:
 
-- How to perform common tasks with Puppet
+- How to choose the components of a Puppet architecture
+- Understanding the Puppet DSL
 - How to choose, integrate, use and write modules
+- How to perform common tasks with Puppet
 - How to classify nodes and organize code and data
 - How to manage interdependencies across nodes
 
