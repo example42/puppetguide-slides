@@ -16,7 +16,6 @@
     "Cover/First_Page.md",
     "Architecture/Overview.md",
     "Architecture/Essential_concepts.md",
-    "Architecture/OperationalModes.md",
     "Architecture/Agent_Master.md",
     "Architecture/Masterless.md",
     "Architecture/Puppet_configuration.md",

@@ -2,9 +2,14 @@
 # Puppet configuration: puppet.conf
 
 It's Puppet main configuration file.
-On opensource Puppet is generally in:
+
+On Open Source Puppet <= 3 is generally in:
 
     /etc/puppet/puppet.conf
+
+On Puppet 4 is in:
+
+    /etc/puppet/puppetlabs/puppet.conf
 
 On Puppet Enterprise:
 
@@ -26,36 +31,24 @@ For puppet master (server): **[master]** (Was [puppetmasterd] and [puppetca])
 
 Hash sign (#) can be used for comments.
 
-
-# Main configuration options
-
 To view all or a specific configuration setting:
 
     puppet config print all
     puppet config print modulepath
 
-### Important options under **[main]** section:
 
-  **vardir**: Path where Puppet stores dynamic data.
+### Options worth attentions
 
-  **ssldir**: Path where SSL certifications are stored.
+Here are some options (and the relevant [stanza]) worth noting:
 
-### Under **[agent]** section:
+  - [main] **vardir**: Path where Puppet stores dynamic data.
+  - [main] **ssldir**: Path where SSL certifications are stored.
+  - [agent] **server**: Host name of the PuppetMaster. (Default: puppet)
+  - [agent] **certname**: Certificate name used by the client. (Default is its fqdn)
+  - [agent] **runinterval**: Number of minutes between Puppet runs, when running as service. (Default: 30)
+  - [agent] **report**: If to send Puppet runs' reports to the **report_server**. (Default: true)
+  - [master] **autosign**: If new clients certificates are automatically signed. (Default: false)
+  - [master] **reports**: How to manage clients' reports (Default: store)
+  - [master] **storeconfigs**: If to enable store configs to support exported resources. (Default: false)
 
-  **server**: Host name of the PuppetMaster. (Default: puppet)
-
-  **certname**: Certificate name used by the client. (Default is its fqdn)
-
-  **runinterval**: Number of minutes between Puppet runs, when running as service. (Default: 30)
-
-  **report**: If to send Puppet runs' reports to the **report_server. (Default: true)
-
-### Under **[master]** section:
-
-  **autosign**: If new clients certificates are automatically signed. (Default: false)
-
-  **reports**: How to manage clients' reports (Default: store)
-
-  **storeconfigs**: If to enable store configs to support exported resources. (Default: false)
-
-Full [configuration reference](http://docs.puppetlabs.com/references/latest/configuration.html)  on the official site.
+For details check the full [configuration reference](http://docs.puppetlabs.com/references/latest/configuration.html)  on the official site.

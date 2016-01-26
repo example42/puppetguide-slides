@@ -1,22 +1,22 @@
 # Masterless setup
 
-  Puppet manifests are deployed directly on nodes and applied locally:
+A masterless setup doesn't need a Puppet Master.
 
-    puppet apply --modulepath /modules/ /manifests/file.pp
+Puppet manifests are deployed directly on nodes and applied locally, we need to specify the manifest to apply, the path where to find modules and eventually the location of Hiera configuration file.
 
-  More fine grained control on what goes in production for what nodes
+    puppet apply --modulepath /puppetcode/modules/ --hiera_config /puppetcode/hiera.yaml /puppetcode/manifests/file.pp
 
-  Ability to trigger multiple truly parallel Puppet runs
+To see the default values of these configuration options type:
 
-  No single point of failure, no Master performance issues
+    puppet config print hiera_config modulepath
 
-  Need to define a fitting deployment workflow. Hints: [Rump](https://github.com/railsmachine/rump) - [supply_drop](https://github.com/pitluga/supply_drop)
+Such a setup involves pros, cons and new infrastructural challenges:
 
-  With Puppet > 2.6 we can use file sources urls like:
-
-    puppet:///modules/example42/apache/vhost.conf
-
-    # they point to
-    $modulepath/example42/apache/vhost.conf
-
-  StoreConfigs usage require access to Puppet DB from every node
+  - (+) No need of a Puppet infrastructure: just the puppet package on the node
+  - (+) There's not an external point of failure and a bottleneck on the Puppet Master (which still can scale)
+  - (+) We can trigger multiple parallel Puppet runs
+  - (+) Easier control of what version of our Puppet code is deployed and applied to each node 
+  - (-) All the nodes have to store locally the Puppet code: we need a sane way to manage secrets
+  - (-) StoreConfigs usage require access to Puppet DB from every node
+  - (-) There aren't simple and ready solutions for centralized reporting and visualization of Puppet activity
+  - (=) We need to define a fitting deployment workflow on all the nodes. Hints: [Rump](https://github.com/railsmachine/rump) - [supply_drop](https://github.com/pitluga/supply_drop)
