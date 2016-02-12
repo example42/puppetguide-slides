@@ -1,28 +1,19 @@
 
-# Components of a Puppet architecture
+# The pieces of our Puppet setup
 
-### Tasks we deal with
+## What we have to do:
 
-Definition of the **classes** to be included in each node
+- Define and group the **classes** to include in each node
+- Set the **parameters** both global to use for each node
+- Manage the **files** used to configure things on our servers
 
-Definition of the **parameters** to use for each node
+### Available pieces
 
-Definition of the configuration **files** provided to the nodes
-
-### Components
-
-**/etc/puppet/manifests/site.pp** - The default manifests loaded by the Master
-
-**ENC** - The (optional) Enternal Node Classifier
-
-**ldap** - (Optional) LDAP backend
-
-**Hiera** - Data key-value backend
-
-**Public modules** - Public shared modules
-
-**Site modules** - Local custom modules
-
+- **The default_manifest** - The default manifests directory or single site.pp
+- **An ENC** - (optional) An External Node Classifier. Can be Puppet Enterprise Console, The Foreman, Puppet Dashboard or any custom solution
+- **Hiera** - A hierarchical and modular key-value backend
+- **Public modules** - The available universe of public modules
+-**Site modules** - Any custom module written for local needs
 
 
 
@@ -30,7 +21,7 @@ Definition of the configuration **files** provided to the nodes
 
 The classes to include in each node can be defined on:
 
-**/etc/puppet/manifests/site.pp** - Top or Node scope variables
+**default_manifest** - Top or Node scope variables
 
 **ENC** - Under the classes key in the provided YAML
 

@@ -1,21 +1,17 @@
 
 # Puppet configuration: puppet.conf
 
-It's Puppet main configuration file.
+It's Puppet main configuration file. [Official reference](https://docs.puppetlabs.com/puppet/latest/reference/config_file_main.html)
 
 On Open Source Puppet <= 3 is generally in:
 
     /etc/puppet/puppet.conf
 
-On Puppet 4 is in:
+On Puppet 4 and Puppet Enterprise is in:
 
     /etc/puppet/puppetlabs/puppet.conf
 
-On Puppet Enterprise:
-
-    /etc/puppetlabs/puppet/puppet.conf
-
-When running as a normal user can be placed in the home directory:
+When running as a normal user can be placed in its home directory:
 
     /home/user/.puppet/puppet.conf
 
