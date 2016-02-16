@@ -17,7 +17,7 @@
     line-height: 1.2;
     font-size: 1.2em;
     font-weight: normal;
-    font-family: Stilu-Regular, helvetica, arial;
+    font-family: Garamond, Stilu-Regular, helvetica, arial;
     overflow: scroll;
   }
 		a {
@@ -31,7 +31,7 @@
     color: rgb(200, 100, 100);
     font-size: 2.4em;
     text-align: left;
-				font-family: 'Stilu-Bold';
+				font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -43,7 +43,7 @@
     color: rgb(140, 120, 120);
     font-size: 1.8em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+				font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-bottom: 0.2em;
     margin-left: 20px;
@@ -55,7 +55,7 @@
     color: rgb(100, 100, 100);
     font-size: 1.8em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+				font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -64,7 +64,7 @@
     color: rgb(100, 100, 100);
     font-size: 1.5em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+				font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -73,7 +73,7 @@
     color: rgb(100, 100, 100);
     font-size: 1.2em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+				font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -82,7 +82,7 @@
     color: rgb(100, 100, 100);
     font-size: 1.0em;
     text-align: left;
-    font-family: 'Stilu-Bold';
+    font-family: Garamond, Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -130,7 +130,7 @@
   }
 
   code {
-    font-size: 100%;
-    font-family: SourceCodePro-Medium, Courier;
+    font-size: 80%;
+    font-family: Courier, SourceCodePro-Medium, Courier;
     display: inline;
   }
