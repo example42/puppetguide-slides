@@ -22,6 +22,4 @@ An **Open Source** holistic documentation project composed of:
 - A [slides deck](https://github.com/example42/puppetguide-slides) (this one)
 - The [Puppet Universal Reference](https://github.com/example42/puppetguide-reference)
 
-#### Started by [example42](http://www.example42.com)
-
-###### NOTE: All these contents are and will always be WIPAI (Work In Progress, Always Improving).
+#### Sponsored by [example42](http://www.example42.com)
