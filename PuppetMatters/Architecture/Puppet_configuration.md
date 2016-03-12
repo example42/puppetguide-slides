@@ -17,7 +17,7 @@ When running as a normal user can be placed in its home directory:
 
 Configurations are divided in [stanzas] for different Puppet sub commands
 
-Common for all commands: **[main]**
+Common stanza for all commands: **[main]**
 
 For puppet agent (client): **[agent]** (Was [puppetd] in Puppet pre 2.6)
 
@@ -33,7 +33,7 @@ To view all or a specific configuration setting:
     puppet config print modulepath
 
 
-### Options worth attentions
+### Options worth attention
 
 Here are some options (and the relevant [stanza]) worth noting:
 

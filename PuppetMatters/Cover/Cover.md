@@ -24,4 +24,4 @@ An **Open Source** holistic, alternative, ongoing, incomplete guide on Puppet an
 - A set of [slides](https://github.com/example42/puppetguide-slides) (you are here)
 - A set of [cheatsheets](https://github.com/example42/puppetguide-cheatsheets)
 
-#### Started by [example42](http://www.example42.com)
+#### Sponsored by [example42](http://www.example42.com)

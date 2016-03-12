@@ -2,31 +2,37 @@
 
 ## Sections
 
-### Puppet architecture
-
-An overview of the components of a Puppet architecture
+### Puppet architectures
 
 Master and Masterless setups
 
+Environments and puppet configuration file
+
 Certificates management
+
+Control repo
+
+Overview of the components of a Puppet architecture
+
+Roles and profiles
 
 
 ### Puppet Language
 
-A dive into the components of Puppet DSL.
+A dive into the components of Puppet DSL
 
-Resources: declaration, references, defaults, meta-parameters.
+Resources: declaration, references, defaults, meta-parameters
 
-Variables, comparisons and conditionals.
+Variables, comparisons and conditionals
 
 
 ### Modules
 
-Modules management and layout.
+Modules management and layout
 
-Searching, using and integration public modules.
+Searching, using and integration public modules
 
-Templates and options_hash pattern.
+Templates and options_hash pattern
 
 
 ### HowTo
@@ -64,4 +70,4 @@ Troubleshooting Puppet on the client and the server slides
 
 Profiling performances
 
-Common errors 
+Common errors
