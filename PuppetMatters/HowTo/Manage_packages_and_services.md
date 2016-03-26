@@ -4,6 +4,7 @@ Installation of packages is managed by the **package** type.
 
 The main arguments:
 
+    @@@puppet
     package { 'apache':
       name      => 'httpd',  # (namevar)
       ensure    => 'present' # Values: 'absent', 'latest', '2.2.1'
@@ -17,6 +18,7 @@ Management of services is via the **service** type.
 
 The main arguments:
 
+    @@@puppet
     service { 'apache':
       name      => 'httpd',  # (namevar)
       ensure    => 'running' # Values: 'stopped', 'running'

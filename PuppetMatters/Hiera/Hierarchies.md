@@ -8,6 +8,7 @@ In hierarchies we can interpolate variables with the %{} notation (variables int
 
 This is an example Hierarchy:
 
+        @@@puppet
         ---
         :hierarchy:
           - "nodes/%{::clientcert}"

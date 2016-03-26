@@ -17,22 +17,22 @@
     line-height: 1.2;
     font-size: 1.2em;
     font-weight: normal;
-    font-family: Garamond, Stilu-Regular, helvetica, arial;
+    font-family: Stilu-Regular, helvetica, arial;
     overflow: scroll;
   }
-		a {
+		a:link, a:visited {
 			 font: rgb(200, 100, 100);
 		}
-		a.hover {
+		a:hover {
 			 font: rgb(200, 100, 100);
-    background-color: rgb(234, 234, 234);
+    background-color: rgb(200, 234, 234);
 		}
   h1 {
-    color: rgb(200, 100, 100);
-    font-size: 2.4em;
+    color: rgb(200, 50, 50);
+    font-size: 2.0em;
     text-align: left;
-				font-family: Garamond, Stilu-Bold;
-    margin-top: 0.5em;
+				font-family: Stilu-Bold;
+    margin-top: 0.8em;
     margin-left: 20px;
     margin-right: 20px;
 				border-bottom-style: solid;
@@ -40,11 +40,11 @@
 				border-bottom-color: rgb(200, 100, 100);
   }
   h2 {
-    color: rgb(140, 120, 120);
-    font-size: 1.8em;
+    color: rgb(120, 120, 160);
+    font-size: 1.4em;
     text-align: left;
-				font-family: Garamond, Stilu-Bold;
-    margin-top: 0.5em;
+				font-family: Stilu-Bold;
+    margin-top: 0.4em;
     margin-bottom: 0.2em;
     margin-left: 20px;
     margin-right: 20px;
@@ -53,36 +53,36 @@
   }
   h3 {
     color: rgb(100, 100, 100);
-    font-size: 1.8em;
+    font-size: 1.2em;
     text-align: left;
-				font-family: Garamond, Stilu-Bold;
+				font-family: Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
   }
   h4 {
     color: rgb(100, 100, 100);
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: left;
-				font-family: Garamond, Stilu-Bold;
+				font-family: Stilu-Regular;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
   }
   h5 {
-    color: rgb(100, 100, 100);
-    font-size: 1.2em;
+    color: rgb(100, 140, 140);
+    font-size: 1em;
     text-align: left;
-				font-family: Garamond, Stilu-Bold;
+				font-family: Stilu-Regular;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
   }
   h6 {
     color: rgb(100, 100, 100);
-    font-size: 1.0em;
+    font-size: 0.6em;
     text-align: left;
-    font-family: Garamond, Stilu-Bold;
+    font-family: Stilu-Bold;
     margin-top: 0.5em;
     margin-left: 20px;
     margin-right: 20px;
@@ -114,23 +114,24 @@
     height: 90%;
   }
   pre, .content > pre {
-    border: 1px solid #abc;
+    # border: 1px solid #abc;
     margin: 1px, 1px, 1px, 1px;
-    background-color: rgb(240,240,240);
-    padding: 6px;
+    background-color: rgb(245,240,240);
+    padding: 4px;
     font-size: 1em;
     font-weight: normal;
     font-family: SourceCodePro-Regular, Courier;
     overflow: scroll;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -khtml-border-radius: 6px;
-    border-radius: 6px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
     display: block;
   }
 
   code {
-    font-size: 80%;
+    font-size: 100%;
+				color: rgb(100, 10, 10);
     font-family: Courier, SourceCodePro-Medium, Courier;
     display: inline;
   }

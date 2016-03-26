@@ -4,6 +4,7 @@ Check this [blog post](http://www.example42.com/2014/10/29/reusability-features-
 
 Classes and defines should expose parameters that allow to override the used templates and set a custom hash of configurations.
 
+    @@@puppet
     class redis (
       $config_file_template = 'redis/redis.conf.erb',
       $options_hash         = {},
@@ -18,6 +19,7 @@ Classes and defines should expose parameters that allow to override the used tem
 
 Given the previous class definition, we can configure it with this sample Hiera data, in YAML format:
 
+    @@@puppet
     ---
     redis::config_file_template: 'site/redis/redis.conf.erb'
     redis::options_hash:

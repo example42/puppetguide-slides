@@ -6,11 +6,13 @@ Used to manage an application, system's resources, a local site or more complex 
 
 Modules must be placed in the Puppet Master's modulepath
 
-  puppet config print modulepath
-  /etc/puppet/modules:/usr/share/puppet/modules
+    @@@shell
+    puppet config print modulepath
+    /etc/puppet/modules:/usr/share/puppet/modules
 
 Puppet module tool to interface with Puppet Modules Forge
 
+  @@@shell
   puppet help module
   [...]
   ACTIONS:
