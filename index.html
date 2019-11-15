@@ -1,0 +1,4140 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Presentation</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+
+  
+
+  <link rel="stylesheet" type="text/css" href="css/highlight/default.css"  />
+  <link rel="stylesheet" type="text/css" href="css/mermaid-6.0.0.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome-5.6.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/introjs-2.5.local.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.12.1.css">
+  <link rel="stylesheet" type="text/css" href="css/showoff.css?v=0.20.1" />
+  <link rel="stylesheet" type="text/css" href="css/zoomline-0.0.1.css">
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.12.1.js"></script>
+
+  <script type="text/javascript" src="js/jquery.cycle.all-2.8.0.js"></script>
+  <script type="text/javascript" src="js/jquery.batchImageLoad-1.0.0.js"></script>
+  <script type="text/javascript" src="js/jquery.parsequery.min-6a20f83.js"></script>
+  <script type="text/javascript" src="js/jquery.doubletap-4ff02c5.js"></script>
+  <script type="text/javascript" src="js/highlight.pack-9.2.0.js"></script>
+  <script type="text/javascript" src="js/highlightjs-line-numbers.min.js"></script>
+  <script type="text/javascript" src="js/jTypeWriter-1.1.js"></script>
+  <script type="text/javascript" src="js/bigtext-0.1.8.js"></script>
+  <script type="text/javascript" src="js/zoomline-0.0.1.js"></script>
+  <script type="text/javascript" src="js/simpleStrings-0.0.1.js"></script>
+  <script type="text/javascript" src="js/mermaid-6.0.0-min.js"></script>
+
+  <!-- waiting on https://github.com/usablica/intro.js/pull/727 -->
+  <script type="text/javascript" src="js/intro-2.5.local.js"></script>
+
+  <script type="text/javascript" src="js/coffee-script-1.1.3-pre.js"></script>
+
+  <script type="text/javascript" src="js/annotations.js?v=0.20.1"></script>
+  <script type="text/javascript" src="js/showoff.js?v=0.20.1"></script>
+
+  
+    <link rel="stylesheet" type="text/css" href="file/style.css" />
+  
+
+  
+
+  <script type="text/javascript">
+    $(function(){
+      setupPreso(false);
+    });
+
+    editUrl     = "";
+    interactive = false;
+    master      = false;
+    presenter   = false;
+
+    keymap               = {
+  "d": "DEBUG",
+  "space": "NEXT",
+  "down": "NEXT",
+  "right": "NEXT",
+  "pagedown": "NEXT",
+  "up": "PREV",
+  "left": "PREV",
+  "pageup": "PREV",
+  "SPACE": "NEXTSEC",
+  "DOWN": "NEXTSEC",
+  "RIGHT": "NEXTSEC",
+  "PAGEDOWN": "NEXTSEC",
+  "UP": "PREVSEC",
+  "LEFT": "PREVSEC",
+  "PAGEUP": "PREVSEC",
+  "R": "RELOAD",
+  "r": "REFRESH",
+  "c": "CONTENTS",
+  "t": "CONTENTS",
+  "h": "HELP",
+  "/": "HELP",
+  "?": "HELP",
+  "b": "BLANK",
+  ".": "BLANK",
+  "F": "FOOTER",
+  "f": "FOLLOW",
+  "n": "NOTES",
+  "esc": "CLEAR",
+  "p": "PAUSE",
+  "P": "PRESHOW",
+  "x": "EXECUTE",
+  "f5": "EXECUTE"
+};
+    keycode_dictionary   = {
+  "0": "\\",
+  "8": "backspace",
+  "9": "tab",
+  "12": "num",
+  "13": "enter",
+  "16": "shift",
+  "17": "ctrl",
+  "18": "alt",
+  "19": "pause",
+  "20": "caps",
+  "27": "esc",
+  "32": "space",
+  "33": "pageup",
+  "34": "pagedown",
+  "35": "end",
+  "36": "home",
+  "37": "left",
+  "38": "up",
+  "39": "right",
+  "40": "down",
+  "44": "print",
+  "45": "insert",
+  "46": "delete",
+  "48": "0",
+  "49": "1",
+  "50": "2",
+  "51": "3",
+  "52": "4",
+  "53": "5",
+  "54": "6",
+  "55": "7",
+  "56": "8",
+  "57": "9",
+  "59": ";",
+  "61": "=",
+  "65": "a",
+  "66": "b",
+  "67": "c",
+  "68": "d",
+  "69": "e",
+  "70": "f",
+  "71": "g",
+  "72": "h",
+  "73": "i",
+  "74": "j",
+  "75": "k",
+  "76": "l",
+  "77": "m",
+  "78": "n",
+  "79": "o",
+  "80": "p",
+  "81": "q",
+  "82": "r",
+  "83": "s",
+  "84": "t",
+  "85": "u",
+  "86": "v",
+  "87": "w",
+  "88": "x",
+  "89": "y",
+  "90": "z",
+  "91": "cmd",
+  "92": "cmd",
+  "93": "cmd",
+  "96": "num_0",
+  "97": "num_1",
+  "98": "num_2",
+  "99": "num_3",
+  "100": "num_4",
+  "101": "num_5",
+  "102": "num_6",
+  "103": "num_7",
+  "104": "num_8",
+  "105": "num_9",
+  "106": "num_multiply",
+  "107": "num_add",
+  "108": "num_enter",
+  "109": "num_subtract",
+  "110": "num_decimal",
+  "111": "num_divide",
+  "112": "f1",
+  "113": "f2",
+  "114": "f3",
+  "115": "f4",
+  "116": "f5",
+  "117": "f6",
+  "118": "f7",
+  "119": "f8",
+  "120": "f9",
+  "121": "f10",
+  "122": "f11",
+  "123": "f12",
+  "124": "print",
+  "144": "num",
+  "145": "scroll",
+  "173": "-",
+  "186": ";",
+  "187": "=",
+  "188": ",",
+  "189": "-",
+  "190": ".",
+  "191": "/",
+  "192": "`",
+  "219": "[",
+  "220": "\\",
+  "221": "]",
+  "222": "'",
+  "223": "`",
+  "224": "cmd",
+  "225": "alt",
+  "57392": "ctrl",
+  "63289": "num"
+};
+    keycode_shifted_keys = {
+  "0": ")",
+  "1": "!",
+  "2": "@",
+  "3": "#",
+  "4": "$",
+  "5": "%",
+  "6": "^",
+  "7": "&",
+  "8": "*",
+  "9": "(",
+  "/": "?",
+  ".": ">",
+  ",": "<",
+  "'": "\"",
+  ";": ":",
+  "[": "{",
+  "]": "}",
+  "\\": "|",
+  "`": "~",
+  "=": "+",
+  "-": "_",
+  "space": "SPACE",
+  "down": "DOWN",
+  "right": "RIGHT",
+  "pagedown": "PAGEDOWN",
+  "up": "UP",
+  "left": "LEFT",
+  "pageup": "PAGEUP"
+};
+    user_translations    = {
+};
+
+    I18n = new translation({"name":"Showoff Presentation","menu":{"title":"Showoff Menu","table_of_contents":"Table of Contents","downloads":"Downloads","feedback":{"label":"Send Feedback","description":"This slide is...","worst":"Terrible","best":"Awesome","why":"Why...?","send":"Send"},"pace":{"label":"The presenter should...","slower":"Slow Down","faster":"Speed Up"},"question":{"label":"Ask a Question","placeholder":"Ask a question..."},"edit":"Edit Current Slide","clear_annotations":"Clear Annotations","language":"Content Language","close":"Close","help":"Press <code>?</code> for help.","anonymous":"All features are anonymous.","sending":"Sending..."},"navigation":{"next":"Next","previous":"Previous","sync":"Sync Presentation"},"loading":"loading presentation...","activity_complete":"Activity complete","follow":{"label":"Follow Mode:"},"refresh":"Are you sure you want to refresh the slide content?\n\n(Use `RELOAD` to fully reload the entire UI)","reload":"Are you sure you want to reload Showoff?","preshow":{"prompt":"Minutes from now to start?","resume":"Resuming in:"},"tour":{"show":"See the Tour","reset":"Reset Hints","welcome":"<h3>Welcome to Showoff</h3>Let me show you around. After you finish this tour, it won't show again.","displayview":"Start by clicking this button to open the Display Window; then drag it onto the projector.","annotations":"Draw on your slides everywhere the presentation is displayed.","timer":"Set a countdown timer to help you stay on pace.","pace":"Audience members can use this to tell you if you're moving too quickly. Try to keep the indicator centered.","questions":"Questions asked by audience members are displayed here. You'll also see a count indicator on the Display Window when you have questions to answer.","notes":"Configure the notes display by zooming text, resizing the pane, or even popping it out into a new window.","slidesource":"The name of the slide is displayed here.","settings":"Would you like a different presenter layout? Choose that and other settings here.","edit":"This button will open your web-based editor--usually something like GitHub.","report":"Don't forget to report issues when you see them.","activity":{"count":"This will count down as audience members mark their activity complete. Their presentations will pause until completed.","complete":"Check this box when you're ready to move on. The presentation will pause while you're working."},"form":{"responses":"As questions are answered, they'll show up as a bar chart with the number of answers to each question on the right.","display":"Press this button to present a snapshot of the live responses on slide.","save":"Press this button to save your responses. The presentation will pause while answering."},"menu":{"start":"Click here to open the menu.","navigation":"Quickly navigate to any slide.","download":"Download presentation support files.","pace":"Provide pace feedback.","questions":"Ask live questions of the presenter.","feedback":"Provide suggestions for improving the content."}},"downloads":{"title":"File Downloads"},"help":{"title":"Help","next":"Move to the next slide.","prev":"Move to the previous slide.","nextsec":"Move to the next section.","prevsec":"Move to the previous section.","contents":"Show the table of contents menu.","follow":"Toggle follow mode.","help":"Show this help dialog.","refresh":"Refresh slide content.","reload":"Completely reload Showoff.","blank":"Blank the screen.","footer":"Toggle the display footer.","notes":"Toggle notes display.","clear":"Clear code execution results.","pause":"Pause the presentation.","preshow":"Display slideshow of <tt>preshow</tt> images on a timer.","execute":"Execute the first visible code block.","debug":"Show debugging information.","close":"Close"},"stats":{"title":"Viewing Statistics","stray":"of your audience is not viewing the same slide you are.","idle":"of your audience is idle.","current":"Slides currently being viewed","elapsed":"Elapsed time spent on each slide","nodata":"No data to display.","allcurrent":"All audience members are viewing the presenter's slide."},"forms":{"display":"Display Results","save":"Save"},"presenter":{"topbar":{"annotations":"Annotations","edit":"Edit Slide","report":"Report Issue With Slide","stats":"Viewing Statistics","downloads":"Downloads","display":"Display Window","print":"Print Slides","settings":"Settings","newpage":"Open in a new page...","tooltip":{"annotations":"Enable the annotations subsystem.","edit":"Edit current slide in new window.","report":"Report an issue with the current slide.","stats":"See the slides your audience is interacting with.","downloads":"Open the file downloads in a menu or new page.","display":"Enable the Display Window; you should put this on the projector.","print":"Print slides using a new window.","settings":"Open the Settings dialog."}},"preview":{"next":"Next","previous":"Previous"},"mobile":{"update":"Update"},"notes":{"label":"Showoff Notes","personal":"Personal Notes"},"timer":{"label":"Timer:","start":"Start","pause":"Pause","resume":"Resume","cancel":"Cancel","unit":"minutes"},"pace":{"faster":"Speed Up!","slower":"Slow Down!"},"questions":"Audience Questions","annotation":{"tools":"Tools","lines":"Lines","shapes":"Shapes"},"status":{"label":"Slides:"},"settings":{"label":"Settings","close":"Close","follower":{"label":"Update Follower","tooltip":"Send slide change notifications.","description":"When this is enabled, the Showoff server will track your slide changes. Disable it to observe the presentation without inadvertently causing slide changes."},"remote":{"label":"Enable Remote","tooltip":"Enables tracking of other presenters.","description":"When this is enabled, you can load the presenter in another browser (typically on your mobile phone) to control the presentation."},"layout":{"label":"Layout","default":"Default Layout","thumbs":"Display thumbnail previews of the next and previous slides.","beside":"Display the next slide as a large preview in the main presenter view.","floating":"Open the next slide as a floating window.","confirmation":"Browser security requires confirmation before opening a new window.","open":"Open Window","cancel":"cancel","reset":{"label":"Clear Showoff settings.","tooltip":"Reset Showoff UI settings to default values."}},"language":{"label":"Content Language","tooltip":"Select from available translations, or autoselect based on your browser settings.","description":"This presentation is available in different languages. Choose the language you would like to view or leave it at <tt>automatic</tt> to use your browser settings."}},"print":{"label":"Choose type of printed notes","description":"Select the content you'd like to show under the slides.","none":"Don't include notes","notes":"Presenter Notes","handouts":"Audience Handouts"}},"language":{"auto":"Automatic","disable":"Disable Translations"},"error":{"file_not_found":"File Not Found!"}});
+
+  </script>
+
+</head>
+
+<body>
+<div id="questionsIndicator"></div>
+
+<i id="hamburger" class="fa fa-bars fa-2x"></i>
+<div id="sidebarWrapper">
+    <div id="navigationHover"></div>
+    <div id="feedbackSidebar" class="sideMenu">
+    <img id="disconnected" src="css/disconnected.png">
+    <h3>Showoff Menu</h3>
+    <div id="navToggle" class="buttonWrapper"><i class=" fa fa-bookmark"></i> Table of Contents</div>
+    <div id="navigation" class="submenu"></div>
+    
+    <hr>
+
+    
+
+    
+
+    <div id="closeMenu" class="buttonWrapper"><i class="fa fa-close"></i> Close</div>
+    <hr>
+
+    <small>
+        <p>Press <code>?</code> for help.</p>
+        <p>All features are anonymous.</p>
+    </small>
+    </div>
+    <div id="sidebarExit"></div>
+</div>
+<div id="help-modal" title="Help">
+  <div id="help">
+    <div>
+      <span class="description">Move to the next slide.</span>
+      <span class="action">NEXT</span>
+      <span class="hotkeys"><span class="key">space</span><span class="key">down</span><span class="key">right</span><span class="key">pagedown</span></span>
+    </div>
+    <div>
+      <span class="description">Move to the previous slide.</span>
+      <span class="action">PREV</span>
+      <span class="hotkeys"><span class="key">up</span><span class="key">left</span><span class="key">pageup</span></span>
+    </div>
+    <div>
+      <span class="description">Move to the next section.</span>
+      <span class="action">NEXTSEC</span>
+      <span class="hotkeys"><span class="key">SPACE</span><span class="key">DOWN</span><span class="key">RIGHT</span><span class="key">PAGEDOWN</span></span>
+    </div>
+    <div>
+      <span class="description">Move to the previous section.</span>
+      <span class="action">PREVSEC</span>
+      <span class="hotkeys"><span class="key">UP</span><span class="key">LEFT</span><span class="key">PAGEUP</span></span>
+    </div>
+    <div>
+      <span class="description">Show the table of contents menu.</span>
+      <span class="action">CONTENTS</span>
+      <span class="hotkeys"><span class="key">c</span><span class="key">t</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle follow mode.</span>
+      <span class="action">FOLLOW</span>
+      <span class="hotkeys"><span class="key">f</span></span>
+    </div>
+    <div>
+      <span class="description">Show this help dialog.</span>
+      <span class="action">HELP</span>
+      <span class="hotkeys"><span class="key">h</span><span class="key">/</span><span class="key">?</span></span>
+    </div>
+
+    <hr />
+
+    <div>
+      <span class="description">Refresh slide content.</span>
+      <span class="action">REFRESH</span>
+      <span class="hotkeys"><span class="key">r</span></span>
+    </div>
+    <div>
+      <span class="description">Completely reload Showoff.</span>
+      <span class="action">RELOAD</span>
+      <span class="hotkeys"><span class="key">R</span></span>
+    </div>
+    <div>
+      <span class="description">Blank the screen.</span>
+      <span class="action">BLANK</span>
+      <span class="hotkeys"><span class="key">b</span><span class="key">.</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle the display footer.</span>
+      <span class="action">FOOTER</span>
+      <span class="hotkeys"><span class="key">F</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle notes display.</span>
+      <span class="action">NOTES</span>
+      <span class="hotkeys"><span class="key">n</span></span>
+    </div>
+    <div>
+      <span class="description">Clear code execution results.</span>
+      <span class="action">CLEAR</span>
+      <span class="hotkeys"><span class="key">esc</span></span>
+    </div>
+    <div>
+      <span class="description">Pause the presentation.</span>
+      <span class="action">PAUSE</span>
+      <span class="hotkeys"><span class="key">p</span></span>
+    </div>
+    <div>
+      <span class="description">Display slideshow of <tt>preshow</tt> images on a timer.</span>
+      <span class="action">PRESHOW</span>
+      <span class="hotkeys"><span class="key">P</span></span>
+    </div>
+    <div>
+      <span class="description">Execute the first visible code block.</span>
+      <span class="action">EXECUTE</span>
+      <span class="hotkeys"><span class="key">x</span><span class="key">f5</span></span>
+    </div>
+
+    <hr />
+
+    <div>
+      <span class="description">Show debugging information.</span>
+      <span class="action">DEBUG</span>
+      <span class="hotkeys"><span class="key">d</span></span>
+    </div>
+  </div>
+</div>
+
+<div id="preso"><center>loading presentation...</center></div>
+<a id="synchronize"><i class="fa fa-link" aria-hidden="true" href="#"></i> Sync Presentation</a>
+<div id="notes"></div>
+
+<footer id="footer">
+  <span id="followLabel" class="container">Follow Mode: <i id="followMode" class="fa fa-ban" aria-hidden="true"></i></span>
+  <span id="slideInfo" class="container"></span>
+  <span id="debugInfo" class="container"></span>
+  <span id="notesInfo" class="container"></span>
+  <span id="slideFilename" class="container"></span>
+  <img id="disconnected" src="css/disconnected.png" />
+</footer>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div data-section="." data-title="Hiera_introduction" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Appendix_Hiera_introduction1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Appendix/Hiera_introduction:1">
+<h1>Introduction to Hiera</h1>
+
+<p>Hiera is the most used solution to manage the data we need to configure our systems according to the logic we need.</p>
+
+<p>It allows to separate data from code, allowing us to avoid to place inside our Puppet manifests information which is strictly related to our infrastructure and its settings.</p>
+
+<p>It's shipped together with Puppet from version 3 and it's strictly integrated: for each class parameter Puppet does an automatic lookup on a corresponding Hiera value.</p>
+
+<p>Hiera can use different backends to store it's data. The default one is Yaml (all data is placed in simple Yaml files). Other backend are Json, Mysql, Redis and so on.</p>
+
+<p>Data is looked on Hiera following a hierarchy based on Puppet variables, in this way we can attribute to an Hiera Key (for example <code>ntp::server</code>) different values according to different conditions (for example the role, the environment or the location of a server).</p>
+
+<p>Inside Puppet code with can use the <code>hiera()</code> function to look for a given Hiera key. For example the following code assign to the variable <code>$server</code> the value of the Hiera key called <code>ntp_server</code>. An optional parameter can be added to set the default value (here <code>ntp.pool.org</code>) to return if the key is not found on Hiera:</p>
+
+<pre><code>$server = hiera('ntp_server','ntp.pool.org')
+</code></pre>
+
+<p>Since Puppet 3 Puppet does an automatic lookup on Hiera for each parameter of a class. In the following example the parameter <code>server</code> (whose value can be referred, inside the same class, using the <code>$server</code> variable and, inside any other class with its <em>fully qualified name</em>: <code>$::ntp::server</code>) can be changed by setting, on Hiera a value for the key called <code>ntp::server</code>:</p>
+
+<pre><code>class ntp (
+  server = 'ntp.pool.org',
+) { }
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Hiera_introduction" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Appendix_Hiera_introduction2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Appendix/Hiera_introduction:2">
+<h1>Hiera configuration</h1>
+
+<p>Hiera's configuration file for Puppet is <code>/etc/puppet/hiera.yaml</code> (On Puppet 4 <code>/etc/puppet/puppetlabs/hiera.yaml</code>). It's a Yaml file which looks like this:</p>
+
+<pre><code>---
+  :backends:
+    - yaml
+
+  :hierarchy:
+     - "%{::environment}/nodes/%{::fqdn}"
+     - "%{::environment}/roles/%{::role}"
+     - "%{::environment}/zones/%{::zone}"
+     - "%{::environment}/common"
+   :yaml:
+     :datadir: /etc/puppet/hieradata
+</code></pre>
+
+<p>In the above sample it's configured the <strong>backend(s)</strong> to use, the <strong>hierarchy</strong> based on Puppet variables (inside <code>%{}</code>) and the configuration specific to the used backend (here is set the <strong>datadir</strong> when Yaml files containing Hiera keys are placed, named acconding to the defined hierarchy).</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="History" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Appendix_History" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Appendix/History">
+<h1>History of Puppet Versions</h1>
+
+<p>During its history Puppet has constantly improved and added features, still most of the core principles are the same and have't changed.</p>
+
+<p>From version 2 Puppet follows <a href="http://semver.org/" target="_blank">Semantic Versioning</a> standards to manage versioning, with a pattern like: MAJOR.MINOR.PATCH</p>
+
+<p>This implies that MAYOR versions might not be backwards compatible, MINOR versions may introduce new features keeping compatibility and PATCHes are for backwards compatible bug fixes.</p>
+
+<p>This is the history of the main Puppet versions and some relevant changes
+Check also <a href="http://docs.puppetlabs.com/guides/language_history.html" target="_blank">Puppet Language History</a> for a more complete review:</p>
+
+<ul>
+<li>
+<code>0.9.x</code>  - First public beta</li>
+<li>
+<code>0.10.x</code> - 0.21.x - Various "early" versions</li>
+<li>
+<code>0.22.x</code> - 0.25.x - Improvements and OS wider support</li>
+<li>
+<code>2.6.x</code>  - Many changes. Parametrized classes</li>
+<li>
+<code>2.7.x</code>  - Windows support</li>
+<li>
+<code>3.0.x</code>  - Many changes. Disabled dynamic variables scope. Data bindings</li>
+<li>
+<code>3.2.x</code>  - Future parser (experimental, will be default in Puppet 4)</li>
+<li>
+<code>4.x.x</code>  - Released in early 2015. New parser, new type system and lot of changes, various language cleanups and some backwards incompatibilities</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Appendix_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Appendix/Overview">
+<h1>Appendix</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>History of Puppet versions</li>
+<li>Migrating to Puppet 4</li>
+<li>Introduction to Hiera</li>
+</ul>
+
+<h2>Take-aways</h2>
+
+<ul>
+<li>Have an idea of Puppet versions history and evolution</li>
+<li>Understand the main challenges involved in migration to Puppet 4</li>
+<li>Have online references on Puppet 4 migration</li>
+<li>Have a general Hiera of what Hiera is and how is used</li>
+<li>Have a general idea of how to configure Hiera </li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet4_migration" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Appendix_Puppet4_migration" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Appendix/Puppet4_migration">
+<h1>Migrating to Puppet 4</h1>
+
+<p>With Puppet 4 many things have changed:</p>
+
+<ul>
+<li>New Parser, new Type system, a lot of code tuning</li>
+<li>Puppet agent and its components (facter, mcollective and the relevant stack) is shipped with All In One package (AIO) to retrieve from PuppetLabs site</li>
+<li>All directory paths are changed</li>
+<li>The Master function is done via <strong>Puppet Server</strong> (a new dedicated clojure application)</li>
+</ul>
+
+<p>Migration from previous versions to Puppet 4 probably need some code refactoring.</p>
+
+<p>Good online resources to prepare the migration to Puppet 4 are:</p>
+
+<ul>
+<li>Online reference for <a href="https://docs.puppetlabs.com/puppet/latest/reference/experiments_future.html" target="_blank">upgrading manifests</a> from 3.x to 4.x</li>
+<li>Article on how to <a href="http://www.camptocamp.com/en/actualite/getting-code-ready-puppet-4/" target="_blank">prepare our code</a> for Puppet 4.</li>
+</ul>
+
+<p>Use the <a href="https://forge.puppetlabs.com/modules?" target="_blank">Puppet Forge search</a> page to look for Puppet 4 compatible modules (note that most of them may not exploit fullt Puppet 4 power due to backwards 3.x compatibility).</p>
+
+<p>Some other useful links about Puppet 4:</p>
+
+<ul>
+<li>Puppet 4 <a href="https://docs.puppetlabs.com/puppet/4.0/reference/release_notes.html" target="_blank">release notes</a>
+</li>
+<li>Online reference for <a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_agent.html" target="_blank">agent</a> upgrade</li>
+<li>Online reference for <a href="https://docs.puppetlabs.com/puppet/4.0/reference/upgrade_server.html" target="_blank">server</a> upgrade</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Cover_Cover1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Cover/Cover:1">
+<h1>Puppet Beginner</h1>
+
+<p>A slides deck for audience with limited, fragmentary or no experience with Puppet.</p>
+
+<p>It's about:</p>
+
+<ul>
+<li>Configuration management tools</li>
+<li>Puppet and its ecosystem</li>
+<li>Core concepts and terminology</li>
+<li>Puppet Language basics</li>
+<li>Learning References</li>
+<li>Installation and basic usage</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Cover_Cover2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Cover/Cover:2">
+<h1>Slides deckThis is part of:</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Cover_Cover3" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Cover/Cover:3">
+<h1>The [DevOps] Guide to Puppet, Universe, and Everything</h1>
+
+<p>An <strong>Open Source</strong> holistic documentation project composed of:</p>
+
+<ul>
+<li>A <a href="https://github.com/example42/puppetguide-book" target="_blank">book</a>
+</li>
+<li>A set of sample <a href="https://github.com/example42/puppetguide-architectures" target="_blank">code architectures</a>
+</li>
+<li>A <a href="https://github.com/example42/puppetguide-slides" target="_blank">slides deck</a> (this one)</li>
+<li>The <a href="https://github.com/example42/puppetguide-reference" target="_blank">Puppet Universal Reference</a>
+</li>
+</ul>
+
+<h4>Sponsored by <a href="http://www.example42.com" target="_blank">example42</a>
+</h4>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="First_Page" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Beginner_Cover_First_Page" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Beginner/Cover/First_Page">
+<h1>Puppet Beginner</h1>
+
+<h2>Sections</h2>
+
+<h3>Introduction to Puppet</h3>
+
+<p>An introduction to Configuration Management tools, their principles and role in a [DevOps] tool chain.</p>
+
+<p>An overview of Puppet and its ecosystem, composed of different tools and endless integrations.</p>
+
+<p>A guided reference of Puppet learning resources, online references and core concepts.</p>
+
+<h3>Language Basics</h3>
+
+<p>General overview of Puppet DSL with examples of common resources.</p>
+
+<p>Modules principles and usage patterns.</p>
+
+<h3>Using Puppet</h3>
+
+<p>A basic outline of Puppet installation and usage modes.</p>
+
+<p>A review of what happens during a Puppet run.</p>
+
+<h3>Appendix</h3>
+
+<p>A brief history of Puppet versions.</p>
+
+<p>Some hints on Puppet 4 migration.</p>
+
+<p>An overview of Hiera</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Cover_Cover" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Cover/Cover">
+<h1>Puppet 4</h1>
+
+<p>What to know about Puppet 4:</p>
+
+<ul>
+<li>Installation</li>
+<li>New features</li>
+<li>Code samples</li>
+<li>Code migration and upgrade</li>
+<li>Deprecations</li>
+<li>Troubleshooting</li>
+</ul>
+
+<p>This is part of:</p>
+
+<h2>The [DevOps] Guide to Puppet, Universe, and Everything</h2>
+
+<p>An <strong>Open Source</strong> holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.</p>
+
+<p>documentation project composed of:</p>
+
+<ul>
+<li>A <a href="https://github.com/example42/puppetguide-book" target="_blank">book</a> that needs sponsors</li>
+<li>Sample <a href="https://github.com/example42/puppetguide-architectures" target="_blank">code architectures</a>
+</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-slides" target="_blank">slides</a> (you are here)</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-cheatsheets" target="_blank">cheatsheets</a>
+</li>
+</ul>
+
+<h4>Started by <a href="http://www.example42.com" target="_blank">example42</a>
+</h4>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="First_Page" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Cover_First_Page" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Cover/First_Page">
+<h1>Puppet 4</h1>
+
+<h2>Sections</h2>
+
+<h3>Features</h3>
+
+<p>An overview of Puppet 4 new features</p>
+
+<h3>Migration</h3>
+
+<p>Hints on migration.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="References" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Deprecations_References" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Deprecations/References">
+<h1>References syntax</h1>
+
+<p>Management of resource references is stricter:</p>
+
+<p>These syntax examples are deprecated:</p>
+
+<pre><code>Class ['Ssh'] 
+Class ['ssh'] 
+</code></pre>
+
+<p>This is the correct way to reference a resource</p>
+
+<pre><code>Class['ssh']
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Data_In_Modules" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Data_In_Modules" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Data_In_Modules">
+<h1>Data in Modules</h1>
+
+<p>Hiera Data in Modules • put hiera data directly into your modules • requires future parser
+28. Hiera Data in Modules /etc/hiera/hiera.yaml • needs hiera V2 conﬁguration version: 2 hierarchy: [ [ ‘osfamily’, ‘${osfamily}’, ’${osfamily}’ ], [ ‘environment’, ‘${environment}’, ‘$ {environment}’ ], [ ‘common’, ‘true’, ‘common’ ] ] backends: - yaml
+29. Hiera Data in Modules <modulepath>/<modulename>/ data/ osfamily/ environment/ common.yaml manifests/ ﬁles/ hiera.yaml RedHat.yaml production.yaml
+30. Hiera Data in Modules <modulepath></modulepath></modulename>/ hiera.yaml • needs hiera.yaml in module —- version: 2
+31. Hiera Data in Modules common.yaml ntpserver: ntp1.ptb.de ! • osfamily/Debian.yaml hiera data follow common patterns ntpserver: 10.0.2.133 ! environment/dev.yaml ntpserver: 127.0.0.1
+32. Hiera Data in Modules • explizit lookups work like hiera v1 class my class ( $myvar ){ } ! hiera-data: class::myvar: ‘value’
+33. Hiera Data in Modules • implizit lookups use the lookup function class my class ( $myvar = lookup(‘myvar’) ){ } ! hiera-data: myvar: ‘value’
+34. Hiera Data in Modules • hiera data now use puppet variable syntax myvar: ‘Hi ${othervar}’ ! myvar2: ‘Hello ${array[2]}’ ! myvar3: ‘Hello ${lookup(akey)}’</modulepath></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Data_type" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Data_type" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Data_type">
+<h1>Data Types</h1>
+
+<p>Puppet 4 introduces a new powerful data types system.</p>
+
+<p>Each kind of data can be expressed by a data type.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="EPP_templates" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_EPP_templates" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/EPP_templates">
+<h1>Epp templates</h1>
+
+<p>In Puppet 4 we can use EPP templates instead of the usual (and still valid) erb templates.</p>
+
+<p>EPP templates are evaluated via the  epp() </p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Facter2" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Facter2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Facter2">
+<h1>Facter 2</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Heredoc" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Heredoc" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Heredoc">
+<h1>Heredoc support</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Iterations" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Iterations" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Iterations">
+<h1>Iterations</h1>
+
+<p>Puppet now supports iterations over resources. They are based on <strong>lambdas</strong>.</p>
+
+<p>New functions, based on lambdas:</p>
+
+<ul>
+<li>
+<p>each, iterate over an array</p>
+
+<pre><code>each (loop over arrays and hashes) $a = [ 1,2,3] ! each($a) | $value | { notice $value } ! ! $h = { ‘1’ =&gt; [‘a’,’b’,’c’], ‘2’ =&gt; ‘foo’ } each($h) | $key, $value | { notice “$key = $value”
+</code></pre>
+</li>
+<li><p>slice</p></li>
+<li><p>filter</p></li>
+<li><p>map</p></li>
+<li><p>reduce</p></li>
+<li><p>with</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Overview">
+<h1>Puppet 4 Features</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>History of Puppet versions</li>
+<li>Migrating to Puppet 4</li>
+<li>Introduction to Hiera</li>
+</ul>
+
+<h2>Take-aways</h2>
+
+<ul>
+<li>Have an idea of Puppet versions history and evolution</li>
+<li>Understand the main challenges involved in migration to Puppet 4</li>
+<li>Have online references on Puppet 4 migration</li>
+<li>Have a general Hiera of what Hiera is and how is used</li>
+<li>Have a general idea of how to configure Hiera </li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_functions" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Puppet_functions" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Puppet_functions">
+<h1>Puppet functions</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Validation" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Features_Validation" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Features/Validation">
+<h1>Data types validation</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet-agent" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Installation_Puppet-agent" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Installation/Puppet-agent">
+<h1>Puppet agent</h1>
+
+<p>Is the new AIO (All In One) package that PuppetLabs uses to distribute Puppet 4 clients, and its components (Facter, Hiera, MCollective)</p>
+
+<p>It has it's <a href="http://docs.puppetlabs.com/puppet/4.3/reference/about_agent.html" target="_blank">own versioning</a>.</p>
+
+<p>Having the </p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="PuppetServer" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Installation_PuppetServer" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Installation/PuppetServer">
+<h1>Puppet Server</h1>
+
+<p>Is the new <a href="http://docs.puppetlabs.com/puppetserver/2.2/index.html" target="_blank">server component</a> to manage Puppet agents.</p>
+
+<p>It's written in Clojure and runs inside a JVM.</p>
+
+<p>By default it uses 2GB of RAM.</p>
+
+<p>Slower startup times, better performances.</p>
+
+<p>Works also with <a href="" target="_blank">Puppet 3 agents</a></p>
+
+<p>Runs the gems needed by our modules via Juby</p>
+
+<pre><code>puppetserver gem list
+sudo puppetserver gem install rake --no-ri --no-rdoc
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Practices" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_Migration_Practices" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/Migration/Practices">
+<h1>Agenda • Why upgrading at all? • Is your code still working? • How to upgrading Puppet? • What brings Puppet 4?</h1>
+
+<ol>
+<li>Why do I need to bother? • Fast releases • Best Practices • Changing functionality • Removing deprecated stuff • Puppet 4 is coming</li>
+<li>Why should I upgrade Puppet at all? • Do you want security updates? • Do you want to make use of new functionality? (e.g. automatic data bindings, environmentpath, future parser) • Do you want to get support (community or enterprise)?</li>
+<li>Is my Puppet DSL code still working on new versions? • Your code was developed some years ago and is still running unmodified • Your code was written on old best practices and does not follow new style guide • You do not check your Puppet runs for deprecation warnings (or do you?)</li>
+<li>What to look for?</li>
+<li>BAD Best practice • Do you inherit from inherited classes? • Do you still use import? • Do you modify remote modules? • Do you access non-local variables without scope names?</li>
+<li>BAD Best practice Stop doing multiple levels of inheritance ! class foo { } ! class foo::bar inherits foo { } ! class foo::baz inherits foo::bar { } ! class foo::foobar inherits foo::baz { }</li>
+<li>BAD Best practice Stop doing inheritance at all ! class foo { } ! class foo::bar inherits foo { } ! class foo::baz inherits foo { } ! class foo::foobar inherits foo { }</li>
+<li>Best practice Restrict Inheritance ! In most cases you can use parameterised classes instead. Only one kind of inheritance is proven good practice: inherit from module params.pp ! class ssh ( $server = $ssh::params::server, $client = $ssh::params::client, $x11fwd = false, ) inherits ssh::params { } ! class { ssh::params:: server =&gt; false, x11fwd =&gt; true, } BETTER</li>
+<li>BAD Best practice Stop importing ! # foo/manifests/init.pp class foo { import ‘bar.pp’ } ! # foo/manifests/bar.pp class foo::baz { } ! # foo/manifests/baz.pp class foo::baz { } ! Which class foo::baz will be used?</li>
+<li>Best practice Use include ! In most cases you can make use of the puppet autoloader and you can use include. ! # foo/manifests/init.pp class foo { include foo::baz } BETTER ! # foo/manifests/baz.pp class foo::baz { } !</li>
+<li>BAD Best practice Stop modifying remote modules ! Take “remote modules” as a software provided by others. Are you also patching apache?</li>
+<li>Best practice Co-Work on remote modules ! Do a PR if you want improvements. ! Keep your remote modules upgradeable. BETTER</li>
+<li>BAD Best practice Stop using non-local variables without scope ! class foo ( $bar = ‘baz’ ) { } ! class foo::baz { notify { $bar: } }</li>
+<li>Best practice Start using non-local variables with scope ! class foo ( $bar ) { } ! class foo::baz { notify { $foo::bar: } } BETTER</li>
+<li>Best practice Stop using un-scoped variables in templates !! key = &lt;%= var %&gt; ! ! ! BAD</li>
+<li>Best practice Start using scoped variables in templates !! key = &lt;%= @var %&gt; !!!! BETTER</li>
+<li>BAD Best practice Stop using factor variables without top-scope ! class foo { notify { “We are on OS: $operatingsystem”: } } ! class foo::baz { if $is_virtual { notify { “We are running on $virtual virtualisation”: } } else { notify { “We are running on hardware: $productname”: } }</li>
+<li>Best practice Start using factor variables with top-scope ! class foo { notify { “We are on OS: ${::operatingsystem}”: } } ! class foo::baz { if $::is_virtual { notify { “We are running on ${::virtual} virtualisation”: } } else { notify { “We are running on hardware: ${::productname}”: } } BETTER</li>
+<li>BAD Best practice Stop not doing data validation ! class foo ( $server = hiera(‘server’, ‘localhost’) ){ notify { “We will use Server: ${server}”: } } !</li>
+<li>Best practice BETTER Start doing data validation ! class foo ( $server = hiera(‘server’, ‘localhost’) ){ # validate_string is a function from stdlib validate_string($server) notify { “We will use Server: ${server}”: } } !</li>
+<li>Remote modules • Do foreign modules support your version? • Newer Puppet versions have new function attributes (arity) • New foreign module versions might need newer modules not supported by your Puppet version</li>
+</ol>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_README1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/README:1">
+<h1>The [DevOps] Guide to Puppet, Universe, and Everything</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_Puppet4_README2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/Puppet4/README:2">
+<h1>Slides deck: Puppet 4</h1>
+
+<p>Works on this deck have just started.</p>
+
+<p>It's supposed to cover Puppet 4:</p>
+
+<ul>
+<li>Installation</li>
+<li>New features</li>
+<li>Code samples</li>
+<li>Code migration and upgrade</li>
+<li>Deprecations</li>
+<li>Troubleshooting</li>
+</ul>
+
+<p>If you are interested in this deck, consider the opportunity of <a href="http://www.example42.com/#contact" target="_blank">sponsoring it</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Contents" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_Cover_Contents" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/Cover/Contents">
+<h1>Puppet that Matters</h1>
+
+<h2>Sections</h2>
+
+<h3>Puppet architectures</h3>
+
+<p>Master and Masterless setups</p>
+
+<p>Environments and puppet configuration file</p>
+
+<p>Certificates management</p>
+
+<p>Control repo</p>
+
+<p>Overview of the components of a Puppet architecture</p>
+
+<p>Roles and profiles</p>
+
+<h3>Puppet Language</h3>
+
+<p>A dive into the components of Puppet DSL</p>
+
+<p>Resources: declaration, references, defaults, meta-parameters</p>
+
+<p>Variables, comparisons and conditionals</p>
+
+<h3>Modules</h3>
+
+<p>Modules management and layout</p>
+
+<p>Searching, using and integration public modules</p>
+
+<p>Templates and options_hash pattern</p>
+
+<h3>HowTo</h3>
+
+<p>Practical use cases for common tasks</p>
+
+<p>Managing applications</p>
+
+<p>Modifying files</p>
+
+<p>Using the noop mode</p>
+
+<h3>Hiera</h3>
+
+<p>Configuration and principles</p>
+
+<p>Backends and extensions</p>
+
+<p>How to organize and structure data</p>
+
+<h3>PuppetDB</h3>
+
+<p>Installation, configuration and dashboards</p>
+
+<p>Querying PuppetDB API</p>
+
+<p>Use cases for exported resources and puppetdbquery module</p>
+
+<h3>Troubleshooting</h3>
+
+<p>Troubleshooting Puppet on the client and the server slides</p>
+
+<p>Profiling performances</p>
+
+<p>Common errors</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_Cover_Cover1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/Cover/Cover:1">
+<h1>Puppet that Matters</h1>
+
+<p>A slides deck for who already has some Puppet basics and wants to get practical and operative infos on how to work properly with Puppet</p>
+
+<p>It's about:</p>
+
+<ul>
+<li>How to choose the components of a Puppet architecture</li>
+<li>Understanding the Puppet DSL</li>
+<li>How to choose, integrate, use and write modules</li>
+<li>How to perform common tasks with Puppet</li>
+<li>How to classify nodes and organize code and data</li>
+<li>How to manage interdependencies across nodes</li>
+</ul>
+
+<p>This is part of:</p>
+
+<h4><a href="https://www.example42.com/guide/" target="_blank">The [DevOps] Guide to Puppet, Universe, and Everything</a></h4>
+
+
+
+</div>
+<div class="notes-section handouts">
+<p>
+An <strong>Open Source</strong> holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.</p>
+
+<p>documentation project composed of:</p>
+
+<ul>
+<li>A <a href="https://github.com/example42/puppetguide-book" target="_blank">book</a> that needs sponsors</li>
+<li>Sample <a href="https://github.com/example42/puppetguide-architectures" target="_blank">code architectures</a>
+</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-slides" target="_blank">slides</a> (you are here)</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-cheatsheets" target="_blank">cheatsheets</a>
+</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_Cover_Cover2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/Cover/Cover:2">
+<h1>Sponsored by</h1>
+
+<p><img src="./file//Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/_images/logo_example42_RGB.png" alt="example42"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_README1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/README:1">
+<h2>The [DevOps] Guide to Puppet, Universe, and Everything</h2>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_README2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/README:2">
+<h1>Slides deck: Puppet that Matters</h1>
+
+<p>Works on this deck have just started.</p>
+
+<p>It's supposed to give practical, operative information to who has already some basic knowledge about Puppet:</p>
+
+<ul>
+<li>Puppet architecture and ecosystem components</li>
+<li>The most important Language constructs</li>
+<li>How to deal with typical tasks</li>
+<li>How to choose, use, integrate and write modules</li>
+<li>Hiera and data management</li>
+<li>PuppetDB</li>
+<li>Troubleshooting Puppet</li>
+</ul>
+
+<p>If you are interested in this deck, consider the opportunity of <a href="http://www.example42.com/#contact" target="_blank">sponsoring it</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="00_Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_00_Cover1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/00_Cover:1">
+<h1>The [DevOps] Guide to Puppet, Universe, and Everything</h1>
+
+<p>An <strong>Open Source</strong> holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.</p>
+
+<p>documentation project composed of:</p>
+
+<ul>
+<li>A <a href="https://github.com/example42/puppetguide-book" target="_blank">book</a> that needs sponsors</li>
+<li>Sample <a href="https://github.com/example42/puppetguide-architectures" target="_blank">code architectures</a>
+</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-slides" target="_blank">slides</a> (you are here)</li>
+<li>A set of <a href="https://github.com/example42/puppetguide-cheatsheets" target="_blank">cheatsheets</a>
+</li>
+</ul>
+
+<h4>Started by <a href="http://www.example42.com" target="_blank">example42</a>
+</h4>
+
+<h2>Intermediate slides deck</h2>
+
+<p>This module is for who already knows and uses Puppet at a basic level and wants to make the next step.</p>
+
+<h6>TODO - Adapt and extend existing material</h6>
+
+<h6>TODO - Add missing contents</h6>
+
+<h6>TODO - Completion percentage: 30%</h6>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="00_Cover" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_00_Cover2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/00_Cover:2">
+<h1>Intermediate slides deck sections</h1>
+
+<p>This slides deck is composed by the following sections:</p>
+
+<h5>Puppet Language</h5>
+
+<ul>
+<li>Language essentials</li>
+<li>Resources: declaration, defaults, references</li>
+<li>Variables</li>
+<li>Meta parameters</li>
+<li>Ordering</li>
+<li>Conditionals</li>
+<li>Comparison</li>
+<li>Iterations</li>
+<li>Heredoc</li>
+<li>Structured facts</li>
+</ul>
+
+<h5>Puppet modules</h5>
+
+<ul>
+<li>Structure</li>
+<li>Erb and Epp templates</li>
+<li>Containment</li>
+<li>Modules types</li>
+<li>Best practices</li>
+<li>Useful public modules</li>
+</ul>
+
+<h5>Hiera</h5>
+
+<ul>
+<li>Installation and Configuration</li>
+<li>Lookup types</li>
+<li>Data binding</li>
+<li>Command line</li>
+</ul>
+
+<h5>PuppetDB</h5>
+
+<ul>
+<li>Installation and Configuration</li>
+<li>Dashboards</li>
+<li>PuppetDB API</li>
+<li>puppetdbquery module</li>
+<li>Exported Resources</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:1">
+<h1>Resources reference - Overview</h1>
+
+<h3>Where to find docs about Puppet resources</h3>
+
+<h3>Main resources: package, service, file, user, exec</h3>
+
+<h3>Language Style</h3>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:2">
+<h1>Managing files</h1>
+
+<p>Files are the most configured resources on a system, we manage them with the <strong>file</strong> type:</p>
+
+<pre><code>file { 'httpd.conf':
+    # (namevar) The file path
+    path      =&gt; '/etc/httpd/conf/httpd.conf',  
+    # Define the file type and if it should exist:
+    # 'present','absent','directory','link'
+    ensure    =&gt; 'present',
+    # Url from where to retrieve the file content
+    source    =&gt; 'puppet://[puppetfileserver]/&lt;share&gt;/path',
+    # Actual content of the file, alternative to source
+    # Typically it contains a reference to the template function
+    content   =&gt; 'My content',
+    # Typical file's attributes
+    owner     =&gt; 'root',
+    group     =&gt; 'root',
+    mode      =&gt; '0644',
+    # The sylink target, when ensure =&gt; link
+    target    =&gt; '/etc/httpd/httpd.conf',
+    # Whether to recursively manage a directory (when ensure =&gt; directory)
+    recurse   =&gt; true,
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language3" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:3">
+<h1>Managing users</h1>
+
+<p>Puppet has native types to manage users and groups, allowing easy addition, modification and removal. Here are the main arguments of the <strong>user</strong> type:</p>
+
+<pre><code>user { 'joe':
+    # (namevar) The user name
+    name      =&gt; 'joe',  
+    # The user's status: 'present','absent','role'
+    ensure    =&gt; 'present',
+    # The user's  id
+    uid       =&gt; '1001',
+    # The user's primary group id
+    gid       =&gt; '1001',
+    # Eventual user's secondary groups (use array for many)
+    groups    =&gt; [ 'admins' , 'developers' ],
+    # The user's password. As it appears in /etc/shadow
+    # Use single quotes to avoid unanted evaluation of $* as variables
+    password  =&gt; '$6$ZFS5JFFRZc$FFDSvPZSSFGVdXDlHe…',
+    # Typical users' attributes
+    shell     =&gt; '/bin/bash',
+    home      =&gt; '/home/joe',
+    mode      =&gt; '0644',
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language4" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:4">
+<h1>Puppet language style</h1>
+
+<p>Puppet language as an official <a href="http://docs.puppetlabs.com/guides/style_guide.html" target="_blank">Style Guide</a> which defines recommended rules on how to write the code.</p>
+
+<p>The standard de facto tool to check the code style is <a href="http://puppet-lint.com/" target="_blank">puppet-lint</a>.</p>
+
+<p>Badly formatted example:</p>
+
+<pre><code> file {
+ "/etc/issue":
+     content =&gt; "Welcome to $fqdn",
+     ensure =&gt; present,
+      mode =&gt; 644,
+     group =&gt; "root",
+     path =&gt; "${issue_file_path}",
+     }
+</code></pre>
+
+<p>Corrected style:</p>
+
+<pre><code>file { '/etc/issue':
+  ensure  =&gt; present,
+  content =&gt; "Welcome to ${fqdn}",
+  mode    =&gt; 0644,
+  group   =&gt; 'root',
+  path    =&gt; $issue_file_path,
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language5" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:5">
+<h1>Resources reference - Practice</h1>
+
+<p>Create a manifest that contains all the explored resources: package, service, file, exec, user.</p>
+
+<p>Use Pupppet Lint to verify its style.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language6" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:6">
+<h1>Language reference - Overview</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language7" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:7">
+<h1>Class inheritance</h1>
+
+<p>In Puppet classes are just containers of resources and have nothing to do with OOP classes. Therefore the meaning of class inheritance is somehow limited to few specific cases.</p>
+
+<p>When using class inheritance, the main class ('puppet' in the sample below) is always evaluated first and all the variables and resource defaults it sets are available in the scope of the child class ('puppet::server').</p>
+
+<p>Moreover the child class can override the arguments of a resource defined in the main class. Note the syntax used when referring to the existing resource File['/etc/puppet/puppet.conf']:</p>
+
+<pre><code>class puppet {
+  file { '/etc/puppet/puppet.conf':
+    content =&gt; template('puppet/client/puppet.conf'),
+  }
+}
+
+class puppet::server inherits puppet {
+  File['/etc/puppet/puppet.conf'] {
+    content =&gt; template('puppet/server/puppet.conf'),
+  }
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language8" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:8">
+<h1>Managing dependencies</h1>
+
+<p>Puppet language is declarative and not procedural: it defines states, the order in which resources are written in manifests does not affect the order in which they are applied to the desired state.</p>
+
+<p>To manage resources ordering, there are 3 different methods, which can cohexist:</p>
+
+<p>1 - Use the metaparameters <strong>before</strong>, <strong>require</strong>, <strong>notify</strong>, <strong>subscribe</strong></p>
+
+<p>2 - Use the <strong>Chaining arrows</strong> (compared to the above metaparamers: <strong>-&gt;</strong> , <strong>&lt;-</strong> , <strong>&lt;~</strong> , <strong>~&gt;</strong>)</p>
+
+<p>3 - Use run stages</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language9" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:9">
+<h1>Managing dependencies - before | notify</h1>
+
+<p>In a typical Package/Service/Configuration file example we want the package to be installed first, configure it and then start the service, eventually managing its restart if the config file changes.</p>
+
+<p>This can be expressed with metaparameters:</p>
+
+<pre><code>package { 'exim':
+  before =&gt; File['exim.conf'],  
+}
+
+file { 'exim.conf':
+  notify =&gt; Service['exim'],
+}
+
+service { 'exim':
+}
+</code></pre>
+
+<p>which is equivalent to</p>
+
+<pre><code>Package['exim'] -&gt; File['exim.conf'] ~&gt; Service['exim']
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language10" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:10">
+<h1>Managing dependencies - require | subscribe</h1>
+
+<p>The previous example can be expressed using the alternative reverse metaparameters:</p>
+
+<pre><code>package { 'exim':
+}
+
+file { 'exim.conf':
+  require =&gt; Package['exim'],
+}
+
+service { 'exim':
+  subscribe =&gt; File['exim.conf'],
+}
+</code></pre>
+
+<p>which can also be expressed like:</p>
+
+<pre><code>Service['exim'] &lt;~ File['exim.conf'] &lt;- Package['exim']
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language11" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:11">
+<h1>Conditionals</h1>
+
+<p>Puppet provides different constructs to manage conditionals inside manifests:</p>
+
+<p><strong>Selectors</strong> allows to set the value of a variable or an argument inside a resource declaration according to the value of another variable.
+Selectors therefore just returns values and are not used to manage conditionally entire blocks of code.</p>
+
+<p><strong>case statements</strong> are used to execute different blocks of code according to the values of a variable. It's possible to have a default block for unmatched entries.
+Case statements are NOT used inside resource declarations.</p>
+
+<p><strong>if elsif else</strong> conditionals, like case, are used to execute different blocks of code and can't be used inside resources declarations.
+We can can use any of Puppet's comparison expressions and we can combine more than one for complex patterns matching.</p>
+
+<p><strong>unless</strong> is somehow the opposite of <strong>if</strong>. It evaluates a boolean condition and if it's <em>false</em> it executes a block of code. It doesn't have elsif / else clauses.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language12" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:12">
+<h1>Sample: Assign a variable value</h1>
+
+<h4>Selector for variable's assignement</h4>
+
+<pre><code> $package_name = $osfamily ? {
+   'RedHat' =&gt; 'httpd',
+   'Debian' =&gt; 'apache2',
+   default  =&gt; undef,
+ }
+</code></pre>
+
+<h4>case</h4>
+
+<pre><code> case $::osfamily {
+   'Debian': { $package_name = 'apache2' }
+   'RedHat': { $package_name = 'httpd' }
+   default: { notify { "Operating system $::operatingsystem not supported" } }
+ }
+</code></pre>
+
+<h4>if elsif else</h4>
+
+<pre><code> if $::osfamily == 'Debian' {
+   $package_name = 'apache2'
+ } elsif $::osfamily == 'RedHat' {
+   $package_name = 'httpd'
+ } else {
+   notify { "Operating system $::operatingsystem not supported" }
+ }
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language13" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:13">
+<h1>Comparing strings: operators</h1>
+
+<p>Puppet supports some common comparison operators: <code>==  !=   &lt;  &gt;  &lt;=  &gt;=  =~  !~</code> and the somehow less common <code>in</code></p>
+
+<pre><code> if $::osfamily == 'Debian' { [ ... ] }
+
+ if $::kernel != 'Linux' { [ ... ] }
+
+ if $::uptime_days &gt; 365 { [ ... ] }
+
+ if $::operatingsystemrelease &lt;= 6 { [ ... ] }
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="01_Language" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_PuppetMatters_notes_01_Language14" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/PuppetMatters/notes/01_Language:14">
+<h1>Comparing strings: in operator and combinations</h1>
+
+<h2>in operator</h2>
+
+<p>The in operator checks if a string present in another string, an array or in the keys of an hash</p>
+
+<pre><code> if '64' in $::architecture
+
+ if $monitor_tool in [ 'nagios' , 'icinga' , 'sensu' ]
+</code></pre>
+
+<h2>Expressions combinations</h2>
+
+<p>It's possible to combine multiple comparisons with <strong>and</strong> and <strong>or</strong></p>
+
+<pre><code>if ($::osfamily == 'RedHat')
+and ($::operatingsystemrelease == '5') {
+   [ ... ]
+}
+
+if ($::osfamily == 'Debian') or ($::osfamily == 'RedHat') {
+   [ ...]
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_README1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/README:1">
+<h2>The [DevOps] Guide to Puppet, Universe, and Everything</h2>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="README" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides_README2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/README:2">
+<h1>SLIDES COLLECTION</h1>
+
+<p>This is collection of slides for presentation and workshops about Puppet.</p>
+
+<p>This is part of The [DevOps] Guide to Puppet, Universe, and Everything:</p>
+
+<ul>
+<li>An Open Source <a href="https://github.com/example42/puppetguide-book" target="_blank">book</a> [TODO]</li>
+<li>A set of sample Puppet code architectures. Evolved into the <a href="https://github.com/example42/psick" target="_blank">psick project</a>
+</li>
+<li>A collection of <a href="https://github.com/example42/puppetguide-slides" target="_blank">slides decks</a> (this repo)</li>
+<li>The <a href="https://github.com/example42/puppetguide-reference" target="_blank">Puppet Universal Reference</a> [TODO]</li>
+<li>A collection of <a href="https://github.com/example42/puppetguide-cheatsheets" target="_blank">Puppet cheatsheets</a> [TODO]</li>
+</ul>
+
+<h2>Slide decks</h2>
+
+<p>We have different slides deck, for different purposes and skills:</p>
+
+<ul>
+<li>
+<a href="https://github.com/example42/puppetguide-slides/tree/master/Beginner" target="_blank">Beginner</a> (Puppet usage and language basics) <a href="http://www.example42.com/guide/slides/beginner" target="_blank">Online rendered Slides</a>
+</li>
+<li>
+<a href="https://github.com/example42/puppetguide-slides/tree/master/PuppetMatters" target="_blank">Puppet that Matters</a> (Practical and useful stuff to know in order Deeper into Puppet language and components)</li>
+</ul>
+
+<p>They are licensed under the <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial</a> terms: they are free to use for not commercial purposes (you can use them for internal trainings in your company, but not for commercial trainings to your customers, unless you earn this right by sponsoring them. </p>
+
+<p>Sponsorships include:</p>
+
+<ul>
+<li>Your Logo on the main slide</li>
+<li>Social communication (Newsletter, Twitter, LinkedIN, Facebook, Google group... ) about the sponsorship</li>
+<li>LEGAL RIGHTS to use the slides for commercial purposes</li>
+<li>The certainty that the slide deck will be done in a given time period</li>
+</ul>
+
+<p>For sponsorship opportunities <a href="http://www.example42.com/#contact" target="_blank">contact example42</a>.</p>
+
+<h2>Rendering the slides</h2>
+
+<p>Slides are in markdown format and are rendered using Puppet's <a href="https://github.com/puppetlabs/showoff" target="_blank">showoff</a> tool.</p>
+
+<p>You can find the slides markdown files under the <code>_slides</code> directory. They are linked and used in the different decks according to what is defines in the <code>showoff.json</code> file of each deck directory.</p>
+
+<p>In order to show them you have to install showoff:</p>
+
+<pre><code>gem install showoff
+</code></pre>
+
+<p>Then move to the section you want to present and run showoff:</p>
+
+<pre><code>cd Beginner
+showoff serve
+</code></pre>
+
+<p>Browse to <a href="http://127.0.0.1:9090" target="_blank">http://127.0.0.1:9090</a> to see the slides.</p>
+
+<p>Type <code>t</code> to show the table of contents.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Agent_Master" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Agent_Master" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Agent_Master">
+<h1>A typical Agent / Master Setup</h1>
+
+<p>A typical modern Puppet infrastructure has the following components:</p>
+
+<ul>
+<li>
+<p>a <strong>Puppet server</strong> service (running as user <code>puppet</code>) listening on TCP port 8140 on the Puppet Master node (the server). This service can be supplied by different softwares:</p>
+
+<ul>
+<li>The normal Puppet software in Ruby, running with the <strong>master</strong> command (this is usually invoked via <strong>Passenger</strong>, in not small setups)</li>
+<li>The new <strong>puppetserver</strong> Clojure application, which runs inside a JVM</li>
+</ul>
+</li>
+<li><p>a <strong>Puppet client</strong> (running as <code>root</code>) on each managed node. This is provided by the <strong>puppet</strong> package (for Puppet 4, when provided via the PuppetLabs repositories, this is called <strong>puppet-agent</strong>).</p></li>
+<li><p>an optional <strong>PuppetDB</strong> service, which need to communicate with the Puppet server and uses <strong>PostgreSQL</strong> as data backend.</p></li>
+<li><p>an optional <strong>MCollective</strong> infrastructure based on agents, running on each node, a console, used from an administrative node for centralized control, and a Message Queue middleware service (typically <strong>ActiveMQ</strong> or <strong>RabbitMQ</strong>)</p></li>
+</ul>
+
+<p>A Puppet run on the client can be triggered in different ways:</p>
+
+<ul>
+<li><p>As a service (default configuration), which polls the server every 30 minutes (default)</p></li>
+<li><p>Via a cron job (typically with random delays to avoid requests congestion)</p></li>
+<li><p>Manually from the client node</p></li>
+<li><p>In a centralized way via MCollective</p></li>
+<li><p>From the Puppet Master, via the <a href="https://docs.puppetlabs.com/pe/latest/app_orchestration_overview.html" target="_blank">Application Orchestration</a> feature introduced in Puppet Enterprise 2015.3</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Clientcerts_management" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Clientcerts_management" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Clientcerts_management">
+<h1>Certificates management</h1>
+
+<p>On the Master we can use <code>puppet cert</code> to manage certificates.</p>
+
+<p>List the (client) certificates to sign:</p>
+
+<pre><code>puppet cert list
+</code></pre>
+
+<p>List all certificates: signed (+), revoked (-), to sign ( ):</p>
+
+<pre><code>puppet cert list --all
+</code></pre>
+
+<p>Sign a client certificate:</p>
+
+<pre><code>puppet cert sign &lt;certname&gt;
+</code></pre>
+
+<p>Remove a client certificate:</p>
+
+<pre><code>puppet cert clean &lt;certname&gt;
+</code></pre>
+
+<p>To see the path of the <code>ssldir</code> where all certs are writte:</p>
+
+<pre><code>puppet config print ssldir
+</code></pre>
+
+<p>Client stores its certificates and the server's public one in <code>$ssldir</code>.</p>
+
+<p>Server stores clients public certificates and in <code>$ssldir/ca</code>. DO NOT remove this directory.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Control_repo" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Control_repo" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Control_repo">
+<h1>The control repo</h1>
+
+<p>The current recommended approach to manage our Puppet code and data is to use a so called <strong>control-repo</strong> which is basically the content of a Puppet environment and contains typically:</p>
+
+<ul>
+<li><p>The <strong>environment.conf</strong> file to configure the environment itself</p></li>
+<li><p>A <strong>hieradata</strong> directory where to place Hiera data file (typically in yaml format)</p></li>
+<li><p>A <strong>manifests</strong> directory which contains manifests outside modules (maps to the <strong>manifests</strong> config setting). This has typically the <strong>site.pp</strong> manifest with some node classification technique, top scope variables and resource defaults.</p></li>
+<li><p>An empty <strong>modules</strong> directory that contains Public modules to be installed via r10k</p></li>
+<li><p>A <strong>Puppetfile</strong> that defines the public modules to install via r10k</p></li>
+<li><p>A <strong>site</strong> directory which is added to the modulepath and contains local custom modules. In this directory you have, for example the <strong>role</strong> and the <strong>profile</strong> modules and any other custom module created for local needs</p></li>
+<li><p>An optional <strong>Vagrantfile</strong> and relevant files to have a local Vagrant environment where to test the Puppet</p></li>
+</ul>
+
+<p>For a sample, check <a href="https://github.com/puppetlabs/control-repo" target="_blank">PuppetLabs' control repository template</a>.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Environments" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Environments" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Environments">
+<h1>Environments</h1>
+
+<p>Puppet environments allow isolation of Puppet code and data: for each environment we can have different paths manifest files, Hiera data and modules.</p>
+
+<p>Puppet's environments DO NOT necessarily have to match the operational environments of our servers.</p>
+
+<p>Environments management has changed from Puppet 3.6 onwards:</p>
+
+<p>Earlier versions were based on so-called <strong>Config file Environments</strong> where each environment had to be defined in <strong>puppet.conf</strong>.</p>
+
+<p>From 3.6 <strong>directory environments</strong> have been introduced and the older approach has been deprecated.</p>
+
+<p>On Puppet 4.x only directory environments are supported.</p>
+
+<h2><a href="https://docs.puppetlabs.com/puppet/latest/reference/environments_classic.html" target="_blank">Config file Environments</a></h2>
+
+<p>The "old" config file environments are defined inside <code>puppet.conf</code> with a syntax like:</p>
+
+<pre><code> [test]
+   modulepath = $confdir/environments/test/modules:$condfir/modules
+   manifest = $confdir/environments/test/manifests
+</code></pre>
+
+<p>For the default <strong>production</strong> environment there were the config parameters, now deprecated, <code>manifest</code> and <code>modulepath</code> in the <code>[main]</code> section.</p>
+
+<h2><a href="https://docs.puppetlabs.com/puppet/latest/reference/environments_configuring.html" target="_blank">Directory Environments</a></h2>
+
+<p>Directory Environments are configured in <code>puppet.conf</code> as follows:</p>
+
+<pre><code>[main]
+environmentpath = $configdir/
+</code></pre>
+
+<p>Then inside the <code>/etc/puppet/environments/$environment/</code> directory we have:</p>
+
+<pre><code>modules/   # Directory containing modules
+manifests/ # Directory containing site.pp
+environment.conf # Conf file for the environment
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Essential_concepts" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Essential_concepts" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Essential_concepts">
+<h1>Essential Puppet concepts</h1>
+
+<p>A review of Puppet essential concepts. Check online the complete official <a href="http://docs.puppetlabs.com/references/glossary.html" target="_blank">glossary</a>.</p>
+
+<ul>
+<li>A typical Puppet setup is based on a client-server architecture: the client is also called <strong>agent</strong> (or <strong>agent node</strong> or simply <strong>node</strong>), the server is called <strong>master</strong>.</li>
+<li>When the puppet client connects to the server, it sends it's own ssl <strong>certname</strong> and a list of <strong>facts</strong> (units of information about the client's system generated by the command <strong>facter</strong>).</li>
+<li>Based on the client <strong>certname</strong> and its facts, the master replies with a <strong>catalog</strong> that describes what has to be configured on the client.</li>
+<li>The catalog is based on Puppet language (a Domain Specific Language, DSL), which is written in <strong>manifests</strong> (files with <strong>.pp</strong> extension).</li>
+<li>Puppet can also run in <strong>masterless</strong> mode, on the node the  <strong>puppet apply</strong> command parses directly a given manifest.</li>
+<li>In the manifests, using Puppet DSL, we declare <strong>resources</strong> that affect elements of the system (files, packages, services ...).</li>
+<li>Resources are grouped in <strong>classes</strong> which may expose <strong>parameters</strong> that affect their behavior.</li>
+<li>The values of the class parameters can be defined in different ways, one of them is <strong>Hiera</strong>.</li>
+<li>
+<strong>Hiera</strong> is a very common and versatile tool to store the values of parameters.</li>
+<li>Classes and the configuration files that are shipped to nodes are organized in <strong>modules</strong>.</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Masterless" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Masterless" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Masterless">
+<h1>Masterless setup</h1>
+
+<p>A masterless setup doesn't need a Puppet Master.</p>
+
+<p>Puppet manifests are deployed directly on nodes and applied locally, we need to specify the manifest to apply, the path where to find modules and eventually the location of Hiera configuration file.</p>
+
+<pre><code>puppet apply --modulepath /puppetcode/modules/ --hiera_config /puppetcode/hiera.yaml /puppetcode/manifests/file.pp
+</code></pre>
+
+<p>To see the default values of these configuration options type:</p>
+
+<pre><code>puppet config print hiera_config modulepath
+</code></pre>
+
+<p>Such a setup involves pros, cons and new infrastructural challenges:</p>
+
+<ul>
+<li>(+) No need of a Puppet infrastructure: just the puppet package on the node</li>
+<li>(+) There's not an external point of failure and a bottleneck on the Puppet Master (which still can scale)</li>
+<li>(+) We can trigger multiple parallel Puppet runs</li>
+<li>(+) Easier control of what version of our Puppet code is deployed and applied to each node </li>
+<li>(-) All the nodes have to store locally the Puppet code: we need a sane way to manage secrets</li>
+<li>(-) StoreConfigs usage require access to Puppet DB from every node</li>
+<li>(-) There aren't simple and ready solutions for centralized reporting and visualization of Puppet activity</li>
+<li>(=) We need to define a fitting deployment workflow on all the nodes. Hints: <a href="https://github.com/railsmachine/rump" target="_blank">Rump</a> - <a href="https://github.com/pitluga/supply_drop" target="_blank">supply_drop</a>
+</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Nodes_classification" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Nodes_classification" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Nodes_classification">
+<h1>Nodes classification</h1>
+
+<p>We can classify nodes, that is define for each of them what classes and parameters to include, in different ways:</p>
+
+<ul>
+<li>Using the node statement</li>
+<li>Using an External Node Classifier</li>
+<li>Using Hiera</li>
+</ul>
+
+<h2>Classification via node statement</h2>
+
+<p>A node is identified by the PuppetMaster by its <strong>certname</strong>, which defaults to the node's <strong>fqdn</strong></p>
+
+<p>In the first manifest file parsed by the Master, <code>site.pp</code>, we can define nodes with a syntax like:</p>
+
+<pre><code>node 'web01' {
+  include apache
+}
+</code></pre>
+
+<p>We can also define a list of matching names:</p>
+
+<pre><code>node 'web01' , 'web02' , 'web03' {
+  include apache
+}
+</code></pre>
+
+<p>or use a regular expression:</p>
+
+<pre><code>node /^www\d+$/ {
+  include apache
+}
+</code></pre>
+
+<p>A node can inherit another node and include all the classes and variables defined for it, this feature (nodes inheritance) is now deprecated and is not supported anymore on Puppet 4.</p>
+
+<h2>Nodes classification via an ENC</h2>
+
+<p>Puppet can query an external source to retrieve the classes and the parameters to assign to a node. This source is called External Node Classifier (ENC) and can be anything that, when interrogated via a script with the clients' certname as first parameter, returns a yaml file with the list of classes and parameters.</p>
+
+<p>Common ENC are <strong>Puppet DashBoard</strong>, <strong>The Foreman</strong> and <strong>Puppet Enterprise</strong> (where the functionality of ENC is enabled by default).</p>
+
+<p>To enable the usage of an ENC set these parameters in <code>puppet.conf</code></p>
+
+<pre><code># Enable the usage of a script to classify nodes
+node_terminus = exec
+
+# Path of the script to execute to classify nodes
+external_nodes = /etc/puppet/node.rb
+</code></pre>
+
+<h2>Classification with Hiera</h2>
+
+<p>Hiera provides a <strong>hiera_include</strong> function that allows the inclusion of classes as defined on Hiera. This is an approach that can be useful when there's massive usage of Hiera as backend for Puppet data.</p>
+
+<p>In the manifest file just write:</p>
+
+<pre><code>hiera_include('classes')
+</code></pre>
+
+<p>and place, as an array, the classes to include in our Hiera data source under the key <code>classes</code>.</p>
+
+<h2>Nodeless setup</h2>
+
+<p>It's possible also to skip the nodes classification and define what to provide on each node just using (top scope or facts) variables.</p>
+
+<p>For example we may define the <code>$::role</code> of our systems via a fact or a variable defined according to the hostname of our clients and just include, for each of them the relevant role class:</p>
+
+<pre><code>include "::roles::${::role}"
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Overview">
+<h1>Puppet architectures</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>A review of Puppet essential concepts</li>
+<li>Client/Master and Masterless setups</li>
+<li>puppet.conf</li>
+<li>Environments</li>
+<li>The Control repo</li>
+<li>Roles and profiles</li>
+<li>Components of an architecture</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_Infrastructure_Components" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Puppet_Infrastructure_Components1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Puppet_Infrastructure_Components:1">
+<h1>The components of our Puppet architecture</h1>
+
+<h2>What we have to do:</h2>
+
+<ul>
+<li>Define and group the <strong>classes</strong> to include in each node</li>
+<li>Set the <strong>parameters</strong> both global to use for each node</li>
+<li>Manage the <strong>files</strong> used to configure things on our servers</li>
+</ul>
+
+<h2>Available components</h2>
+
+<ul>
+<li>
+<strong>The default_manifest</strong> - The default manifests directory or single site.pp</li>
+<li>
+<strong>An ENC</strong> - (optional) An External Node Classifier. Can be Puppet Enterprise Console, The Foreman, Puppet Dashboard or any custom solution</li>
+<li>
+<strong>Hiera</strong> - A hierarchical and modular key-value backend</li>
+<li>
+<strong>Public modules</strong> - The available universe of public modules</li>
+<li>
+<strong>Site modules</strong> - Any custom module written for local needs</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_Infrastructure_Components" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Puppet_Infrastructure_Components2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Puppet_Infrastructure_Components:2">
+<h1>The components of our Puppet architecture</h1>
+
+<h2>Where to define classes</h2>
+
+<ul>
+<li>
+<strong>default_manifest</strong> - Top or Node scope variables</li>
+<li>
+<strong>ENC</strong> - Under the classes key in the provided YAML</li>
+<li>
+<strong>ldap</strong> - puppetClass attribute</li>
+<li>
+<strong>Hiera</strong> - Via the <code>hiera_include()</code> function</li>
+<li>
+<strong>Site modules</strong> - In roles and profiles or other grouping classes</li>
+</ul>
+
+<h2>Where to define parameters</h2>
+
+<ul>
+<li>
+<strong>default_manifest</strong> - Under the node statement</li>
+<li>
+<strong>ENC</strong> - Following the ENC logic</li>
+<li>
+<strong>ldap</strong> - puppetVar attribute</li>
+<li>
+<strong>Hiera</strong> - Via the <code>hiera()</code>, <code>hiera_hash()</code>, <code>hiera_array()</code> functions of Puppet 3 Data Bindings</li>
+<li>
+<strong>Shared  modules</strong> - OS related settings</li>
+<li>
+<strong>Site modules</strong> - Custom and logical settings</li>
+<li>
+<strong>Facts</strong> - Facts calculated on the client</li>
+</ul>
+
+<h2>Where to define files</h2>
+
+<ul>
+<li>
+<strong>Shared  modules</strong> - Default templates populated via module's params</li>
+<li>
+<strong>Site modules</strong> - All custom static files and templates</li>
+<li>
+<strong>Hiera</strong> - Via the <strong>hiera-file</strong> plugin</li>
+<li>
+<strong>Fileserver</strong> custom mount points</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_configuration" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Puppet_configuration" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Puppet_configuration">
+<h1>Puppet configuration: puppet.conf</h1>
+
+<p>It's Puppet main configuration file. <a href="https://docs.puppetlabs.com/puppet/latest/reference/config_file_main.html" target="_blank">Official reference</a></p>
+
+<p>On Open Source Puppet &lt;= 3 is generally in:</p>
+
+<pre><code>/etc/puppet/puppet.conf
+</code></pre>
+
+<p>On Puppet 4 and Puppet Enterprise is in:</p>
+
+<pre><code>/etc/puppet/puppetlabs/puppet.conf
+</code></pre>
+
+<p>When running as a normal user can be placed in its home directory:</p>
+
+<pre><code>/home/user/.puppet/puppet.conf
+</code></pre>
+
+<p>Configurations are divided in [stanzas] for different Puppet sub commands</p>
+
+<p>Common stanza for all commands: <strong>[main]</strong></p>
+
+<p>For puppet agent (client): <strong>[agent]</strong> (Was [puppetd] in Puppet pre 2.6)</p>
+
+<p>For puppet apply (client): <strong>[user]</strong> (Was [puppet])</p>
+
+<p>For puppet master (server): <strong>[master]</strong> (Was [puppetmasterd] and [puppetca])</p>
+
+<p>Hash sign (#) can be used for comments.</p>
+
+<p>To view all or a specific configuration setting:</p>
+
+<pre><code>puppet config print all
+puppet config print modulepath
+</code></pre>
+
+<h3>Options worth attention</h3>
+
+<p>Here are some options (and the relevant [stanza]) worth noting:</p>
+
+<ul>
+<li>[main] <strong>vardir</strong>: Path where Puppet stores dynamic data.</li>
+<li>[main] <strong>ssldir</strong>: Path where SSL certifications are stored.</li>
+<li>[agent] <strong>server</strong>: Host name of the PuppetMaster. (Default: puppet)</li>
+<li>[agent] <strong>certname</strong>: Certificate name used by the client. (Default is its fqdn)</li>
+<li>[agent] <strong>runinterval</strong>: Number of minutes between Puppet runs, when running as service. (Default: 30)</li>
+<li>[agent] <strong>report</strong>: If to send Puppet runs' reports to the <strong>report_server</strong>. (Default: true)</li>
+<li>[master] <strong>autosign</strong>: If new clients certificates are automatically signed. (Default: false)</li>
+<li>[master] <strong>reports</strong>: How to manage clients' reports (Default: store)</li>
+<li>[master] <strong>storeconfigs</strong>: If to enable store configs to support exported resources. (Default: false)</li>
+</ul>
+
+<p>For details check the full <a href="http://docs.puppetlabs.com/references/latest/configuration.html" target="_blank">configuration reference</a>  on the official site.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_first_run" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Puppet_first_run" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Puppet_first_run">
+<h1>Certificates management - Puppet First run</h1>
+
+<p>By default the first Puppet run on a client fails:</p>
+
+<pre><code>client # puppet agent -t
+       # "Exiting; no certificate found and waitforcert is disabled"
+</code></pre>
+
+<p>An optional `<code>--waitforcert 60</code> parameter makes client wait 60 seconds before giving up.</p>
+
+<p>The server has received the client's CSR which has to be manually signed:</p>
+
+<pre><code>server # puppet cert sign &lt;certname&gt;
+</code></pre>
+
+<p>Once signed on the Master, the client can connect and receive its catalog:</p>
+
+<pre><code>client # puppet agent -t
+</code></pre>
+
+<p>If we have issues with certificates (reinstalled client or other certs related problemes):</p>
+
+<p>Be sure client and server times are synced</p>
+
+<p>Clean up the client certificate. On the client remove it:</p>
+
+<pre><code>client # mv /var/lib/puppet/ssl /var/lib/puppet/ssl.old
+</code></pre>
+
+<p>On the Master clean the old client certificate:</p>
+
+<pre><code>server # puppet cert clean &lt;certname&gt;
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Roles_and_profiles" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Architecture_Roles_and_profiles" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Architecture/Roles_and_profiles">
+<h1>Roles and profiles</h1>
+
+<p>A common challenge we have when designing a Puppet architecture is how and where to define the logic that assigns to a group of nodes a specific set of classes (and the relevant resources).</p>
+
+<p>There's not a single way or approach, but a consolidated best practices involves the usage of roles and profiles.</p>
+
+<ul>
+<li><p>A node has one and only one role (a variation involves more roles per node)</p></li>
+<li><p>Roles are classes that just include one or more profiles and describe the machines' function according to our business needs</p></li>
+<li><p>Profiles are classes that define a technological stack. They can include classes or declare them with parameters, they can have specific single resources. They either have parameters or hiera lookups inside the code.</p></li>
+<li><p>The modules that manage a single applications, typically the ones we find on the Forge for apache, nginx etc, are called <strong>component</strong> modules. Their classes and defines are supposed to be used in profile classes.</p></li>
+</ul>
+
+<p>For further reference:</p>
+
+<ul>
+<li><p>The <a href="http://www.craigdunn.org/2012/05/239/" target="_blank">original blog post</a> on Roles and Profiles by Craig Dunn </p></li>
+<li><p>The series of <a href="http://garylarizza.com" target="_blank">Gary Larizza's blog posts</a></p></li>
+<li><p>Some <a href="https://puppetlabs.com/presentations/designing-puppet-rolesprofiles-pattern" target="_blank">presentations</a> on Roles and Profiles</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Backends" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Backends" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Backends">
+<h1>Hiera Backends</h1>
+
+<p>One powerful feature of Hiera is that the actual key-value data can be retrieved from different backends.</p>
+
+<p>With the <code>:backends</code> global configuration we define which backends to use, then, for each used backend we can specify backend specific settings.</p>
+
+<h3>Build it backends:</h3>
+
+<p><strong>yaml</strong> - Data is stored in yaml files (in the <code>:datadir</code> directory)</p>
+
+<p><strong>json</strong> - Data is stored in json files (in the <code>:datadir</code> directory)</p>
+
+<p><strong>puppet</strong> - Data is defined in Puppet (in the <code>:datasouce</code> class)</p>
+
+<h3>Extra backends:</h3>
+
+<p>Many additional backends are available, the most interesting ones are:</p>
+
+<p><a href="https://github.com/crayfishx/hiera-gpg" target="_blank"><strong>gpg</strong></a> - Data is stored in GPG encripted yaml files</p>
+
+<p><a href="https://github.com/crayfishx/hiera-http" target="_blank"><strong>http</strong></a> - Data is retrieved from a REST service</p>
+
+<p><a href="https://github.com/crayfishx/hiera-mysql" target="_blank"><strong>mysql</strong></a> - Data is retrieved from a Mysql database</p>
+
+<p><a href="https://github.com/reliantsecurity/hiera-redis" target="_blank"><strong>redis</strong></a> - Data is retrieved from a Redis database</p>
+
+<h3>Custom backends</h3>
+
+<p>It's relatively easy to write custom backends for Hiera. Here are some <a href="http://docs.puppetlabs.com/hiera/1/custom_backends.html" target="_blank">development instructions</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Command_line" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Command_line" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Command_line">
+<h1>Using hiera from the command line</h1>
+
+<p>Hiera can be invoken via the command line to interrogate the given key's value:</p>
+
+<pre class="highlight"><code class="language-shell">hiera dns_servers</code></pre>
+
+<p>This will return the default value as no node's specific information is provided. More useful is to provide the whole facts' yaml of a node, so that the returned value can be based on the dynamic values of the hierarchy.
+On the Pupppet Masters the facts of all the managed clients are collected in $vardir/yaml/facts so this is the best place to see how Hiera evaluates keys for different clients:</p>
+
+<pre class="highlight"><code class="language-shell">hiera dns_servers --yaml /var/lib/puppet/yaml/facts/&lt;node&gt;.yaml</code></pre>
+
+<p>We can also pass variables useful to test the hierarchy, directly from the command line:</p>
+
+<pre class="highlight"><code class="language-shell">hiera ntp_servers operatingsystem=Centos
+hiera ntp_servers operatingsystem=Centos hostname=jenkins</code></pre>
+
+<p>To have a deeper insight of Hiera operations use the debug (-d) option:</p>
+
+<pre class="highlight"><code class="language-shell">hiera dns_servers -d</code></pre>
+
+<p>To make an hiera array lookup (equivalent to hiera_array()):</p>
+
+<pre class="highlight"><code class="language-shell">hiera dns_servers -a</code></pre>
+
+<p>To make an hiera hash lookup (equivalent to hiera_hash()):</p>
+
+<pre class="highlight"><code class="language-shell">hiera openssh::settings -h</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Configuration" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Configuration">
+<h1>Hiera configuration: hiera.yaml</h1>
+
+<p>Hiera's configuration file is in yaml format and is called <strong>hiera.yaml</strong> here we define the hierarchy we want to use and the backends where data is placed, with backend specific settings.</p>
+
+<p>Hiera's configuration file path is different according to how it's invoked:</p>
+
+<h3>From the Command Line and Ruby code</h3>
+
+<p>Default path: <code>/etc/hiera.yaml</code></p>
+
+<h3>From Puppet</h3>
+
+<p>Default path for Puppet OpenSource: <code>/etc/puppet/hiera.yaml</code></p>
+
+<p>Default path for Puppet Enterprise: <code>/etc/puppetlabs/puppet/hiera.yaml</code></p>
+
+<p>It's good practice the symlink these alternative configuration files in order to avoid inconsistencies when using Hiera from the shell line or within Puppet manifests:</p>
+
+<pre><code>ln -s /etc/hiera.yaml /etc/puppet/hiera.yaml
+</code></pre>
+
+<h2>Default configuration</h2>
+
+<p>By default Hiera does not provide a configuration file. The default settings are equivalent to this:</p>
+
+<pre><code>---
+:backends: yaml
+:yaml:
+  :datadir: /var/lib/hiera
+:hierarchy: common
+:logger: console
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Data_binding" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Data_binding" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Data_binding">
+<h1>Puppet 3 data bindings</h1>
+
+<p>With Puppet 3 Hiera is shipped directly with Puppet and an automatic hiera lookup is done for each class' parameter using the key <strong>$class::$argument</strong>: this functionality is called data bindings or automatic parameter lookup.</p>
+
+<p>For example in a class definition like:</p>
+
+<pre class="highlight"><code class="language-puppet">class openssh (
+  template = undef,
+) { . . . }</code></pre>
+
+<p>Puppet 3 automatically looks for the Hiera key openssh::template if no value is explitely set when declaring the class.</p>
+
+<p>To emulate a similar behaviour on pre Puppet 3 we should write something like:</p>
+
+<pre class="highlight"><code class="language-puppet">class openssh (
+  template = hiera("openssh::template"),
+) { . . . }</code></pre>
+
+<p>If a default value is set for an argument that value is used only when user has not explicitly declared value for that argument and Hiera automatic lookup for that argument doesn't return any value.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Hierarchies" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Hierarchies" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Hierarchies">
+<h1>Hierarchies</h1>
+
+<p>With the <code>:hierarchy</code> global setting we can define a string or an array of data sources which are checked in order, from top to bottom.</p>
+
+<p>When the same key is present on different data sources by default is chosen the top one. We can override this setting with the <code>:merge_behavior</code> global configuration. Check <a href="http://docs.puppetlabs.com/hiera/1/lookup_types.html#deep-merging-in-hiera--120" target="_blank">this page</a> for details.</p>
+
+<p>In hierarchies we can interpolate variables with the %{} notation (variables interpolation is possible also in other parts of hiera.yaml and in the same data sources).</p>
+
+<p>This is an example Hierarchy:</p>
+
+<pre class="highlight"><code class="language-puppet">    ---
+    :hierarchy:
+      - "nodes/%{::clientcert}"
+      - "roles/%{::role}"
+      - "%{::osfamily}"
+      - "%{::environment}"
+      - common</code></pre>
+
+<p>Note that the referenced variables should be expressed with their fully qualified name. They are generally facts or Puppet's top scope variables (in the above example, <strong>$::role</strong> is not a standard fact, but is generally useful to have it (or a similar variable that identifies the kind of server) in our hierarchy).</p>
+
+<p>If we have more backends, for each backend is evaluated the full hierarchy.</p>
+
+<p>We can find some real world hierarchies samples in this <a href="https://groups.google.com/forum/?hl=it#!topic/puppet-users/cCfimbolUio" target="_blank">Puppet Users Group post</a></p>
+
+<p>More information on hierarchies <a href="http://docs.puppetlabs.com/hiera/1/hierarchy.html" target="_blank">here</a>.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Introduction" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Introduction" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Introduction">
+<h1>Introduction to Hiera</h1>
+
+<p>Hiera is the <strong>key/value lookup tool</strong> of reference where to store Puppet user data.</p>
+
+<p>It provides an highly customizable way to lookup for parameters values based on a custom hierarchy using many different backends for data storage.</p>
+
+<p>It provides a command line tool <code>hiera</code> that we can use to interrogate direclty the Hiera data and functions to be used inside Puppet manifests: <code>hiera()</code> , <code>hiera_array()</code> , <code>hiera_hash()</code> , <code>hiera_include()</code></p>
+
+<p>Hiera is installed by default with Puppet version 3 and is available as separated download on earlier version (<a href="http://docs.puppetlabs.com/hiera/1/installing.html" target="_blank">Installation instructions</a>).</p>
+
+<p>We need Hiera only on the PuppetMaster (or on any node, if we have a masterless setup).</p>
+
+<p>Currently version 1 is available, here is its <a href="http://docs.puppetlabs.com/hiera/1/" target="_blank">official documentation</a>.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Lookups" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Hiera_Lookups" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Hiera/Lookups">
+<h1>Using Hiera in Puppet</h1>
+
+<p>The data stored in Hiera can be retrieved by the PuppetMaster while compiling the catalog using the hiera() function.</p>
+
+<p>In our manifests we can have something like this:</p>
+
+<pre class="highlight"><code class="language-puppet">$my_dns_servers = hiera("dns_servers")</code></pre>
+
+<p>Which assigns to the variable <strong><em>$my_dns_servers</em></strong> (can have any name) the top value retrieved by Hiera for the key <strong><em>dns_servers</em></strong></p>
+
+<p>We may prefer, in some cases, to retrieve all the values retrieved in the hierarchy's data sources of a given key and not the first use, use hiera_array() for that.</p>
+
+<pre class="highlight"><code class="language-puppet">$my_dns_servers = hiera_array("dns_servers")</code></pre>
+
+<p>If we expect an hash as value for a given key we can use the hiera() function to retrieve the top value found or hiera_hash to merge all the found values in a single hash:</p>
+
+<pre class="highlight"><code class="language-puppet">$openssh_settings = hiera_hash("openssh_settings")</code></pre>
+
+<h3>Extra parameters</h3>
+
+<p>All these hiera functions may receive additional parameters:</p>
+
+<p>Second argument: <strong>default</strong> value if no one is found</p>
+
+<p>Third argument: <strong>override</strong> with a custom data source added at the top of the configured hierarchy</p>
+
+<pre><code>    $my_dns_servers = hiera("dns_servers","8.8.8.8","$country")
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Manage_packages_and_services" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_HowTo_Manage_packages_and_services1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/HowTo/Manage_packages_and_services:1">
+<h1>Managing packages</h1>
+
+<p>Installation of packages is managed by the <strong>package</strong> type.</p>
+
+<p>The main arguments:</p>
+
+<pre class="highlight"><code class="language-puppet">package { 'apache':
+  name      =&gt; 'httpd',  # (namevar)
+  ensure    =&gt; 'present' # Values: 'absent', 'latest', '2.2.1'
+  provider  =&gt; undef,    # Force an explicit provider
+}</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Manage_packages_and_services" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_HowTo_Manage_packages_and_services2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/HowTo/Manage_packages_and_services:2">
+<h1>Managing services</h1>
+
+<p>Management of services is via the <strong>service</strong> type.</p>
+
+<p>The main arguments:</p>
+
+<pre class="highlight"><code class="language-puppet">service { 'apache':
+  name      =&gt; 'httpd',  # (namevar)
+  ensure    =&gt; 'running' # Values: 'stopped', 'running'
+  enable    =&gt; true,     # Define if to enable service at boot (true|false)
+  hasstatus =&gt; true,     # Whether to use the init script' status to check
+                         # if the service is running.
+  pattern   =&gt; 'httpd',  # Name of the process to look for when hasstatus=false
+}</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Run_commands" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_HowTo_Run_commands" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/HowTo/Run_commands">
+<h1>Executing commands</h1>
+
+<p>We can run plain commands using Puppet's <strong>exec</strong> type. Since Puppet applies it at every run, either the command can be safely run multiple times or we have to use one of the <strong>creates</strong>, <strong>unless</strong>, <strong>onlyif</strong>, <strong>refreshonly</strong> arguments to manage when to execute it.</p>
+
+<pre><code>exec { 'get_my_file':
+    # (namevar) The command to execute
+    command   =&gt; "wget http://mysite/myfile.tar.gz -O /tmp/myfile.tar.gz',
+    # The search path for the command. Must exist when command is not absolute
+    # Often set in Exec resource defaults
+    path      =&gt; '/sbin:/bin:/usr/sbin:/usr/bin',
+    # A file created by the command. It if exists, the command is not executed
+    creates   =&gt; '/tmp/myfile.tar.gz',
+    # A command or an array of commands, if any of them returns an error
+    # the command is not executed
+    onlyif    =&gt; 'ls /tmp/myfile.tar.gz &amp;&amp; false',
+    # A command or an array of commands, if any of them returns an error
+    # the command IS executed
+    unless    =&gt; 'ls /tmp/myfile.tar.gz',
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration_Management" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Configuration_Management1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Configuration_Management:1">
+<h1>DevOps and Configuration management</h1>
+
+<p>DevOps is a <a href="https://en.wikipedia.org/wiki/DevOps" target="_blank">term</a> that involves a remarkable number of concepts, nuances and definitions.</p>
+
+<p>We won't try to give another one, but we can safely say that DevOps is (also) about <strong>culture</strong>, <strong>processes</strong>, <strong>people</strong> and <strong>tools</strong>.</p>
+
+<p>A complete <a href="https://xebialabs.com/the-ultimate-devops-tool-chest/" target="_blank">DevOps tools chain</a> contains software of these categories:</p>
+
+<ul>
+<li>Source Code Management (We use them when writing Puppet code)</li>
+<li>Repository and software Management  (Puppet can configure them)</li>
+<li>Software build (Puppet can configure them)</li>
+<li>Configuration Management (<strong>Puppet is here</strong>)</li>
+<li>Testing  (We can test our Puppet code)</li>
+<li>Monitoring and data analysis  (Puppet can configure them)</li>
+<li>Systems and Applications Deployment (Puppet can be also here)</li>
+<li>Continuous integration  (We can manage Puppet code deployments in a CI pipeline)</li>
+<li>Cloud (Puppet code can manage cloud resources)</li>
+<li>Project management and Issue tracking  (We can use them to manage our Puppet projects)</li>
+<li>Messaging and Collaboration (We can use them to collaborate on Puppet works)</li>
+<li>Containerization and Virtualization (Puppet can configure them)</li>
+<li>Databases (Puppet can configure them)</li>
+<li>Application servers (Puppet can configure them)</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration_Management" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Configuration_Management2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Configuration_Management:2">
+<h1>Configuration Management principles</h1>
+
+<p>Configuration management tools allow to programmatically define how servers have to be configured. Their main benefits are:</p>
+
+<ul>
+<li>
+<strong>Automation</strong>: No need to manually configure systems</li>
+<li>
+<strong>Reproducibility</strong>: Setup once, repeat forever</li>
+<li>
+<strong>Recoverability</strong>: Setup again in case of outage</li>
+<li>
+<strong>Scale</strong>: Done for one, use on many</li>
+<li>
+<strong>Coherent</strong> and consistent server setups</li>
+<li>
+<strong>Aligned Environments</strong> for development, test, qa, production nodes</li>
+</ul>
+
+<p>Configuration management tools typically describe the systems setups via code or data (<strong>Infrastructure as Code</strong>), this involves a paradigm change in system administration:</p>
+
+<ul>
+<li>Systems are managed <strong>centrally</strong> in an <strong>automated</strong> way: no more manually</li>
+<li>Code is versioned with a Source Control Management tool (<strong>git</strong> is the most used in Puppet world)</li>
+<li>Commits history shows the <strong>history of change</strong> on the infrastructure (who, what, when and why)</li>
+<li>Code can be <strong>tested</strong> before deployment in production</li>
+<li>Code has to be <strong>deployed</strong> after a CI/CD pipeline</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration_Management" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Configuration_Management3" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Configuration_Management:3">
+<h1>Configuration Management tools</h1>
+
+<p>Common alternatives to Puppet:</p>
+
+<h4><a href="https://www.chef.io/" target="_blank">Chef</a></h4>
+
+<ul>
+<li>Has Chef clients that connect to Chef server</li>
+<li>Has characteristic similar to Puppet</li>
+<li>Community code is shared on the <a href="https://galaxy.ansible.com/intro#review" target="_blank">Chef Supermarket</a>
+</li>
+<li>Chef code is Ruby with dedicated extensions</li>
+<li>Software developed in Ruby.</li>
+</ul>
+
+<h4><a href="http://cfengine.com/" target="_blank">CFEngine</a></h4>
+
+<ul>
+<li>The first and oldest of the bunch</li>
+<li>CFEngine3 is a complete and modern rework</li>
+<li>Different daemons for different functions in a distributed environment</li>
+<li>Based on the <a href="https://en.wikipedia.org/wiki/Promise_theory" target="_blank">Promise theory</a>
+</li>
+<li>Cfengine code is a test based list of pro</li>
+<li>Software developed in C by Prof. Mark Burgess.</li>
+</ul>
+
+<h4><a href="http://saltstack.com/" target="_blank">Salt</a></h4>
+
+<ul>
+<li>Manages deployments on multiple clouds in a fast way</li>
+<li>Salt code is composed of states (Puppet resources) written in YAML files</li>
+<li>
+<a href="https://github.com/saltstack-formulas" target="_blank">Formulas</a> are equivalent to modules</li>
+<li>Sotfware developed in Python</li>
+</ul>
+
+<h4><a href="http://www.ansibleworks.com/" target="_blank">Ansible</a></h4>
+
+<ul>
+<li>Quick setup, no agents, communications over SSH</li>
+<li>Ansible code is YAML based and written on playbooks</li>
+<li>Roles are equivalent to modules, they are shared on the <a href="https://galaxy.ansible.com/intro#review" target="_blank">Ansible Galaxy</a>
+</li>
+<li>Can centralise multi node task executions, software deployments and configuration management.</li>
+<li>Software developed in Python. Bought by RedHad in October 2015</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Essential_concepts" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Essential_concepts" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Essential_concepts">
+<h1>Essential Puppet concepts</h1>
+
+<p>When approaching Puppet it's important to understand its basic concepts and terminology.</p>
+
+<p>A complete official <a href="http://docs.puppet.com/references/glossary.html" target="_blank">glossary</a> is online, use it.</p>
+
+<p>Here we outline a few essential Puppet concepts, be sure to understand them all:</p>
+
+<ul>
+<li>A typical Puppet setup is based on a client-server architecture: the client is also called <strong>agent</strong> (or <strong>agent node</strong> or simply <strong>node</strong>), the server is called <strong>master</strong>
+</li>
+<li>When the puppet client connects to the server, it sends it's own ssl <strong>certname</strong> and a list of <strong>facts</strong> (units of information about the client's system generated by the command <strong>facter</strong>)</li>
+<li>Based on the client <strong>certname</strong> and its facts, the master replies with a <strong>catalog</strong> that describes what has to be configured on the client</li>
+<li>The catalog is based on Puppet code, which is written in <strong>manifests</strong> (files with <strong>.pp</strong> extension)</li>
+<li>In the Puppet code we declare <strong>resources</strong> that affect elements of the system (files, packages, services ...)</li>
+<li>Resources are grouped in <strong>classes</strong> which may expose <strong>parameters</strong> that affect their behavior.</li>
+<li>The values of the class parameters can be defined in different ways, one of them is <strong>Hiera</strong>
+</li>
+<li>
+<strong>Hiera</strong> is a very common and versatile tool to store the values of parameters</li>
+<li>Classes and the configuration files that are shipped to nodes are organized in <strong>modules</strong>
+</li>
+<li>Modules to manage virtually any IT resource are shared on the <strong>Puppet Forge</strong>
+</li>
+<li>The <strong>control-repo</strong> is the [git] repository which typically contains all our Puppet code and data and the references to the used external modules</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Learning_resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Learning_resources" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Learning_resources">
+<h1>Learning resources</h1>
+
+<p>Useful resources to start learning Puppet:</p>
+
+<ul>
+<li>The website of the <a href="http://puppet.com" target="_blank">Puppet</a> company</li>
+<li>The official <a href="http://docs.puppet.com/" target="_blank">Puppet Documentation site</a> -</li>
+<li>
+<a href="https://puppet.com/download-learning-vm" target="_blank">The Learning VM</a>, based on Puppet Enterprise, for a guided tour in Puppet world</li>
+<li>A list of the available <a href="https://puppet.com/resources/" target="_blank">Documentation resources</a>
+</li>
+</ul>
+
+<p>If you have questions to ask about Puppet usage use these:</p>
+
+<ul>
+<li>All the <a href="http://puppet.com/community/overview/" target="_blank">Puppet Community</a> references</li>
+<li>The <a href="https://slack.puppet.com" target="_blank">Slack</a> channel</li>
+<li>
+<a href="http://ask.puppet.com/" target="_blank">Ask Puppet</a>, the official Q&amp;A site</li>
+<li>The discussion groups on Google Groups: <a href="https://groups.google.com/forum/#!forum/puppet-users" target="_blank">puppet-users</a>, <a href="https://groups.google.com/forum/#!forum/puppet-dev" target="_blank">puppet-dev</a>, <a href="https://groups.google.com/forum/#!forum/puppet-security-announce" target="_blank">puppet-security-announce</a>
+</li>
+</ul>
+
+<p>To explore and use existing Puppet code:</p>
+
+<ul>
+<li>Puppet modules on <a href="http://forge.puppet.com" target="_blank">Module Forge</a>
+</li>
+<li>Puppet modules on <a href="https://github.com/search?q=puppet" target="_blank">GitHub</a>
+</li>
+</ul>
+
+<p>To inform yourself about what happens in Puppet World</p>
+
+<ul>
+<li>
+<a href="http://www.planetpuppet.org/" target="_blank">Planet Puppet</a> - Puppet blogosphere</li>
+<li>The <a href="http://www.puppetconf.com" target="_blank">PuppetConf</a> website</li>
+<li>The ongoing <a href="https://puppet.com/community/events/puppet-camps" target="_blank">PuppetCamps</a> all over the world</li>
+</ul>
+
+<p>To find more and deeper information:</p>
+
+<ul>
+<li>
+<a href="https://tickets.puppet.com" target="_blank">Puppet Labs tickets</a> - The official ticketing system</li>
+<li>
+<a href="http://docs.puppet.com/references/latest/developer/" target="_blank">Developer reference</a> - The commented Puppet code</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Overview">
+<h1>Introduction</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>What is Puppet?</li>
+<li>Configuration management</li>
+<li>Learning References</li>
+<li>Puppet ecosystem</li>
+<li>Essential Puppet concepts</li>
+</ul>
+
+<h2>Take-aways</h2>
+
+<ul>
+<li>Know what is Puppet</li>
+<li>Understand the principles behind configuration management tools</li>
+<li>Know where to find information about Puppet</li>
+<li>Have a general view of Puppet software ecosystem</li>
+<li>Understand the logic and core principles of Puppet</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_ecosystem" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Puppet_ecosystem1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Puppet_ecosystem:1">
+<h1>Puppet ecosystem</h1>
+
+<h2>Puppet Labs software products</h2>
+
+<p>Puppet ecosystem is composed of many software projects.
+The ones developed by PuppetLabs are:</p>
+
+<ul>
+<li>
+<a href="http://docs.puppet.com/puppet/" target="_blank">Puppet</a> - Official Puppet Open Source documentation</li>
+<li><p><a href="http://docs.puppet.com/pe/" target="_blank">Puppet Enterprise</a> - The commercial enterprise version of Puppet</p></li>
+<li><p><a href="http://docs.puppet.com/facter/" target="_blank">Facter</a> - Complementary tool to retrieve system's data. It's installed with Puppet agent</p></li>
+<li><p><a href="http://docs.puppet.com/puppetserver/" target="_blank">Puppet Server</a> - The next generation server service</p></li>
+<li><p><a href="http://docs.puppet.com/hiera/" target="_blank">Hiera</a> - Key-value lookup tool where Puppet data can be placed</p></li>
+<li><p><a href="http://docs.puppet.com/puppetdb/" target="_blank">PuppetDB</a> - Stores all the data generated by Puppet</p></li>
+<li><p><a href="http://docs.puppet.com/mcollective/" target="_blank">MCollective</a> - Infrastructure Orchestration framework (superseded by Bolt)</p></li>
+<li><p><a href="http://docs.puppet.com/bolt/" target="_blank">Bolt</a> - Remote execution and orchstration tool Orchestration framework</p></li>
+<li><p><a href="http://docs.puppet.com/pe/latest/razor_intro.html/" target="_blank">Razor</a> - A provisioning system for bare metal servers</p></li>
+<li><p><a href="https://puppet.com/docs/pdk/" target="_blank">PDK</a> - The Puppet Development Kit</p></li>
+<li><p><a href="https://github.com/puppetlabs/r10k/" target="_blank">r10k</a> - A tool to manage deployments of Puppet code</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Puppet_ecosystem" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_Puppet_ecosystem2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/Puppet_ecosystem:2">
+<h1>Puppet ecosystem</h1>
+
+<h2>Community resources</h2>
+
+<p>Some of the most known Puppet related community projects are:</p>
+
+<ul>
+<li>
+<a href="https://puppet.community/" target="_blank">Puppet Community</a> - Modules and tooling for and by the Puppet Community</li>
+<li>
+<a href="http://www.puppetcookbook.com/" target="_blank">Puppet CookBook</a> - A collection of task oriented solutions in Puppet</li>
+<li>
+<a href="https://github.com/sodabrew/puppet-dashboard/" target="_blank">Puppet DashBoard</a> - A Puppet <em>Web frontend</em> and External Node Classifier (ENC)</li>
+<li>
+<a href="http://theforeman.org/" target="_blank">The Foreman</a> - A well-known third party provisioning tool and Puppet ENC</li>
+<li>
+<a href="https://github.com/voxpupuli/puppetboard" target="_blank">PuppetBoard</a> - A web frontend for PuppetDB</li>
+<li>
+<a href="http://puppet-lint.com/" target="_blank">Puppet Lint</a> - A tool to check Puppet code style</li>
+<li>
+<a href="http://rspec-puppet.com/" target="_blank">Rpec Puppet</a> - A tool to make unit tests of Puppet code</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="What_is_Puppet" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Introduction_to_Puppet_What_is_Puppet" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Introduction_to_Puppet/What_is_Puppet">
+<h1>What is Puppet?</h1>
+
+<p>Puppet is an Open Source <strong>Configuration Management</strong> software developed by the <a href="http://www.puppet.com" target="_blank">Puppet</a> company.</p>
+
+<p>More widely Puppet is a framework for <strong>Systems Automation</strong> since it automates the configuration and ongoing management of our servers, in a centrally managed way.</p>
+
+<p>It allows to define, with a <strong>declarative</strong> Domain Specific Language (<strong>DSL</strong>), what we want to configure and manage on an IT infrastructure: from components of an Operating System (OS) like packages, services to and files to network, cloud, storage resources.</p>
+
+<p>Puppet agent can be installed on Linux, Unix (Solaris, AIX, *BSD), MacOS, Windows (<a href="https://puppet.com/docs/puppet/latest/system_requirements.html#reference-2673" target="_blank">List of Supported Platforms</a>) and can be used also to remotely configure network and storage devices or manage cloud resources.</p>
+
+<p>It is used by <a href="http://puppet.com/customers/companies/" target="_blank">many companies</a> with a number of managed systems than ranges from few dozens to several thousands.</p>
+
+<p>Puppet releases also <a href="https://puppet.com/puppet/puppet-enterprise" target="_blank">Puppet Enterprise</a> (<strong>PE</strong>) based on the <a href="https://github.com/puppetlabs/puppet" target="_blank">Open Source code base</a> and oriented to enterprises that need official support and want Puppet infrastructure easier to setup and with better reporting and management features.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Conditionals" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Conditionals" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Conditionals">
+<h1>Conditionals</h1>
+
+<p>Puppet provides different constructs to manage conditionals inside manifests:</p>
+
+<p><strong>Selectors</strong> allows to set the value of a variable or an argument inside a resource declaration according to the value of another variable.
+Selectors therefore just returns values and are not used to manage conditionally entire blocks of code.</p>
+
+<p><strong>case statements</strong> are used to execute different blocks of code according to the values of a variable. It's possible to have a default block for unmatched entries.
+Case statements are NOT used inside resource declarations.</p>
+
+<p><strong>if elsif else</strong> conditionals, like case, are used to execute different blocks of code and can't be used inside resources declarations.
+We can can use any of Puppet's comparison expressions and we can combine more than one for complex patterns matching.</p>
+
+<p><strong>unless</strong> is somehow the opposite of <strong>if</strong>. It evaluates a boolean condition and if it's <em>false</em> it executes a block of code. It doesn't have elsif / else clauses.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Resources" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Resources">
+<h1>Types reference</h1>
+
+<h3>Online <a href="http://docs.puppetlabs.com/references/latest/type.html" target="_blank">Type Reference</a>
+</h3>
+
+<p>This is the complete reference for Puppet types based on the latest version.</p>
+
+<p>Check <a href="http://docs.puppetlabs.com/references/index.html" target="_blank">here</a> for the reference on all the older versions.</p>
+
+<p>Check the Puppet Core <a href="http://docs.puppetlabs.com/puppet_core_types_cheatsheet.pdf" target="_blank">Types Cheatsheet</a> for an handy PDF with the essential reference.</p>
+
+<h3>Inline documentation on types</h3>
+
+<p>We can check all the types documentation via the command line:</p>
+
+<pre class="highlight"><code class="language-shell">puppet describe &lt;type&gt;</code></pre>
+
+<p>For a more compact output:</p>
+
+<pre class="highlight"><code class="language-shell">puppet describe -s &lt;type&gt;</code></pre>
+
+<p>To show all the available resource types:</p>
+
+<pre class="highlight"><code class="language-shell">puppet describe -l</code></pre>
+
+<h3>Interacting with system's types</h3>
+
+<p>To interactively inspect and modify our system's resources</p>
+
+<pre class="highlight"><code class="language-shell">puppet resource &lt;type&gt; [name]</code></pre>
+
+<p>Remember we can use the same command to CHANGE our resources attributes:</p>
+
+<pre class="highlight"><code class="language-shell">puppet resource &lt;type&gt; &lt;name&gt; [attribute=value] [attribute2=value2]</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources_Defaults" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Resources_Defaults" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Resources_Defaults">
+<h1>Resource defaults</h1>
+
+<p>It's possible to set default argument values for a resource in order to reduce code duplication. The syntax is:</p>
+
+<pre><code>Type {
+  argument =&gt; value,
+}
+</code></pre>
+
+<p>Common examples:</p>
+
+<pre><code>Exec {
+  path =&gt; '/sbin:/bin:/usr/sbin:/usr/bin',
+}
+
+File {
+  mode  =&gt; 0644,
+  owner =&gt; 'root',
+  group =&gt; 'root',
+}
+</code></pre>
+
+<p>Resource defaults can be overriden when declaring a specific resource of the same type.</p>
+
+<p>Note that the "Area of Effect" of resource defaults might bring unexpected results. The general suggestion is:</p>
+
+<p>Place <strong>global</strong> resource defaults in /etc/pupept/manifests/site.pp outside any node definition.</p>
+
+<p>Place <strong>local</strong> resource defaults at the beginning of a class that uses them (mostly for clarity sake, as they are parse-order independent).</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources_Metaparameters" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Resources_Metaparameters" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Resources_Metaparameters">
+<h1>Resource Metaparameters</h1>
+
+<p>Metaparameters available to any resource type, they can be used for different purposes:</p>
+
+<p>Manage dependencies (<strong>before</strong>, <strong>require</strong>, <strong>subscribe</strong>, <strong>notify</strong>, <strong>stage</strong>)</p>
+
+<p>Manage resources' application policies (<strong>audit</strong>, <strong>noop</strong>, <strong>schedule</strong>, <strong>loglevel</strong>)</p>
+
+<p>Add information to a resource (<strong>alias</strong>, <strong>tag</strong>)</p>
+
+<p><a href="http://docs.puppetlabs.com/puppet/latest/reference/metaparameter.html" target="_blank">Official documentation on Metaparameters</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources_References" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Resources_References" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Resources_References">
+<h1>Resource references</h1>
+
+<p>In Puppet any resource is uniquely identified by its type and its name.
+We can't have 2 resources of the same type with the same name in a catalog.</p>
+
+<p>We have seen that we declare resources with a syntax like:</p>
+
+<pre class="highlight"><code class="language-puppet">type { 'name':
+  arguments =&gt; values,
+}</code></pre>
+
+<p>When we need to reference to them in our code the syntax is like:</p>
+
+<pre><code>Type['name']
+</code></pre>
+
+<p>Some examples:</p>
+
+<pre class="highlight"><code class="language-puppet">file { 'motd': ... }
+apache::virtualhost { 'example42.com': .... }
+exec { 'download_myapp': .... }</code></pre>
+
+<p>are referenced, respectively, with</p>
+
+<pre class="highlight"><code class="language-puppet">File['motd']
+Apache::Virtualhost['example42.com']
+Exec['download_myapp']</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Variables" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_Variables" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language/Variables">
+<h1>Built-in variables</h1>
+
+<p>Puppet provides some useful built in variables, they can be:</p>
+
+<h4>Set by the client (agent)</h4>
+
+<p><code>$clientcert</code>:-:the:name:of:the:node's:certificate.:By:default:its:<code>$::fqdn</code>
+<code>$clientversion</code>:-:the:Puppet:version:on:the:client</p>
+
+<h4>Set by the server (master)</h4>
+
+<p><code>$environment</code>:(default::production):-:the:Puppet:environment:where:are:placed:modules:and:manifests.
+<code>$servername</code>,:<code>$serverip</code>:-:the:Puppet:Master:FQDN:and:IP
+<code>$serverversion</code>:-:the:Puppet:version:on:the:server
+<code>$settings::&lt;name&gt;</code>:-:any:configuration:setting:on:the:Master's:<code>puppet.conf</code></p>
+
+<h4>Set by the server during catalog compilation</h4>
+
+<p><code>$module_name</code>:-:the:name:of:the:module:that:contains:the:current:resource's:definition
+<code>$caller_module_name</code>:-:the:name:of:the:module:that:contains:the:current:resource's:declaration</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Catalog" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Catalog" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Catalog">
+<h1>The Catalog</h1>
+
+<p>The <strong>catalog</strong> is the complete list of resources, and their relationships, that the Puppet Master generates for the client and sends it in Json format.</p>
+
+<p>It's the result of all the puppet code and logic that we define for a given node in our manifests and is applied on the client after it has been received from the master.</p>
+
+<p>The client uses the RAL (Resource Abstraction Layer) to execute the actual system's commands that convert abstract resources like</p>
+
+<pre><code>package { 'openssh': }
+</code></pre>
+
+<p>to their actual fulfillment on the system, such as</p>
+
+<pre><code>apt-get install openssh # On Debian derivatives
+yum install openssh     # On RedHad derivatings
+</code></pre>
+
+<p>The catalog is saved by the client in:</p>
+
+<pre><code>$libdir/client_data/catalog/$certname.json
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Classes" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Classes1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Classes:1">
+<h1>Classes</h1>
+
+<p>Classes are <strong>containers</strong> of different resources. Since Puppet 2.6 they can have parameters.</p>
+
+<p>Example of a class <strong>definition</strong> (here we describe what the class does and what parameters it has, we don't actually add it and its resources to the catalog):</p>
+
+<pre><code>class mysql (
+  root_password =&gt; 'default_value',
+  port          =&gt; '3306',
+) {
+  package { 'mysql-server': ensure =&gt; present }
+  service { 'mysql': ensure =&gt; running }
+  [...]
+}
+</code></pre>
+
+<p>When we have to use a class previously defined, we <strong>declare</strong> it. Class declaration can be done in 2 different ways:</p>
+
+<p>"Old style" class declaration, without parameters (inside a catalog we can have multiple <code>include</code> of the same class but that class it's applied only once):</p>
+
+<pre><code>include mysql
+</code></pre>
+
+<p>"New style" (from Puppet 2.6) class declaration with explicit parameters (Syntax is the same of normal resources and the same class can be declared, in this way, only once inside the same catalog):</p>
+
+<pre><code>class { 'mysql':
+  root_password =&gt; 'my_value',
+  port          =&gt; '3307',
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Classes" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Classes2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Classes:2">
+<h1>Defines</h1>
+
+<p>Also called: <strong>Defined resource types</strong> or <strong>defined types</strong></p>
+
+<p>Defined resource types are written in Puppet DSL and can make use of existing resource types or of other defined resource types.
+They are similar to parametrized classes but can be used multiple times (with different titles).</p>
+
+<p><strong>Definition</strong> of a define:</p>
+
+<pre><code>define apache::virtualhost (
+  $ensure   = present,
+  $template = 'apache/virtualhost.conf.erb' ,
+  [...] ) {
+
+  file { "ApacheVirtualHost_${name}":
+    ensure  =&gt; $ensure,
+    content =&gt; template("${template}"),
+  }
+}
+</code></pre>
+
+<p><strong>Declaration</strong> of a define:</p>
+
+<pre><code>apache::virtualhost { 'www.example42.com':
+  template =&gt; 'site/apache/www.example42.com-erb'
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Modules" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Modules1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Modules:1">
+<h1>Modules</h1>
+
+<p>Self Contained and Distributable <em>recipes</em> contained in a directory with a predefined structure</p>
+
+<p>Used to manage an application, system's resources, a local site or more complex structures</p>
+
+<p>Modules must be placed in the Puppet Master's modulepath</p>
+
+<pre><code>puppet config print modulepath
+/etc/puppet/modules:/usr/share/puppet/modules
+</code></pre>
+
+<p>Puppet module tool to interface with Puppet Modules Forge</p>
+
+<pre><code>puppet help module
+[...]
+ACTIONS:
+  build        Build a module release package.
+  changes      Show modified files of an installed module.
+  generate     Generate boilerplate for a new module.
+  install      Install a module from the Puppet Forge or an archive.
+  list         List installed modules
+  search       Search the Puppet Forge for a module.
+  uninstall    Uninstall a puppet module.
+  upgrade      Upgrade a puppet module.
+</code></pre>
+
+<p>GitHub, also, is full of Puppet modules</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Modules" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Modules2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Modules:2">
+<h1>Paths of a module</h1>
+
+<p>Modules have a standard structure:</p>
+
+<pre><code>mysql/              # Main module directory
+
+mysql/manifests/    # Manifests directory. Puppet code here.
+mysql/lib/          # Plugins directory. Ruby code that extends Puppet here.
+mysql/templates/    # ERB and EPP Templates directory
+mysql/files/        # Static files directory
+mysql/spec/         # Puppet-rspec directory
+mysql/tests/        # Tests / Usage examples directory
+
+mysql/Modulefile    # Module's metadata descriptor (old, deprecated)
+mysql/metadata.json # Module's metadata descriptor
+</code></pre>
+
+<p>This layout enables useful conventions</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Modules" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Modules3" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Modules:3">
+<h1>Modules paths conventions</h1>
+
+<p>Classes and defines autoloading:</p>
+
+<pre><code>include mysql
+# Main mysql class is placed in: $modulepath/mysql/manifests/init.pp
+
+include mysql::server
+# This class is defined in: $modulepath/mysql/manifests/server.pp
+
+mysql::conf { ...}
+# This define is defined in: $modulepath/mysql/manifests/conf.pp
+
+include mysql::server::ha
+# This class is defined in: $modulepath/mysql/manifests/server/ha.pp
+</code></pre>
+
+<p>Provide files based on Erb Templates (Dynamic content)</p>
+
+<pre><code>content =&gt; template('mysql/my.cnf.erb'),
+# Template is in: $modulepath/mysql/templates/my.cnf.erb
+</code></pre>
+
+<p>Provide static files (Static content). Note we can't use content AND source for the same file.</p>
+
+<pre><code>source =&gt; 'puppet:///modules/mysql/my.cnf'
+# File is in: $modulepath/mysql/files/my.cnf
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Modules" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Modules4" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Modules:4">
+<h1>ERB templates</h1>
+
+<p>Files with .erb extension used typicall by in <code>file</code> resources.</p>
+
+<p>Inside these files ruby code can be interpolated inside the  <code>&lt;%</code> and <code>%&gt;</code> tags.</p>
+
+<p>Example of an erb template:</p>
+
+<pre><code># Show facts values
+hostname = &lt;%= @::fqdn %&gt;
+
+# Show values of variables outside local scope, two methods:
+ntp_server = &lt;%= scope.lookupvar('::ntp::server') %&gt;
+ntp_server = &lt;%= scope['::ntp::server'] %&gt;
+
+# Iteration over an array
+&lt;% @::dns_servers.each do |ns| %&gt;
+nameserver &lt;%= ns %&gt;
+&lt;% end %&gt;
+
+# Conditional blocks of texts
+&lt;% if scope.lookupvar('puppet::db') == "puppetdb" -%&gt;
+storeconfigs_backend = puppetdb
+&lt;% end -%&gt;
+</code></pre>
+
+<p>Note the ending <code>-%&gt;</code>: when dash is present, no new line is introduced on the generated file.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Nodes_classification" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Nodes_classification" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Nodes_classification">
+<h1>Nodes classification</h1>
+
+<p>When clients connect, the Puppet Master generates a <strong>catalog</strong> with the list of the resources that clients have to apply locally.</p>
+
+<p>The Puppet Master has to <em>classify</em> nodes and define for each of them:</p>
+
+<ul>
+<li>The <strong>classes</strong> to include</li>
+<li>The <strong>parameters</strong> to pass</li>
+<li>The Puppet <strong>environment</strong> to use</li>
+</ul>
+
+<p>Nodes classification can be done in different ways (more details will follow):</p>
+
+<ul>
+<li>Using the <code>node</code> definition in Puppet code</li>
+<li>Using and <strong>External Node Classifier</strong> (ENC): a separated tool that provides classification info</li>
+<li>Using the <code>hiera_include</code> function</li>
+<li>Using a nodeless setup: the classes to include are defined according to variables and facts.</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Overview">
+<h1>Language Basics</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>Nodes classification</li>
+<li>The Catalog</li>
+<li>Variables and parameters</li>
+<li>Resource types</li>
+<li>Classes and defines</li>
+<li>Modules</li>
+</ul>
+
+<h2>Take-aways</h2>
+
+<ul>
+<li>Understand how Puppet delivers the right configurations to each node</li>
+<li>Know what is the Catalog</li>
+<li>Understand usage of variables and facts</li>
+<li>Know how is declared a Puppet resource</li>
+<li>Understand the RAL (Resource ABstraction Layer) principles</li>
+<li>Know how are Puppet classes and defines</li>
+<li>Understand modules structure, usage and paths conventions</li>
+<li>Know how to write erb templates</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Practice" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Practice" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Practice">
+<h1>Practice: Language Basics</h1>
+
+<p>On a test machine <strong>install Puppet</strong> if not already installed.</p>
+
+<p>Practice with the <strong>commands</strong>:</p>
+
+<pre><code>puppet describe
+puppet resource
+facter
+</code></pre>
+
+<p>Create a <strong>manifest</strong> file and in that file manage the installation of the package and the management of the service of <em>nginx</em>.</p>
+
+<p>Use <code>puppet apply</code> to apply the resources declared in our manifest.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Resources1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Resources:1">
+<h1>Resource Types (Types)</h1>
+
+<p>Resource Types are single <strong>units of configuration</strong> composed by:</p>
+
+<ul>
+<li>A <strong>type</strong> (package, service, file, user, mount, exec ...)</li>
+<li>A <strong>title</strong> (how is called and referred)</li>
+<li>Zero or more <strong>arguments</strong>
+</li>
+</ul>
+
+<p>The syntax is as follows:</p>
+
+<pre><code>type { 'title':
+  argument  =&gt; value,
+  other_arg =&gt; value,
+}
+</code></pre>
+
+<p>Example for a <strong>file</strong> resource type:</p>
+
+<pre><code>file { 'motd':
+  ensure  =&gt; file,
+  path    =&gt; '/etc/motd',
+  content =&gt; 'Tomorrow is another day',
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Resources2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Resources:2">
+<h1>Resource Types reference</h1>
+
+<p>Find online the complete <a href="http://docs.puppetlabs.com/references/latest/type.html" target="_blank">Type Reference</a> for the latest or earlier versions.</p>
+
+<p>From the shell the command line interface:</p>
+
+<pre><code>puppet describe file
+</code></pre>
+
+<p>It is also possible to get a summary of the description:</p>
+
+<pre><code>puppet describe file -s
+</code></pre>
+
+<p>For the full list of available descriptions try:</p>
+
+<pre><code>puppet describe --list
+</code></pre>
+
+<p>Give a glance to Puppet code for the list of <strong>native</strong> resource types:</p>
+
+<pre><code>ls $(facter rubysitedir)/puppet/type
+</code></pre>
+
+<p>The most common native resources, shipped with Puppet by default are: package, service, file, user, group, cron, exec, mount...</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Resources3" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Resources:3">
+<h1>Simple samples of resources</h1>
+
+<p>Installation of OpenSSH package:</p>
+
+<pre><code>package { 'openssh':
+  ensure =&gt; present,
+}
+</code></pre>
+
+<p>Creation of /etc/motd file:</p>
+
+<pre><code>file { 'motd':
+  ensure =&gt; file,
+  path   =&gt; '/etc/motd',
+}
+</code></pre>
+
+<p>Start of httpd service:</p>
+
+<pre><code>service { 'httpd':
+  ensure =&gt; running,
+  enable =&gt; true,
+}
+</code></pre>
+
+<p>Creation of oscar user:</p>
+
+<pre><code>user { 'oscar':
+  ensure =&gt; present,
+  uid    =&gt; 1024,
+}
+</code></pre>
+
+<p>Each of these resources have several other arguments that allows to define every characteristic of the resource.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Resources4" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Resources:4">
+<h1>More complex examples</h1>
+
+<p>Here are some more complex examples with usage of variables, resource references, arrays and relationships.</p>
+
+<p>Management of nginx service with parameters defined in module's variables</p>
+
+<pre><code>service { 'nginx':
+  ensure     =&gt; $::nginx::manage_service_ensure,
+  name       =&gt; $::nginx::service_name,
+  enable     =&gt; $::nginx::manage_service_enable,
+}
+</code></pre>
+
+<p>Creation of nginx.conf with content retrieved from different sources (first found is served)</p>
+
+<pre><code>file { 'nginx.conf':
+  ensure  =&gt; file,
+  path    =&gt; '/etc/nginx/nginx.conf',
+  source  =&gt; [
+      "puppet:///modules/site/nginx.conf--${::fqdn}",
+      "puppet:///modules/site/nginx.conf"
+  ],
+}
+</code></pre>
+
+<p>Installation of the Apache package triggering a restart of the relevant service:</p>
+
+<pre><code>package { 'httpd':
+  ensure =&gt; $ensure,
+  name   =&gt; $apache_package,
+  notify =&gt; Class['Apache::Service'],
+}
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Resources5" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Resources:5">
+<h1>Resource Abstraction Layer</h1>
+
+<p>Resources are abstracted from the underlying OS, this is achieved via the <strong>Resource Abstraction Layer</strong> (RAL) composed of resource <strong>types</strong> that can have different <strong>providers</strong>.</p>
+
+<p>A type specifies the attributes that a given resource may have, a provider implements the relevant type on the underlying Operating System.</p>
+
+<p>For example the <code>package</code> type is known for the great number of providers (yum, apt, msi, gem ... ).</p>
+
+<pre><code>ls $(facter rubysitedir)/puppet/provider/package
+</code></pre>
+
+<p>With the command <code>puppet resource</code> we can represent the current status of a system's resources in Puppet language (note this can be done for any resource, even the ones not managed by Puppet):</p>
+
+<p>To show all the exisiting users on a system (or only the root user):</p>
+
+<pre><code>puppet resource user
+puppet resource user root
+</code></pre>
+
+<p>To show all the installed packages:</p>
+
+<pre><code>puppet resource package
+</code></pre>
+
+<p>To show all the system's services:</p>
+
+<pre><code>puppet resource service
+</code></pre>
+
+<p>It's also possible to directly modify them with <code>puppet resource</code> (note that this is not generally the way Puppet is used to manage the system's resources):</p>
+
+<pre><code>puppet resource service httpd ensure=running enable=true
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Variables" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Variables1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Variables:1">
+<h1>Variables</h1>
+
+<p>Variables is Puppet codes are basically <strong>constants</strong>: once defined in a class we can't change them.</p>
+
+<p>We can set variables in our Puppet code with this syntax:</p>
+
+<pre><code># Normal variable assignment
+$role = 'mail'
+
+# The value of a variable is based on another variable (here used the **selector** costruct)
+$package = $::operatingsystem ? {
+  /(?i:Ubuntu|Debian|Mint)/ =&gt; 'apache2',
+  default                   =&gt; 'httpd',
+}
+</code></pre>
+
+<p>Puppet automatically provides also some <strong>internal</strong> variables, the most common are:</p>
+
+<pre><code># The name of the node (the certname setting in its puppet.conf)
+$clientcert # Default is the client's Fully Qualified Domain Name)
+
+# The Puppet's environment where the Master looks for the code to compile
+$environment # Default is "production"
+
+# The Master's FQDN and IP address
+$servername $serverip
+
+# Any configuration setting of the Puppet Master's puppet.conf
+$settings::&lt;setting_name&gt;:
+
+# The name of the module that contains the current resource's definition
+$module_name
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Variables" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Language_basics_Variables2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Language_basics/Variables:2">
+<h1>Facter and facts</h1>
+
+<p><strong>Facter</strong> is a tools shipped with Puppet. It runs on clients and collects <strong>facts</strong> which are sent to the server. In our code we can use facts to manage resources in different ways or with different arguments.</p>
+
+<p>Here follows a list of the most common and useful facts:</p>
+
+<pre><code>al$ facter
+
+architecture =&gt; x86_64
+fqdn =&gt; Macante.example42.com
+hostname =&gt; Macante
+ipaddress_eth0 =&gt; 10.42.42.98
+macaddress_eth0 =&gt; 20:c9:d0:44:61:57
+operatingsystem =&gt; Centos
+operatingsystemrelease =&gt; 6.3
+osfamily =&gt; RedHat
+virtual =&gt; physical
+</code></pre>
+
+<p>It's easy to create custom facts. They can be of 2 types:</p>
+
+<ul>
+<li>
+<strong>Native facts</strong> written in ruby and shipped with modules (in the <code>lib/facter</code> directory)</li>
+<li>
+<strong>External facts</strong> can be simple ini-file like texts (with <code>.txt</code> extension), Yaml files or even commands in any language, which returns a fact name and its value. External faccts are located in the nodes' <code>/etc/facter/facts.d</code> directory and can be shipped also from modules (in the <code>facts.d</code> directory)</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Design_best_practices" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Design_best_practices" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Design_best_practices">
+<h1>Principes behind a Reusable Module</h1>
+
+<p>Data Separation</p>
+
+<ul>
+<li>Configuration data is defined outside the module</li>
+<li>Module behavior can be managed via parameters</li>
+<li>Allow module's extension and override via external data</li>
+</ul>
+
+<p>Reusability</p>
+
+<ul>
+<li>Support different OS. Easily allow new additions.</li>
+<li>Customize behavior without changing module code</li>
+<li>Do not force author idea on how configurations should be provided</li>
+</ul>
+
+<p>Standardization</p>
+
+<ul>
+<li>Follow PuppetLabs style guidelines (puppet-lint)</li>
+<li>Have coherent, predictable and intuitive interfaces</li>
+<li>Provide contextual documentation (puppet-doc)</li>
+</ul>
+
+<p>Interoperability</p>
+
+<ul>
+<li>Limit cross-module dependencies</li>
+<li>Allow easy modules cherry picking</li>
+<li>Be self contained, do not interfere with other modules' resources</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Installation_and_usage" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Installation_and_usage" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Installation_and_usage">
+<h1>Modules</h1>
+
+<p>Self Contained and Distributable <em>recipes</em> contained in a directory with a predefined structure</p>
+
+<p>Used to manage an application, system's resources, a local site or more complex structures</p>
+
+<p>Modules must be placed in the Puppet Master's modulepath</p>
+
+<pre class="highlight"><code class="language-shell">puppet config print modulepath
+/etc/puppet/modules:/usr/share/puppet/modules</code></pre>
+
+<p>Puppet module tool to interface with Puppet Modules Forge</p>
+
+<p>@@@shell
+  puppet help module
+  [...]
+  ACTIONS:
+    build        Build a module release package.
+    changes      Show modified files of an installed module.
+    generate     Generate boilerplate for a new module.
+    install      Install a module from the Puppet Forge or an archive.
+    list         List installed modules
+    search       Search the Puppet Forge for a module.
+    uninstall    Uninstall a puppet module.
+    upgrade      Upgrade a puppet module.</p>
+
+<p>GitHub, also, is full of Puppet modules</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Options_hash_pattern" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Options_hash_pattern1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Options_hash_pattern:1">
+<h1>Modules reusability patterns: Template + Options hash</h1>
+
+<p>Check this <a href="http://www.example42.com/2014/10/29/reusability-features-every-module-should-have/" target="_blank">blog post</a> for details.</p>
+
+<p>Classes and defines should expose parameters that allow to override the used templates and set a custom hash of configurations.</p>
+
+<pre class="highlight"><code class="language-puppet">class redis (
+  $config_file_template = 'redis/redis.conf.erb',
+  $options_hash         = {},
+) {
+  file { '/etc/redis/redis.conf':
+    content =&gt; template($config_file_template),
+  }
+}</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Options_hash_pattern" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Options_hash_pattern2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Options_hash_pattern:2">
+<h1>Template + Options hash example:</h1>
+
+<p>Given the previous class definition, we can configure it with this sample Hiera data, in YAML format:</p>
+
+<pre class="highlight"><code class="language-puppet">---
+redis::config_file_template: 'site/redis/redis.conf.erb'
+redis::options_hash:
+  port: '12312'
+  bind: '0.0.0.0'
+  masterip: '10.0.42.50'
+  masterport: '12350'
+  slave: true</code></pre>
+
+<p>The referenced template stays in our site module, in <code>$modulepath/site/templates/redis/redis.conf.erb</code> and may look like:</p>
+
+<pre><code>port &lt;%= @options_hash['port'] %&gt;
+bind &lt;%= @options_hash['bind'] %&gt;
+&lt;% if @options_hash['slave'] == true -%&gt;
+slaveof &lt;%= @options_hash['masterip'] %&gt; &lt;%= @options_hash['masterport'] %&gt;
+&lt;% end -%&gt;
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Structure" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Structure1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Structure:1">
+<h1>Paths of a module</h1>
+
+<p>Modules have a standard structure:</p>
+
+<pre><code>mysql/            # Main module directory
+
+mysql/manifests/  # Manifests directory. Puppet code here. Required.
+mysql/lib/        # Plugins directory. Ruby code here
+mysql/templates/  # ERB Templates directory
+mysql/files/      # Static files directory
+mysql/spec/       # Puppet-rspec test directory
+mysql/tests/      # Tests / Usage examples directory
+
+mysql/Modulefile  # Module's metadata descriptor
+</code></pre>
+
+<p>This layout enables useful conventions</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Structure" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Structure2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Structure:2">
+<h1>Modules paths conventions</h1>
+
+<p>Classes and defines autoloading:</p>
+
+<pre><code>include mysql
+# Main mysql class is placed in: $modulepath/mysql/manifests/init.pp
+
+include mysql::server
+# This class is defined in: $modulepath/mysql/manifests/server.pp
+
+mysql::conf { ...}
+# This define is defined in: $modulepath/mysql/manifests/conf.pp
+
+include mysql::server::ha
+# This class is defined in: $modulepath/mysql/manifests/server/ha.pp
+</code></pre>
+
+<p>Provide files based on Erb Templates (Dynamic content)</p>
+
+<pre><code>content =&gt; template('mysql/my.cnf.erb'),
+# Template is in: $modulepath/mysql/templates/my.cnf.erb
+</code></pre>
+
+<p>Provide static files (Static content). Note we can't use content AND source for the same file.</p>
+
+<pre><code>source =&gt; 'puppet:///modules/mysql/my.cnf'
+# File is in: $modulepath/mysql/files/my.cnf
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Templates" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Modules_Templates" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Modules/Templates">
+<h1>Erb templates</h1>
+
+<p>Files provisioned by Puppet can be Ruby ERB templates</p>
+
+<p>In a template all the Puppet variables (facts or user assigned) can be used :</p>
+
+<pre><code># File managed by Puppet on &lt;%= @fqdn %&gt;
+search &lt;%= @domain %&gt;
+</code></pre>
+
+<p>But also more elaborated Ruby code</p>
+
+<pre><code>&lt;% @dns_servers.each do |ns| %&gt;
+nameserver &lt;%= ns %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>The computed template content is placed directly inside the catalog
+  (Sourced files, instead, are retrieved from the puppetmaster during catalog application)</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="API" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_API" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/API">
+<h1>PuppetDB API</h1>
+
+<p>PuppetDB exposes an <a href="http://docs.puppetlabs.com/puppetdb/latest/api/" target="_blank">HTTP API</a> that uses a Command/Query Responsibility Separation (CQRS) pattern:</p>
+
+<h4>REST for reading</h4>
+
+<p>A standard REST API is used to query data.</p>
+
+<p>The current (API v3) available endpoints are: <code>metrics</code>, <code>fact-names</code>, <code>facts</code>, <code>nodes</code>, <code>resources</code>, <code>reports</code>, <code>events</code>, <code>event-counts</code>, <code>aggregate-event-counts</code>, <code>server-time</code></p>
+
+<h4>COMMANDS for writing</h4>
+
+<p>Explicit <strong>commands</strong> are used (via HTTP using the /commands/ URL) used to populate and modify data.</p>
+
+<p>The current <a href="http://docs.puppetlabs.com/puppetdb/latest/api/commands.html" target="_blank"><strong>commands</strong></a> are: <code>replace catalog</code>, <code>replace facts</code>, <code>deactivate node</code>, <code>store report</code>.</p>
+
+<h3>API versions</h3>
+
+<p>There are different versions of the APIs as they evolve with PuppetDB versions.</p>
+
+<p>As October 2013, Version 1 of the API is deprecated, Version 2 and 3 (the latter adds new endpoints and is recommended) are both supported.</p>
+
+<p>We can access a specific version of the API using the relevant prefix:</p>
+
+<pre><code>http[s]://puppetdb.server/v#/&lt;endpoint&gt;/[NAME]/[VALUE][?query=&lt;QUERY STRING&gt;]
+</code></pre>
+
+<h3>Query language</h3>
+
+<p>Queries to the REST endpoints can define search scope and limitations for the given endpoint. The query are sent as an "URL-encoded JSON array in prefix notation". Check the online <a href="http://docs.puppetlabs.com/puppetdb/latest/api/query/tutorial.html" target="_blank">tutorial</a> for details.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Dashboards" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_Dashboards" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/Dashboards">
+<h1>PuppetDB console and tools</h1>
+
+<h4>Integrated console: Anaylize PuppetDB performance</h4>
+
+<p>PuppetDB provides a performances dashboard out of the box, we can use it to check how the software is working: <strong>http://<puppetdb.server>:8080/dashboard/</puppetdb.server></strong>.
+This is integral part of the PuppetDB software.</p>
+
+<h4>Puppet Board: Query PuppetDB from the web</h4>
+
+<p>A nice frontend that allows interrogation of the PuppetDB from the web is <a href="https://github.com/nedap/puppetboard" target="_blank">PuppetBoard</a>.
+This software is contributed from the community.</p>
+
+<h4>Puppetdbquery module: Query PuppetDB from Puppet manifests</h4>
+
+<p>An incredibly useful module that provides faces, functions and hiera backends that work with PuppetDB is the <a href="https://github.com/dalen/puppet-puppetdbquery" target="_blank">puppetdbquery module</a>. We can install it also from the Forge:</p>
+
+<pre><code>  puppet module install dalen-puppetdbquery
+</code></pre>
+
+<p>This software is contributed from the community (and is becoming a standard de facto for PuppetDB querying inside Puppet modules).</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Exported_resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_Exported_resources1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/Exported_resources:1">
+<h1>Exported resources</h1>
+
+<p>When we need to provide to an host informations about resources present in another host, we need <strong>exported resources</strong>: resources declared in the catalog of a node (based on its facts and variables) but applied (collected) on another node.</p>
+
+<p>Resources are declared with the special @@ notation which marks them as exported so that they are not applied to the node where they are declared:</p>
+
+<pre><code>@@host { $::fqdn:
+  ip  =&gt; $::ipaddress,
+}
+
+@@concat::fragment { "balance-fe-${::hostname}",
+  target  =&gt; '/etc/haproxy/haproxy.cfg',
+  content =&gt; "server ${::hostname} ${::ipaddress} maxconn 5000"
+  tag     =&gt; "balance-fe",
+}
+</code></pre>
+
+<p>Once a catalog containing exported resources has been applied on a node and stored by the PuppetMaster (typically on PuppetDB), the exported resources can be collected with the spaceshift syntax (where is possible to specify search queries):</p>
+
+<pre><code>Host &lt;&lt; || &gt;&gt;
+Concat::Fragment &lt;&lt;| tag == "balance-fe" |&gt;&gt;
+Sshkey &lt;&lt;| |&gt;&gt;
+Nagios_service &lt;&lt;||&gt;&gt;
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Exported_resources" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_Exported_resources2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/Exported_resources:2">
+<h1>Exported resources - Configuration</h1>
+
+<p>In order to use exported resources we need to enable on the Puppet Master the <strong>storeconfigs</strong> option and specify the backend to use.
+We can do this configuring a PuppetMaster to use PuppetDB:</p>
+
+<pre><code>storeconfigs = true
+storeconfigs_backend = puppetdb
+</code></pre>
+
+<p>In earlier Puppet versions storeconfigs is based on ActiveRecord, which is considerable slower.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Introduction" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_Introduction" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/Introduction">
+<h1>Introduction to PuppetDB</h1>
+
+<p>PuppetDB is a "fast, scalable and reliable" data warehouse for Puppet.</p>
+
+<p>It saves data generated by Puppet: nodes' <strong>facts</strong>, <strong>catalogs</strong> and <strong>reports</strong>.</p>
+
+<p>It can also work as a performant backend for <strong>exported resources</strong> being a recommended alternative to the older ActiveRecord storeconfigs interface.</p>
+
+<p>It provides a faster backend also for Puppet's <strong>Inventory Service</strong>.</p>
+
+<p>PuppetDB is <a href="https://github.com/puppetlabs/puppetdb" target="_blank">opensource</a>, written in Clojure (it requires &gt;= JDK 1.6 and PuppetMasters with Puppet &gt;= 2.7.12), and is delivered as an autonomous software.</p>
+
+<p>The best source from where to retrieve it are the official <a href="http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#open-source-repositories" target="_blank">Puppetlabs repositories</a>.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Setup" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_Setup" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/Setup">
+<h1>PuppetDB installation</h1>
+
+<p>For a complete overview of the installation process check the official documentation and choose between installatio from <a href="http://docs.puppetlabs.com/puppetdb/latest/install_via_module.html" target="_blank">puppetdb module</a> or from <a href="http://docs.puppetlabs.com/puppetdb/latest/install_from_packages.html" target="_blank">packages</a>.</p>
+
+<p>PuppetDB can persist data either on an embedded HSQLDB database or on PostgreSQL.
+The latter is definitively recommended on production environment where there are a few dozens of servers or more.</p>
+
+<p>The configuration files are:</p>
+
+<p><code>/etc/sysconfig/puppetdb</code>:(<code>/etc/default/puppetdb</code>:on:Debian):is:the:init:script:configuration:file,:here:we:can:set:JAVA:settings:like:JAVA_ARGS:or:JAVA_BIN</p>
+
+<p><code>/etc/puppetdb/conf.d/</code>:is:the:configuration:directory,:here:we:may:have:different:.ini:files:where:to:configure:<strong>[global]</strong>:settings,:<strong>[database]</strong>:backends,:<strong>[command-processing]</strong>:options,:<strong>[jetty]</strong>:parameters:for:HTTP:connections:and:<strong>[repl]</strong>:settings:for:remote:runtime:configurations:(used:for:development/debugging).</p>
+
+<p><code>/etc/puppetdb/log4j.properties</code>:is:the:logging:config:file:based:on:Log4j.</p>
+
+<p><code>/etc/puppet/puppetdb.conf</code>:is:the:configuration:file:for:<strong>Puppet</strong>:with:the:settings:to:be:used:by:the:PuppetDB:terminus</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="puppetdbquery_module" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_puppetdbquery_module1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/puppetdbquery_module:1">
+<h1>Using Puppetdbquery module</h1>
+
+<p>The <a href="https://github.com/dalen/puppet-puppetdbquery" target="_blank">PuppetDbQueryModule</a> is developed by a community member, Erik Dalen, and is the most used and useful module available to work with PuppetDB: it provides command lines tools (as Puppet Faces), functions to query PuppetDB and a PuppetDB based Hiera backend.</p>
+
+<h2>Query format</h2>
+
+<p>All the queries we can do with this module are in the format</p>
+
+<pre><code>Type[Name]{attribute1=foo and attribute2=bar}
+</code></pre>
+
+<p>by default they are made on normal resources, use the @@ prefix to query exported resources.</p>
+
+<p>The comparison operators are: <strong>=</strong>, <strong>!=</strong>, <strong>&gt;</strong>, <strong>&lt;</strong> and <strong>~</strong></p>
+
+<p>The expressions can be combined with <strong>and</strong>, <strong>not</strong> and <strong>or</strong></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="puppetdbquery_module" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_PuppetDB_puppetdbquery_module2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/PuppetDB/puppetdbquery_module:2">
+<h1>Using Puppetdbquery module</h1>
+
+<h2>Command line</h2>
+
+<p>The module introduces, as a Puppet face, the <strong>query</strong> command:</p>
+
+<pre><code>puppet help query
+puppet query facts '(osfamily=RedHat and operatingsystemversion=6)'
+</code></pre>
+
+<h2>Functions</h2>
+
+<p>The functions provided by the module can be used inside manifests to populate the catalog with data retrieved on PuppetDB.</p>
+
+<p><strong>query_nodes</strong> takes 2 arguments: the query to use and (optional) the fact to return (by default it provides the certname). It returns an array:</p>
+
+<pre><code>$webservers = query_nodes('osfamily=Debian and Class[Apache]')
+$webserver_ip = query_nodes('osfamily=Debian and Class[Apache]', ipaddress)
+</code></pre>
+
+<p><strong>query_facts</strong> requires 2 arguments: the query to use to discover nodes and the list of facts to return for them. It returns a nested hash in JSON format.</p>
+
+<pre><code>query_facts('Class[Apache]{port=443}', ['osfamily', 'ipaddress'])
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="On_Master" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Troubleshooting_On_Master" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Troubleshooting/On_Master">
+<h1>Information available on the Puppet Master</h1>
+
+<p>To see the facts of the Puppet Master's clients:</p>
+
+<pre><code>sudo cat /var/lib/puppet/yaml/facts/&lt;node_certname&gt;.yaml # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/yaml/facts.d/&lt;node_certname&gt;.yaml # Puppet 4
+</code></pre>
+
+<p>To check the value of an Hiera key for a node with given variables:</p>
+
+<pre><code>hiera &lt;key_name&gt; -c /etc/puppet/hiera.yaml &lt;param=value&gt; &lt;param=value&gt; # Puppet 3
+hiera &lt;key_name&gt; -c /etc/puppetlabs/code/hiera.yaml &lt;param=value&gt; &lt;param=value&gt; # Puppet 4
+</code></pre>
+
+<h2>Information available on the CA server</h2>
+
+<p>List of all the signed and requested certificates</p>
+
+<pre><code>sudo puppet cert -la
+</code></pre>
+
+<p>On the CA server, by default the same Puppet Master, you can manage all the certificates with the <code>puppet cert</code> command.</p>
+
+<h2>Information available on the PuppetDB server</h2>
+
+<p>Query facts about a node</p>
+
+<pre><code>sudo puppet node find &lt;node_certname&gt; | json_pp
+</code></pre>
+
+<p>To purge a node data from PuppetDB (useful when you have duplicated resources in a node that collects exported resources). Use if you know what you are doing:</p>
+
+<pre><code>sudo puppet node deactivate &lt;node_certname&gt;
+</code></pre>
+
+<p>You can use the <code>query</code> action provided by the <a href="https://github.com/dalen/puppet-puppetdbquery" target="_blank">puppetdbquery module</a>. For example to list all the nodes, stored on PuppetDB than match a given fact:</p>
+
+<pre><code>sudo puppet query nodes osfamily=Debian
+</code></pre>
+
+<p>To list specific facts of nodes matching your query:</p>
+
+<pre><code>sudo puppet query facts osfamily=Debian --facts 'ipaddress,uptime'
+</code></pre>
+
+<p>Check the puppetdbquery <a href="https://github.com/dalen/puppet-puppetdbquery#query-syntax" target="_blank">query format syntax</a> to learn more about the syntax of your queries.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="On_agent" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Troubleshooting_On_agent" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Troubleshooting/On_agent">
+<h1>Information available on the agent</h1>
+
+<p>To see the list of classes included in the local node (<strong>$classfile</strong>):</p>
+
+<pre><code>sudo cat /var/lib/puppet/state/classes.txt # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/state/classes.txt # Puppet 4
+</code></pre>
+
+<p>To see all the resources managed on the node (<strong>$resourcefile</strong>):</p>
+
+<pre><code>sudo cat /var/lib/puppet/state/resources.txt # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/state/resources.txt # Puppet 4
+</code></pre>
+
+<p>To check the summary of the last puppet run (with metrics on performances and resources changed, <strong>$lastrunfile</strong>):</p>
+
+<pre><code>sudo cat /var/lib/puppet/state/last_run_summary.yaml # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/state/last_run_summary.yaml # Puppet 4
+</code></pre>
+
+<p>To check the full report of the last run (not easy to read output):</p>
+
+<pre><code>sudo cat /var/lib/puppet/state/last_run_report.yaml # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/state/last_run_report.yaml # Puppet 4
+</code></pre>
+
+<p>To see, in JSON pretty format, the whole content of the last saved catalog:</p>
+
+<pre><code>sudo cat /var/lib/puppet/client_data/catalog/&lt;node_certname&gt;.json | json_pp # Puppet 3
+sudo cat /opt/puppetlabs/puppet/cache/client_data/catalog/&lt;node_certname&gt;.json | json_pp # Puppet 4
+</code></pre>
+
+<p>To see the Puppet agent logs:</p>
+
+<pre><code>sudo cat /var/log/puppet/agent.log # Puppet 3
+sudo cat /var/log/puppetlabs/puppet/puppetd.log # Puppet 4
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Commands" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Commands1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Commands:1">
+<h1>Using the Puppet command</h1>
+
+<p>Puppet has different subcommands for different purproses. It's possible to add seamlessly new commands using the <strong>face</strong> interface.</p>
+
+<pre><code>puppet help
+
+Usage: puppet &lt;subcommand&gt; [options] &lt;action&gt; [options]
+
+Available subcommands: (here shown the most used ones)
+
+agent             The puppet agent daemon
+apply             Apply Puppet manifests locally
+ca                Local Puppet Certificate Authority management.
+cert              Manage certificates and requests
+config            Interact with Puppet's settings.
+describe          Display help about resource types
+device            Manage remote network devices
+doc               Generate Puppet references
+facts             Retrieve and store facts.
+master            The puppet master daemon
+module            Creates, installs and searches for modules on the Puppet Forge.
+node              View and manage node definitions.
+parser            Interact directly with the parser.
+resource          The resource abstraction layer shell
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Commands" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Commands2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Commands:2">
+<h1>Puppet operational modes</h1>
+
+<h2>Master / Client - puppet agent</h2>
+
+<p>It's the typical Puppet setup</p>
+
+<ul>
+<li><p>We have clients, our managed nodes, where Puppet agent is installed.</p></li>
+<li><p>We have one or more Masters where Puppet server runs as a service</p></li>
+<li><p>Client/Server communication is via https (<strong>port 8140</strong>)</p></li>
+<li><p>Clients certificates have to be accepted (<strong>signed</strong>) on the Master</p></li>
+<li><p>Command used on the client: <code>puppet agent</code>  (generally as <strong>root</strong>)</p></li>
+<li><p>Command used on the server: <code>puppet master</code>  (generally as <strong>puppet</strong>)</p></li>
+</ul>
+
+<h2>Masterless - puppet apply</h2>
+
+<p>Master less mode doesn't use a client-server infrastructure.</p>
+
+<ul>
+<li><p>Our Puppet code (written in manifests) is applied directly on the target system.</p></li>
+<li><p>No need of a Puppet Master</p></li>
+<li><p>We have to distribute our modules and data to the managed nodes.</p></li>
+<li><p>Command used: <code>puppet apply</code> (generally as <strong>root</strong>)</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Configuration1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Configuration:1">
+<h1>Puppet configuration: puppet.conf</h1>
+
+<p>It's Puppet main configuration file.</p>
+
+<p>On open source Puppet 3 is generally in:</p>
+
+<pre><code>/etc/puppet/puppet.conf
+</code></pre>
+
+<p>On Puppet Enterprise and Puppet 4 is in:</p>
+
+<pre><code>/etc/puppetlabs/puppet/puppet.conf
+</code></pre>
+
+<p>On Windows is in:</p>
+
+<pre><code>C:\ProgramData\PuppetLabs\puppet\etc
+</code></pre>
+
+<p>When running as a normal user can be placed in the home directory:</p>
+
+<pre><code>/home/&lt;user&gt;/.puppet/puppet.conf
+</code></pre>
+
+<p>Configurations are divided in [stanzas] for different Puppet sub commands</p>
+
+<p>Common for all commands: <strong>[main]</strong></p>
+
+<p>For puppet agent (client): <strong>[agent]</strong> (Was [puppetd] in Puppet pre 2.6)</p>
+
+<p>For puppet apply (client): <strong>[user]</strong> (Was [puppet])</p>
+
+<p>For puppet master (server): <strong>[master]</strong> (Was [puppetmasterd] and [puppetca])</p>
+
+<p>Hash sign (#) can be used for comments.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Configuration" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Configuration2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Configuration:2">
+<h1>Main configuration options</h1>
+
+<p>To view all or a specific configuration setting:</p>
+
+<pre><code>puppet config print all
+puppet config print modulepath
+</code></pre>
+
+<p>Important options under <strong>[main]</strong> section:</p>
+
+<pre><code>vardir = /var/lib/puppet # Path where Puppet stores dynamic data.
+ssldir = $vardir/ssl # Path where SSL certifications are stored.
+</code></pre>
+
+<p>Important options Under <strong>[agent]</strong> section:</p>
+
+<pre><code>server = puppet.example42.com # Host name of the PuppetMaster. (Default: puppet)
+certname = web01.example42.com # Certificate name of the client. (Default is its fqdn)
+runinterval = 60 # Number of minutes between Puppet runs, when running as service. (Default: 30)
+report = true # If to send Puppet runs' reports to the **report_server**. (Default: true)
+</code></pre>
+
+<p>Important options under <strong>[master]</strong> section:</p>
+
+<pre><code>autosign = /etc/puppet/autosign.conf # If new clients certificates are automatically signed. (Default: false)
+reports = puppetdb # How to manage clients' reports (Default: store)
+storeconfigs = true # If to enable store configs to support exported resources. (Default: false)
+</code></pre>
+
+<p>Full <a href="http://docs.puppetlabs.com/references/latest/configuration.html" target="_blank">configuration reference</a>  on the official site.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Installation" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Installation1" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Installation:1">
+<h1>Open Source Puppet Puppet installation</h1>
+
+<p>Puppet can be found by default in most distributions.</p>
+
+<p>It generally recommended to use <a href="http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html" target="_blank">Puppet Labs repositories</a> for the latest updates.</p>
+
+<p>Check the <a href="http://docs.puppetlabs.com/guides/installation.html" target="_blank">Installation Instructions</a> for different OS.</p>
+
+<h2>Puppet 3.x installation</h2>
+
+<p>On Debian and derivates, you can install it with:</p>
+
+<pre><code>apt-get install puppet       # On clients (nodes)
+apt-get install puppetmaster # On server (master)
+</code></pre>
+
+<p>On RedHat and derivates you need to add the EPEL repository or RHN Extra channel:</p>
+
+<pre><code>yum install puppet        # On clients (nodes)
+yum install puppet-server # On server (master)
+</code></pre>
+
+<h2>Puppet 4 installation</h2>
+
+<p>Puppet version 4 can be installed using <a href="https://puppetlabs.com/blog/welcome-puppet-collections" target="_blank">Puppet Labs Software Collections</a>, once added the relevant repositories for your distro you can install it with:</p>
+
+<pre><code>[apt-get|yum] install puppet-agent   # On clients (nodes)
+[apt-get|yum] install puppet-server  # On server (master)
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Installation" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Installation2" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Installation:2">
+<h1>Puppet Enterprise installation</h1>
+
+<p>For complete installation instruction check the <a href="https://docs.puppetlabs.com/pe/latest/install_basic.html" target="_blank">Official Documentation</a></p>
+
+<p>Puppet Enterprise is licenced software, you can request an trial version from <a href="https://puppetlabs.com/download-puppet-enterprise" target="_blank">the Download page</a>, it's free up to 10 managed nodes</p>
+
+<h2>Puppet Enterprise Server setup</h2>
+
+<ul>
+<li><p>Get the tar from <a href="https://puppetlabs.com/download-puppet-enterprise" target="_blank">the Download page</a></p></li>
+<li>
+<p>Unpack and run:</p>
+
+<p>tar -xf <tarball>
+cd <tarballdir>
+sudo ./puppet-enterprise-installer</tarballdir></tarball></p>
+</li>
+<li><p>Via browser open <code>https://&lt;server_name&gt;:3000</code> and follow up with web based installation (don't close your installer terminal window)</p></li>
+<li><p>Choose between <strong>all in one</strong> installation or split installation, set the puppet server certname and aliases, set the console admin password and other installation options</p></li>
+<li><p>Once installed, open the <strong>Puppet Enterprise Console</strong> via browser at <code>https://server_name&gt;</code>, with user <strong>admin</strong> and the password set before</p></li>
+</ul>
+
+<h2>Puppet Enterprise agent setup</h2>
+
+<p>Check the official <a href="http://docs.puppetlabs.com/pe/latest/install_agents.html" target="_blank">install client documentation</a> for complete reference.</p>
+
+<p>Different alternatives:</p>
+
+<ul>
+<li>
+<p>Run the remote installation script:</p>
+
+<p>curl -k https://<puppet_server>:8140/packages/current/install.bash | sudo bash</puppet_server></p>
+</li>
+<li>
+<p>Distribute the tarball and eventually use an answer file for unattended setup:</p>
+
+<p>sudo ./puppet-enterprise-installer -a ~/pe_answers.txt</p>
+</li>
+<li><p>Use dedicated public modules</p></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Overview" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Overview" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Overview">
+<h1>Using Puppet</h1>
+
+<h2>Contents</h2>
+
+<ul>
+<li>Installation of different Puppet versions</li>
+<li>Configuration files and parameters</li>
+<li>Puppet cli commands</li>
+<li>Files paths</li>
+<li>Troubleshooting</li>
+</ul>
+
+<h2>Take-aways</h2>
+
+<ul>
+<li>Know how to install different versionf of Puppet</li>
+<li>Know where to find the most important files</li>
+<li>Understand the basics of Puppet configuration</li>
+<li>Understand Puppet run modes (agent/apply)</li>
+<li>Use puppet command</li>
+<li>Have to basics to troublshoot Puppet</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Paths" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Paths" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Paths">
+<h1>Puppet paths</h1>
+
+<p>The paths of the most important locations are different on Puppet versions on Linux systems. Check the <a href="https://github.com/puppetlabs/puppet-specifications/blob/master/file_paths.md" target="_blank">Official specification</a> for all the details.</p>
+
+<p>Configuration directory (<code>$confdir</code>):</p>
+
+<pre><code>/etc/puppet/            # Puppet 3 or earlier
+/etc/puppetlabs/puppet/ # Puppet 4 and PE
+</code></pre>
+
+<p>Log directory (<code>$logdir</code>):</p>
+
+<pre><code>/var/log/puppet # Puppet 3 or earlier
+/var/log/puppetlabs/puppet # Puppet 4
+</code></pre>
+
+<p>Lib directory (<code>$libdir</code>) (contains Puppet operational data such as catalog, backup of files...):</p>
+
+<pre><code>/var/lib/puppet # Puppet 3 or earlier
+/opt/puppetlabs/puppet/lib # Puppet 4
+</code></pre>
+
+<p>SSL directory (<code>$libdir</code>) (contains all the SSL certificates)</p>
+
+<pre><code>$logdir/ssl  # Puppet 3 or earlier
+$confdir/ssl # Puppet 4
+</code></pre>
+
+<p>Manifest file (the first manifest parsed by the Master when compiling the catalog</p>
+
+<pre><code>/etc/puppet/manifests/site.pp # Puppet 3 with config-file environments
+/etc/puppet/environments/$environment/manifests/site.pp # Puppet 3 with directory environments
+/etc/puppetlabs/code/environments/$environment/manifests/site.pp # Puppet 4
+</code></pre>
+
+<p>Modulepath (comma separated directories where modules are stored):</p>
+
+<pre><code>/etc/puppet/modules:/usr/share/puppet/modules # Puppet 3
+/etc/puppet/environments/$environment/modules # Added modules dir in Puppet 3 when using **directory environments**
+</code></pre>
+
+<p>Code directory in Puppet 4:</p>
+
+<pre><code>/etc/puppetlabs/code # $codedir
+/etc/puppetlabs/code/environments/$environment # $environmentpath
+</code></pre>
+
+<p>Inside the $environmentpath
+    hieradata/ # Hiera files dir
+    environment.conf *
+        manifests *
+        modules *
+        hiera.yaml *                      # :hiera_config
+    modules *                         # user modulepath    </p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="." data-title="Troubleshooting" id="_Users_al_GITHUB_EXAMPLE42_puppetguide-slides__slides_Using_Puppet_Troubleshooting" class="slide" data-transition="none">
+<div class="content " ref="/Users/al/GITHUB/EXAMPLE42/puppetguide-slides/_slides/Using_Puppet/Troubleshooting">
+<h1>Anatomy of a Puppet Run</h1>
+
+<p>Execute Puppet on the client</p>
+
+<pre><code>Client shell # puppet agent -t
+</code></pre>
+
+<p>If pluginsync = true (default from Puppet 3.0) the client retrieves all extra plugins (facts, types and providers) present in modules on the server's $modulepath</p>
+
+<pre><code>Client output # Info: Retrieving plugin
+</code></pre>
+
+<p>The client runs facter and send its facts to the server</p>
+
+<pre><code>Client output # Info: Loading facts in /var/lib/puppet/lib/facter/... [...]
+</code></pre>
+
+<p>The server looks for the client's hostname (or certname, if different from the hostname) and looks into its nodes list</p>
+
+<p>The server compiles the catalog for the client using also client's facts.</p>
+
+<pre><code>Server's logs # Compiled catalog for &lt;client&gt; in environment production in 8.22 seconds
+</code></pre>
+
+<p>If there are not syntax errors in the processed Puppet code, the server sends the catalog to the client, in PSON format.</p>
+
+<pre><code>Client output # Info: Caching catalog for &lt;client&gt;
+</code></pre>
+
+<p>The client receives the catalog and starts to apply it locally
+If there are dependency loops the catalog can't be applied and the whole tun fails.</p>
+
+<pre><code>Client output # Info: Applying configuration version '1355353107'
+</code></pre>
+
+<p>All changes to the system are shown here. If there are errors (in red or pink, according to Puppet versions) they are relevant to specific resources but do not block the application of the other resources (unless they depend on the failed ones).</p>
+
+<p>At the end ot the Puppet run the client sends to the server a report of what has been changed</p>
+
+<pre><code>Client output # Finished catalog run in 13.78 seconds
+</code></pre>
+
+<p>The server eventually sends the report to a Report Collector.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+</div>
+<div id="buttonNav">
+  <div id="buttonPrev"><i class="fa fa-chevron-left fa-lg"></i> Previous</div><div id="buttonNext">Next <i class="fa fa-chevron-right fa-lg"></i></div>
+</div>
+<div id="pauseScreen">
+  PAUSED
+</div>
+
+  <script defer type="text/javascript">
+    // We want the audience members to see automatic tours. We can assume that they won't be
+    // using many server domains like the presenter might.
+    var autoTour = true;
+
+    $( document ).ready(function() {
+      if(presenter && !window.opener) {
+        alert('This is an audience view designed for interactivity. If you are placing this window on a projector, you should use the Display View instead.');
+      }
+
+      tours['showoff:activity'] = [
+        {
+          element: ".currentSlide .activityToggle",
+          intro: I18n.t('tour.activity.complete')
+        }
+      ];
+
+      tours['showoff:form'] = [
+        {
+          element: ".currentSlide input.save",
+          intro: I18n.t('tour.form.save')
+        }
+      ];
+
+      tours['showoff:menu'] = [
+        {
+          element: "#hamburger",
+          intro: I18n.t('tour.menu.start')
+        },
+        {
+          element: "#navToggle",
+          intro: I18n.t('tour.menu.navigation')
+        },
+        {
+          element: "#fileDownloads",
+          intro: I18n.t('tour.menu.download')
+        },
+        {
+          element: "#paceFaster",
+          intro: I18n.t('tour.menu.pace')
+        },
+        {
+          element: "#questionToggle",
+          intro: I18n.t('tour.menu.questions')
+        },
+        {
+          element: "#feedbackToggle",
+          intro: I18n.t('tour.menu.feedback')
+        }
+      ].filter(function(item) { return (document.querySelector(item['element'])) });
+      // display tips for only the enabled features
+    });
+  </script>
+
+</body>
+</html>
