@@ -1,8 +1,8 @@
 # Essential Puppet concepts
 
-When approaching Puppet it's important to understand it's basic concepts and terminology.
+When approaching Puppet it's important to understand its basic concepts and terminology.
 
-A complete official [glossary](http://docs.puppetlabs.com/references/glossary.html) is online, use it.
+A complete official [glossary](http://docs.puppet.com/references/glossary.html) is online, use it.
 
 Here we outline a few essential Puppet concepts, be sure to understand them all:
 
@@ -14,5 +14,6 @@ Here we outline a few essential Puppet concepts, be sure to understand them all:
 - Resources are grouped in **classes** which may expose **parameters** that affect their behavior.
 - The values of the class parameters can be defined in different ways, one of them is **Hiera**
 - **Hiera** is a very common and versatile tool to store the values of parameters
-
-- Classes and the configuration files that are shipped to nodes are organized in **modules**.
+- Classes and the configuration files that are shipped to nodes are organized in **modules**
+- Modules to manage virtually any IT resource are shared on the **Puppet Forge**
+- The **control-repo** is the [git] repository which typically contains all our Puppet code and data and the references to the used external modules

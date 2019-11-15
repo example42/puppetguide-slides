@@ -15,68 +15,68 @@ body {
   color: black;
   text-align: left;
   line-height: 1.0;
-  font-size: 1.0em;
+  font-size: 0.8em;
   font-weight: normal;
   font-family: Stilu-Regular, helvetica, arial;
   overflow: scroll;
 }
 a:link, a:visited {
-    font: rgb(200, 100, 100);
+  font: rgb(200, 100, 100);
 }
 a:hover {
-    font: rgb(200, 100, 100);
-background-color: rgb(200, 234, 234);
+  font: rgb(100, 200, 122);
+  background-color: rgb(200, 234, 234);
 }
 h1 {
-  color: rgb(200, 50, 50);
+  color: rgb(221, 28, 28);
   font-size: 2.0em;
   text-align: left;
-      font-family: Stilu-Bold;
+  font-family: Stilu-Bold;
   margin-top: 0.8em;
-  margin-left: 20px;
-  margin-right: 20px;
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-bottom-color: rgb(200, 100, 100);
+  margin-left: 0px;
+  margin-right: 0px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(200, 100, 100);
 }
 h2 {
-  color: rgb(120, 120, 160);
+  color: rgb(17, 17, 136);
   font-size: 1.4em;
   text-align: left;
-      font-family: Stilu-Bold;
+  font-family: Stilu-Bold;
   margin-top: 0.4em;
   margin-bottom: 0.2em;
-  margin-left: 20px;
-  margin-right: 20px;
-      border-bottom-style: inset;
-      border-bottom-width: 1px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-bottom-style: inset;
+  border-bottom-width: 1px;
 }
 h3 {
-  color: rgb(100, 100, 100);
+  color: rgb(111, 48, 119);
   font-size: 1.2em;
   text-align: left;
-      font-family: Stilu-Bold;
-  margin-top: 0.5em;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-family: Stilu-Bold;
+  margin-top: 0.2em;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 h4 {
   color: rgb(100, 100, 100);
-  font-size: 1.2em;
+  font-size: 1.0em;
   text-align: left;
-      font-family: Stilu-Regular;
-  margin-top: 0.5em;
-  margin-left: 20px;
-  margin-right: 20px;
+  font-family: Stilu-Regular;
+  margin-top: 0.2em;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 h5 {
   color: rgb(100, 140, 140);
   font-size: 1em;
   text-align: left;
-      font-family: Stilu-Regular;
+  font-family: Stilu-Regular;
   margin-top: 0.5em;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 h6 {
   color: rgb(100, 100, 100);
@@ -84,25 +84,23 @@ h6 {
   text-align: left;
   font-family: Stilu-Bold;
   margin-top: 0.5em;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .content li, .content ul , .content > ul > li {
   text-align: left;
-  font-size: 1.0em;
   padding: 0.1em;
   margin-left: 1.2em;
 }
 .content > p {
   text-align: left;
-  font-size: 1.0em;
   margin-left: 20px;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
 }
 #preso, .slide {
   # width: 1024px !important;
   # height: 768px !important;
+  width: 100%;
+  height: 100%;
   overflow: scroll;
   vertical-align: text-top;
   background-image: url('_images/logoguide.jpg');

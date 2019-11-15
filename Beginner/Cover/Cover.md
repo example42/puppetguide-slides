@@ -11,9 +11,8 @@ It's about:
 - Learning References
 - Installation and basic usage
 
-This is part of:
-
-## The [DevOps] Guide to Puppet, Universe, and Everything
+# Slides deckThis is part of:
+# The [DevOps] Guide to Puppet, Universe, and Everything
 
 An **Open Source** holistic documentation project composed of:
 
