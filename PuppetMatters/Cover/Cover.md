@@ -13,8 +13,8 @@ It's about:
 
 This is part of:
 
-### The [DevOps] Guide to Puppet, Universe, and Everything
-![The [DevOps] Guide to Puppet, Universe, and Everything](../_images/logoguide.jpg)
+#### [The [DevOps] Guide to Puppet, Universe, and Everything](https://www.example42.com/guide/)
+
 ~~~SECTION:handouts~~~
 An **Open Source** holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.
 

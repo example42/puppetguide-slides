@@ -13,7 +13,7 @@
   "highlight": "atelier-cave.light",
   "sections": [
     "Cover/Cover.md",
-    "Cover/First_Page.md",
+    "Cover/Contents.md",
     "Architecture/Overview.md",
     "Architecture/Essential_concepts.md",
     "Architecture/Agent_Master.md",
