@@ -1,3 +1,0 @@
-# Puppet functions
-
-
