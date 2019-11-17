@@ -1,4 +1,6 @@
-# Puppet Beginner
+# example42 presents:
+
+###### Puppet Beginner
 
 A slides deck for audience with limited, fragmentary or no experience with Puppet.
 
@@ -11,14 +13,17 @@ It's about:
 - Learning References
 - Installation and basic usage
 
-# Slides deckThis is part of:
 # The [DevOps] Guide to Puppet, Universe, and Everything
 
-An **Open Source** holistic documentation project composed of:
+This slides deck is part of [The [DevOps] Guide to Puppet, Universe, and Everything](https://www.example42.com/guide/), an **Open Source** holistic documentation project composed of:
 
-- A [book](https://github.com/example42/puppetguide-book)
-- A set of sample [code architectures](https://github.com/example42/puppetguide-architectures)
+- A [book](https://github.com/example42/puppetguide-book) [WIP]
+- A sample Puppet architectures evolved into the [Psick](https://github.com/example42/psick) project
+- A set of [cheatsheets](https://github.com/example42/puppetguide-cheatsheets) [WIP]
 - A [slides deck](https://github.com/example42/puppetguide-slides) (this one)
-- The [Puppet Universal Reference](https://github.com/example42/puppetguide-reference)
 
-#### Sponsored by [example42](http://www.example42.com)
+# Developed and sponsored by 
+
+
+
+![example42](../_images/logo_example42_RGB.png)

@@ -1,4 +1,6 @@
-# Puppet that Matters
+# example42 presents:
+
+###### Puppet that Matters
 
 A slides deck for who already has some Puppet basics and wants to get practical and operative infos on how to work properly with Puppet
 
@@ -11,21 +13,18 @@ It's about:
 - How to classify nodes and organize code and data
 - How to manage interdependencies across nodes
 
-This is part of:
 
-#### [The [DevOps] Guide to Puppet, Universe, and Everything](https://www.example42.com/guide/)
+# The [DevOps] Guide to Puppet, Universe, and Everything
 
-~~~SECTION:handouts~~~
-An **Open Source** holistic, alternative, ongoing, incomplete guide on Puppet and surroundings.
+This slides deck is part of [The [DevOps] Guide to Puppet, Universe, and Everything](https://www.example42.com/guide/), an **Open Source** holistic documentation project composed of:
 
- documentation project composed of:
+- A [book](https://github.com/example42/puppetguide-book) [WIP]
+- A sample Puppet architectures evolved into the [Psick](https://github.com/example42/psick) project
+- A set of [cheatsheets](https://github.com/example42/puppetguide-cheatsheets) [WIP]
+- A [slides deck](https://github.com/example42/puppetguide-slides) (this one)
 
-- A [book](https://github.com/example42/puppetguide-book) that needs sponsors
-- Sample [code architectures](https://github.com/example42/puppetguide-architectures)
-- A set of [slides](https://github.com/example42/puppetguide-slides) (you are here)
-- A set of [cheatsheets](https://github.com/example42/puppetguide-cheatsheets)
-~~~ENDSECTION~~~
+# Developed and sponsored by 
 
-# Sponsored by
+
 
 ![example42](../_images/logo_example42_RGB.png)

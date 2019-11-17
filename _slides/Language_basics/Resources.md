@@ -1,12 +1,14 @@
 # Resource Types (Types)
 
-Resource Types are single **units of configuration** composed by:
+Resources (also called Resource Types and Types) are single **units of configuration** that potentially can manage any "object" in an Operating System or more widely in an IT infrastructure.
 
-- A **type** (package, service, file, user, mount, exec ...)
-- A **title** (how is called and referred)
+A resources is composed by:
+
+- A **type** (package, service, file, user, mount, exec, interface, ec2_instance ...)
+- A **title** (how the resource is called and referred in Puppet code)
 - Zero or more **arguments**
 
-The syntax is as follows:
+The syntax is always as follows:
 
     type { 'title':
       argument  => value,
@@ -22,29 +24,31 @@ Example for a **file** resource type:
     }
 
 
-# Resource Types reference
+# Resource Types documentation and reference
 
-Find online the complete [Type Reference](http://docs.puppetlabs.com/references/latest/type.html) for the latest or earlier versions.
+Information about resource types and their documentation can be found in different places:
 
-From the shell the command line interface:
+  - Online is published the complete [Type Reference](http://docs.puppetlabs.com/references/latest/type.html) for the latest or earlier versions of Puppet.
 
-    puppet describe file
+  - The `puppet describe` command:
 
-It is also possible to get a summary of the description:
+        puppet describe <resource_type>
+      
+    for example, to find from the command line information about the file resource:
 
-    puppet describe file -s
+        puppet describe file
 
-For the full list of available descriptions try:
+    To list the description of ll the available types, run:
+    
+        puppet describe --list
 
-    puppet describe --list
+  - Give a glance to Puppet code for the list of **native** resource types (the ones written in Ruby language, based on the types and providers pattern):
 
-Give a glance to Puppet code for the list of **native** resource types:
-
-    ls $(facter rubysitedir)/puppet/type
-
-The most common native resources, shipped with Puppet by default are: package, service, file, user, group, cron, exec, mount...
+        ls $(facter rubysitedir)/puppet/type
 
 # Simple samples of resources
+
+The most common native resources, shipped with Puppet by default are: package, service, file, user, group, cron, exec, mount. Here are some simple examples.
 
 Installation of OpenSSH package:
 
@@ -120,7 +124,7 @@ For example the ```package``` type is known for the great number of providers (y
 
 With the command ```puppet resource``` we can represent the current status of a system's resources in Puppet language (note this can be done for any resource, even the ones not managed by Puppet):
 
-To show all the exisiting users on a system (or only the root user):
+To show all the existing users on a system (or only the root user):
 
     puppet resource user
     puppet resource user root

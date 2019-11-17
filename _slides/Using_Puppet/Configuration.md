@@ -41,7 +41,7 @@ To view all or a specific configuration setting:
 
 Important options under **[main]** section:
 
-    vardir = /var/lib/puppet # Path where Puppet stores dynamic data.
+    vardir = /opt/puppetlabs/puppet/cache # Was /var/lib/puppet on older versions
     ssldir = $vardir/ssl # Path where SSL certifications are stored.
 
 Important options Under **[agent]** section:
@@ -53,7 +53,7 @@ Important options Under **[agent]** section:
 
 Important options under **[master]** section:
 
-    autosign = /etc/puppet/autosign.conf # If new clients certificates are automatically signed. (Default: false)
+    autosign = /etc/puppetlabs/puppet/autosign.conf # If new clients certificates are automatically signed. (Default: false)
     reports = puppetdb # How to manage clients' reports (Default: store)
     storeconfigs = true # If to enable store configs to support exported resources. (Default: false)
 

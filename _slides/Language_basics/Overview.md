@@ -1,6 +1,5 @@
 # Language Basics
 
-
 ## Contents
 
 - Nodes classification

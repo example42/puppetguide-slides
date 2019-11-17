@@ -40,10 +40,12 @@ Code directory in Puppet 4:
     /etc/puppetlabs/code # $codedir
     /etc/puppetlabs/code/environments/$environment # $environmentpath
 
-Inside the $environmentpath
-    hieradata/ # Hiera files dir
-    environment.conf *
-        manifests *
-        modules *
-        hiera.yaml *                      # :hiera_config
-    modules *                         # user modulepath    
+Inside the $environmentpath:
+
+    hieradata/               # Hiera files dir
+    environment.conf         # Environment configuration file, with indication of the $modulepath to use
+    manifests/               # The global manifests directory. These are the first manifests Puppetserver parses when compiling a catalog
+    modules/                 # The directory where modules defined in Puppetfile are downloaded (should be empty)
+    hiera.yaml               # The Hiera configuration file for the environment
+    Puppetfile               # The files where are defined the external modules to download (in the modules/ dir)
+    site/                    # Standard de facto directory where local modules are placed (code in the same control-repo)
