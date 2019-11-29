@@ -1,4 +1,5 @@
 # Conditionals
+
 Puppet provides different constructs to manage conditionals inside manifests:
 
 **Selectors** allows to set the value of a variable or an argument inside a resource declaration according to the value of another variable.

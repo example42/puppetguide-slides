@@ -16,7 +16,7 @@ This is part of The [DevOps] Guide to Puppet, Universe, and Everything:
 
 We have different slides deck, for different purposes and skills:
 
-- [Beginner](https://github.com/example42/puppetguide-slides/tree/master/Beginner) (Puppet usage and language basics) [Online rendered Slides](http://www.example42.com/guide/slides/beginner)
+- [Puppet Beginner](https://github.com/example42/puppetguide-slides/tree/master/PuppetBeginner) (Puppet usage and language basics) [Online rendered Slides](http://www.example42.com/guide/slides/beginner)
 - [Puppet that Matters](https://github.com/example42/puppetguide-slides/tree/master/PuppetMatters) (Practical and useful stuff to know in order Deeper into Puppet language and components)
 
 They are licensed under the [Creative Commons Attribution-NonCommercial](http://creativecommons.org/licenses/by-nc/4.0/) terms: they are free to use for not commercial purposes (you can use them for internal trainings in your company, but not for commercial trainings to your customers, unless you earn this right by sponsoring them. 

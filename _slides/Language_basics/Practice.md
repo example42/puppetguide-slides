@@ -5,6 +5,7 @@ On a test machine **install Puppet** if not already installed.
 
 Practice with the **commands**:
 
+    @@@ shell
     puppet describe
     puppet resource
     facter

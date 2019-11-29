@@ -4,9 +4,10 @@ Classes are **containers** of different resources. Since Puppet 2.6 they can hav
 
 Example of a class **definition** (here we describe what the class does and what parameters it has, we don't actually add it and its resources to the catalog):
 
+    @@@ puppet
     class mysql (
-      root_password => 'default_value',
-      port          => '3306',
+      $root_password => 'default_value',
+      $port          => '3306',
     ) {
       package { 'mysql-server': ensure => present }
       service { 'mysql': ensure => running }
@@ -17,15 +18,18 @@ When we have to use a class previously defined, we **declare** it. Class declara
 
 Class declaration without parameters (inside a catalog we can have multiple ```include``` of the same class but that class it's applied only once):
 
+    @@@ puppet
     include mysql
 
 This is similar to:
 
+    @@@ puppet
     require mysql # Include and require the class
     contain mysql # Include the class and be sure that all classes contained there are handled together 
 
 Class declaration with explicit parameters, available from Puppet 2.6. Syntax is the same of normal resources and the same class can be declared, in this way, only once inside the same catalog:
 
+    @@@ puppet
     class { 'mysql':
       root_password => 'my_value',
       port          => '3307',
@@ -41,6 +45,7 @@ They are similar to parametrized classes but can be used multiple times (with di
 
 **Definition** of a define:
 
+    @@@ puppet
     define apache::virtualhost (
       $ensure   = present,
       $template = 'apache/virtualhost.conf.erb' ,
@@ -54,11 +59,12 @@ They are similar to parametrized classes but can be used multiple times (with di
 
 **Declaration** of a define:
 
+    @@@ puppet
     apache::virtualhost { 'www.example42.com':
       template => 'site/apache/www.example42.com-erb'
     }
 
-# Class and define parameters
+# Classes and defines parameters
 
 Classes and defines can have parameters, according to the values given to these parameters user can customized their behaviour and generated results. Parameters are variables usable inside the same class or define (or in templates used there).
 
@@ -66,6 +72,7 @@ Starting from Puppet 4 parameters can be validated using the (very flexible and 
 
 Class definition in older Puppet versions: 
 
+    @@@ puppet
     class motd (
       $content => 'This is the motd',
     ) {
@@ -76,6 +83,7 @@ Class definition in older Puppet versions:
   
 Same class with parameters validation from Puppet 4:
 
+    @@@ puppet
     class motd (
       String $content => 'This is the motd',
     ) {

@@ -4,6 +4,7 @@ Variables is Puppet codes are basically **constants**: once defined in a class w
 
 We can set variables in our Puppet code with this syntax:
 
+    @@@ puppet
     # Normal variable assignment
     $role = 'mail'
 
@@ -15,20 +16,25 @@ We can set variables in our Puppet code with this syntax:
 
 Puppet automatically provides also some **internal** variables, the most common are:
 
-    # The name of the node (the certname setting in its puppet.conf)
-    $clientcert # Default is the client's Fully Qualified Domain Name)
+- The name of the node (the certname setting in its puppet.conf)
 
-    # The Puppet's environment where the Master looks for the code to compile
-    $environment # Default is "production"
+        $clientcert # Default is the client's Fully Qualified Domain Name)
 
-    # The Master's FQDN and IP address
-    $servername $serverip
+- The Puppet's environment where the Master looks for the code to compile
 
-    # Any configuration setting of the Puppet Master's puppet.conf
-    $settings::<setting_name>:
+        $environment # Default is "production"
 
-    # The name of the module that contains the current resource's definition
-    $module_name
+- The Master's FQDN and IP address
+
+        $servername $serverip
+
+-  Any configuration setting of the Puppet Master's puppet.conf
+
+        $settings::<setting_name>:
+
+-  The name of the module that contains the current resource's definition
+
+        $module_name
 
 # Facter and facts
 
@@ -53,3 +59,5 @@ It's easy to create custom facts. They can be of 2 types:
 
 - **Native facts** written in ruby and shipped with modules (in the ```lib/facter``` directory)
 - **External facts** can be simple ini-file like texts (with ```.txt``` extension), Yaml files or even commands in any language, which returns a fact name and its value. External faccts are located in the nodes' ```/etc/facter/facts.d``` directory and can be shipped also from modules (in the ```facts.d``` directory)
+
+

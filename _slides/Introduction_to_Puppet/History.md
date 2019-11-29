@@ -18,11 +18,11 @@ Check also [Puppet Language History](http://docs.puppetlabs.com/guides/language_
 - ```3.2.x ```  - Future parser (experimental, will be default in Puppet 4)
 - ```4.x.x ```  - Released in early 2015. New parser, new type system and lot of changes, various language cleanups and some backwards incompatibilities
 - ```4.0.9 ```  - Released in February 2017. Hiera 5 is with data in modules is introduced.
-- ```5..x ```  - Released in June 2017. No major changes. Ruby 2.4 used.
+- ```5.x.x ```  - Released in June 2017. No major changes. Ruby 2.4 used.
 - ```6.x.x ```  - Released in September 2018. Some core types moved to separated modules. Resource API. CA moved to puppetserver. Deferred data type. 
 
 In terms of code base migrations the biggest "jumps", which involve more or less large refactoring, have been:
 
-- from 0.2x to 2.6 with the introduction of parametrized classes
-- from 2.x to 3.x with the removal of variables dynamic scoping
-- from 3.x to 4.x with the introduction of the Future parser
+- from ```0.x``` to ```2.6``` with the introduction of parametrized classes
+- from ```2.x``` to ```3.x``` with the removal of variables dynamic scoping
+- from ```3.x``` to ```4.x``` with the introduction of the Future parser

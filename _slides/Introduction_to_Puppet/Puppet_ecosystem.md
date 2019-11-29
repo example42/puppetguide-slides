@@ -1,6 +1,6 @@
-# Puppet ecosystem
+# Puppet ecosystem - Puppet Inc
 
-## Puppet Labs software products
+## Puppet Inc software products
 
 Puppet ecosystem is composed of many software projects.
 The ones developed by PuppetLabs are:
@@ -18,7 +18,7 @@ The ones developed by PuppetLabs are:
 - [r10k](https://github.com/puppetlabs/r10k/) - A tool to manage deployments of Puppet code
 
 
-# Puppet ecosystem
+# Puppet ecosystem - Community
 
 ## Community resources
 
@@ -31,3 +31,4 @@ Some of the most known Puppet related community projects are:
 - [PuppetBoard](https://github.com/voxpupuli/puppetboard) - A web frontend for PuppetDB
 - [Puppet Lint](http://puppet-lint.com/) - A tool to check Puppet code style
 - [Rpec Puppet](http://rspec-puppet.com/) - A tool to make unit tests of Puppet code
+- [Puppet Module Info](http://www.puppetmodule.info/) - Automatically generated documentation for Puppet modules

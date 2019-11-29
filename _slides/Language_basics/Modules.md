@@ -1,4 +1,4 @@
-# Modules
+# Puppet Modules
 
 Modules are Self Contained and Distributable *recipes* contained in a directory with a predefined structure.
 
@@ -10,6 +10,7 @@ Modules must be placed in the Puppet Master's modulepath, which is a double colo
 
 To see what's the local modulepath:
 
+    @@@ shell
     puppet config print modulepath
 
 Default module path, for root user, has changed over time. On Puppet pre 4 it is:
@@ -25,6 +26,7 @@ Starting fromm Puppet 4, modulepath changes (as may other Puppet related directo
 
 Puppet has a module module tool to interface with Puppet Modules Forge
 
+    @@@ shell
     puppet help module
     [...]
     ACTIONS:
@@ -39,10 +41,12 @@ Puppet has a module module tool to interface with Puppet Modules Forge
 
 To search a module on the Forge:
 
+    @@@ shell
     puppet module search elasticsearch
 
 To install / uninstall / upgrade a module the module's author must be specified:
 
+    @@@ shell
     puppet module install elastic/elasticsearch
     puppet module uninstall elastic/elasticsearch
     puppet module upgrade elastic/elasticsearch
@@ -73,6 +77,7 @@ This layout enables useful conventions over configurations.
 
 Classes and defines can be autoloaded, that is found automatically by Puppet as long as the relevant module is in the $modulepath and defined in the correct manifests, as follows:
 
+    @@@ puppet
     include mysql
     # Main mysql class is placed in: $modulepath/mysql/manifests/init.pp
 
@@ -87,6 +92,7 @@ Classes and defines can be autoloaded, that is found automatically by Puppet as 
 
 Templates (`.erb` or `.epp`) are used in the relevant functions (`template()` or `epp()`) as follows
 
+    @@@ puppet
     content => template('mysql/my.cnf.erb'),
     # Erb template is in: $modulepath/mysql/templates/my.cnf.erb
 
@@ -95,6 +101,7 @@ Templates (`.erb` or `.epp`) are used in the relevant functions (`template()` or
 
 Statically sourced files (files copied as is from master to clients) are referred as follows (note: `source` and `content` parameters in the file type are mutually exclusive):
 
+    @@@ puppet
     source => 'puppet:///modules/mysql/my.cnf'
     # Static file is in: $modulepath/mysql/files/my.cnf
 

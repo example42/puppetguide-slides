@@ -50,7 +50,7 @@ Common alternatives to Puppet:
 
 - Has Chef clients that connect to Chef server
 - Has characteristic similar to Puppet
-- Community code is shared on the [Chef Supermarket](https://galaxy.ansible.com/intro#review)
+- Community code is shared on the [Chef Supermarket](https://supermarket.chef.io)
 - Chef code is Ruby with dedicated extensions
 - Software developed in Ruby.
 
@@ -60,7 +60,6 @@ Common alternatives to Puppet:
 - CFEngine3 is a complete and modern rework
 - Different daemons for different functions in a distributed environment
 - Based on the [Promise theory](https://en.wikipedia.org/wiki/Promise_theory)
-- Cfengine code is a test based list of pro
 - Software developed in C by Prof. Mark Burgess.
 
 #### [Salt](http://saltstack.com/)
@@ -74,6 +73,6 @@ Common alternatives to Puppet:
 
 - Quick setup, no agents, communications over SSH
 - Ansible code is YAML based and written on playbooks
-- Roles are equivalent to modules, they are shared on the [Ansible Galaxy](https://galaxy.ansible.com/intro#review)
+- Roles are equivalent to modules, they are shared on the [Ansible Galaxy](https://galaxy.ansible.com/)
 - Can centralise multi node task executions, software deployments and configuration management.
 - Software developed in Python. Bought by RedHad in October 2015

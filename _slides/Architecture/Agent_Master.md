@@ -8,11 +8,13 @@ A typical modern Puppet infrastructure has the following components:
 
   - The new **puppetserver** Clojure application, which runs inside a JVM
 
--  a **Puppet client** (running as ```root```) on each managed node. This is provided by the **puppet** package (for Puppet 4, when provided via the PuppetLabs repositories, this is called **puppet-agent**).
+-  a **Puppet client** (running as ```root```) on each managed node. This is provided by the **puppet** package (for Puppet 4, when provided via the Puppet upstream repositories, this is called **puppet-agent**).
 
 - an optional **PuppetDB** service, which need to communicate with the Puppet server and uses **PostgreSQL** as data backend.
 
-- an optional **MCollective** infrastructure based on agents, running on each node, a console, used from an administrative node for centralized control, and a Message Queue middleware service (typically **ActiveMQ** or **RabbitMQ**)
+- an optional **MCollective** infrastructure based on agents, running on each node, a cli console, used from an administrative node for centralized control, and a Message Queue middleware service (typically **ActiveMQ** or **RabbitMQ**)
+
+- more recently **Bolt** is used to replace Mcollective for remote execution and orchestration of commands, tasks and plans
 
 A Puppet run on the client can be triggered in different ways:
 
@@ -22,6 +24,6 @@ A Puppet run on the client can be triggered in different ways:
 
   - Manually from the client node
 
-  - In a centralized way via MCollective
+  - In a centralized way via MCollective or Bolt
 
-  - From the Puppet Master, via the [Application Orchestration](https://docs.puppetlabs.com/pe/latest/app_orchestration_overview.html) feature introduced in Puppet Enterprise 2015.3
+  - From the Puppet Enterprise (PE), via Orchestration features, based on MCollective, in older versions, or Bolt,  starting from PE version 2016.x

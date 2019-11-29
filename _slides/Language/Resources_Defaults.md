@@ -1,4 +1,5 @@
 # Resource defaults
+
 It's possible to set default argument values for a resource in order to reduce code duplication. The syntax is:
 
     Type {
@@ -7,10 +8,12 @@ It's possible to set default argument values for a resource in order to reduce c
 
 Common examples:
 
+    @@@ Puppet
     Exec {
       path => '/sbin:/bin:/usr/sbin:/usr/bin',
     }
 
+    @@@ Puppet
     File {
       mode  => 0644,
       owner => 'root',

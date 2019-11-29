@@ -1,11 +1,8 @@
-# Puppet architectures
+# Puppet architectures - Takeaways
 
-## Contents
-
-- A review of Puppet essential concepts
-- Client/Master and Masterless setups
-- puppet.conf
-- Environments
-- The Control repo
-- Roles and profiles
-- Components of an architecture
+- Understand Client/Master and Masterless setups
+- Know the most important settings in puppet.conf
+- Use Puppet Environments
+- Know the Control repo parts
+- Have an idea of the Roles and profiles pattern
+- Overview of where things can be done in a Puppet architecture
